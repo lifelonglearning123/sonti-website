@@ -1,0 +1,7 @@
+# video masters / retired assets kept next to the site, not deployed
+/*.mp4
+/*.jpg
+/*.png
+.vercel
+.DS_Store
+Thumbs.db
