@@ -143,6 +143,25 @@
   .progress{position:fixed;top:0;left:0;right:0;height:3px;z-index:60;background:var(--volt);transform-origin:left;transform:scaleX(var(--s,0));pointer-events:none}
   @media(min-width:960px){.progress{display:none}}
 
+  /* ---------- booking dialog ---------- */
+  .book[hidden]{display:none}
+  .book{position:fixed;inset:0;z-index:100;display:grid;place-items:center;padding:clamp(12px,3vw,32px)}
+  .book-scrim{position:absolute;inset:0;background:rgba(11,11,10,.55);backdrop-filter:blur(3px);animation:book-fade .25s var(--ease)}
+  .book-panel{position:relative;width:min(760px,100%);height:min(880px,92vh);background:var(--paper);border-radius:var(--r-card);display:grid;grid-template-rows:auto 1fr;overflow:hidden;box-shadow:0 30px 80px rgba(11,11,10,.28);animation:book-rise .3s var(--ease)}
+  .book-head{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;padding:24px 24px 16px;border-bottom:1px solid var(--ash)}
+  .book-head h2{font-size:clamp(24px,3vw,32px);margin-top:6px}
+  .book-x{flex:none;width:38px;height:38px;border-radius:50%;border:1px solid var(--ash);background:var(--paper);color:var(--ink);display:grid;place-items:center;cursor:pointer;transition:background-color .15s ease}
+  .book-x:hover{background:var(--mist)}
+  .book-x svg{width:16px;height:16px}
+  .book-body{min-height:0;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:4px 0 0}
+  .book-body iframe{display:block;width:100%;min-height:720px;border:0}
+  .book-loading{padding:40px 24px;color:var(--smoke);font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+  .book-fallback{padding:32px 24px;font-size:16px;line-height:1.5}
+  body.book-open{overflow:hidden}
+  @keyframes book-fade{from{opacity:0}}
+  @keyframes book-rise{from{opacity:0;transform:translateY(14px) scale(.99)}}
+  @media(prefers-reduced-motion:reduce){.book-scrim,.book-panel{animation:none}}
+
   /* ---------- nav ---------- */
   .nav{position:sticky;top:0;z-index:50;padding:14px 0}
   .nav-pill{display:flex;align-items:center;justify-content:space-between;gap:16px;background:var(--mist);border:1px solid var(--ash);border-radius:999px;padding:8px 8px 8px 18px}
@@ -704,7 +723,7 @@
         <a href="#faq">FAQ</a>
       </nav>
       <div class="nav-actions">
-        <a class="btn btn-ink btn-pill" href="#contact">Book a call</a>
+        <a class="btn btn-ink btn-pill" href="#booking" data-book>Book a call</a>
         <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Open menu">
           <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M2 5h14M2 9h14M2 13h14"/></svg>
         </button>
@@ -717,7 +736,7 @@
       <a href="#team">Team</a>
       <a href="#packages">Packages</a>
       <a href="#faq">FAQ</a>
-      <a href="#contact">Book a call</a>
+      <a href="#booking" data-book>Book a call</a>
     </nav>
   </div>
 </header>
@@ -743,7 +762,7 @@
         </h1>
         <p class="lead reveal fu" data-reveal="load" style="--fd:.6s;margin-top:32px">Your clients are asking for chatbots, voice agents, AI-enabled websites and “can we automate this?”. We're the production team that builds all of it — scoped by our UK business analysts, engineered by our team in India, and delivered under <span class="hl">your brand</span>.</p>
         <div class="cta-row fu" style="--fd:.75s">
-          <a class="btn btn-ink" href="#contact">Book a discovery call
+          <a class="btn btn-ink" href="#booking" data-book>Book a discovery call
             <svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
           </a>
           <a class="btn btn-ghost" href="#work">See the work</a>
@@ -1380,7 +1399,7 @@
         </div>
         <p class="body-l muted reveal" style="max-width:30em">Forward the client's ask exactly as it arrived. A UK analyst reads it, replies within one working day, and tells you what it is, how many hours it takes and when it can land — before you've promised the client anything.</p>
         <div class="ways">
-          <a href="#booking"><span>Book a 30-minute call</span><svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+          <a href="#booking" data-book><span>Book a 30-minute call</span><svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
           <a href="mailto:hello@sonti.io"><span>hello@sonti.io</span><svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
         </div>
       </div>
@@ -1464,7 +1483,7 @@
         <h4>Contact</h4>
         <ul>
           <li><a href="mailto:hello@sonti.io">hello@sonti.io</a></li>
-          <li><a href="#booking">Book a call</a></li>
+          <li><a href="#booking" data-book>Book a call</a></li>
           <li><a href="https://www.linkedin.com/" rel="noopener">LinkedIn</a></li>
           <li>United Kingdom · India</li>
         </ul>
@@ -1784,6 +1803,94 @@
     document.addEventListener('pointerover', function(e){ var t = e.target.closest && e.target.closest('a, button, summary, .shot-card, .ticket, label, input, textarea, select'); cur.classList.toggle('big', !!t); });
     (function loop(){ cx2 += (tx - cx2) * 0.22; cy2 += (ty - cy2) * 0.22; cur.style.transform = 'translate(' + cx2.toFixed(1) + 'px,' + cy2.toFixed(1) + 'px) translate(-50%,-50%)'; raf(loop); })();
   }
+})();
+</script>
+<div class="book" id="booking" hidden>
+  <div class="book-scrim" data-book-close></div>
+  <div class="book-panel" role="dialog" aria-modal="true" aria-labelledby="book-title">
+    <div class="book-head">
+      <div>
+        <p class="mono muted">Start here</p>
+        <h2 class="display" id="book-title">Book a 30-minute call</h2>
+      </div>
+      <button class="book-x" type="button" data-book-close aria-label="Close the booking calendar">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true"><path d="M4 4l8 8M12 4l-8 8"/></svg>
+      </button>
+    </div>
+    <div class="book-body" data-book-body>
+      <p class="book-loading mono">Loading the calendar…</p>
+    </div>
+  </div>
+</div>
+
+
+<script>
+/* ---- booking calendar ----------------------------------------------
+   The widget and its resize script are third-party, so they are only
+   fetched the first time someone actually asks to book. */
+(function(){
+  var modal = document.getElementById('booking');
+  if (!modal) return;
+
+  var body    = modal.querySelector('[data-book-body]');
+  var WIDGET  = 'TEmk7tJt2I3m36gUj4U0';
+  var EMBED   = 'https://link.knotie.ai/js/form_embed.js';
+  var loaded  = false;
+  var lastFocus = null;
+
+  function load(){
+    if (loaded) return;
+    loaded = true;
+    var frame = document.createElement('iframe');
+    frame.src = 'https://link.knotie.ai/widget/booking/' + WIDGET;
+    frame.id = WIDGET + '_' + Date.now();
+    frame.title = 'Booking calendar';
+    frame.setAttribute('allow', 'payment');
+    frame.setAttribute('scrolling', 'no');
+    frame.addEventListener('load', function(){
+      var note = body.querySelector('.book-loading');
+      if (note) note.remove();
+    });
+    body.appendChild(frame);
+
+    var tag = document.createElement('script');
+    tag.src = EMBED;
+    tag.async = true;
+    tag.onerror = function(){
+      /* The calendar cannot load — never leave someone staring at a spinner. */
+      body.innerHTML = '<p class="book-fallback">The calendar isn\'t loading. Email <a href="mailto:hello@sonti.io">hello@sonti.io</a> and we\'ll find a time.</p>';
+    };
+    document.body.appendChild(tag);
+  }
+
+  function open(e){
+    if (e) e.preventDefault();
+    lastFocus = document.activeElement;
+    modal.hidden = false;
+    document.body.classList.add('book-open');
+    load();
+    var x = modal.querySelector('.book-x');
+    if (x) x.focus();
+  }
+
+  function close(){
+    modal.hidden = true;
+    document.body.classList.remove('book-open');
+    if (lastFocus && lastFocus.focus) lastFocus.focus();
+  }
+
+  document.querySelectorAll('[data-book]').forEach(function(el){
+    el.addEventListener('click', open);
+  });
+  modal.querySelectorAll('[data-book-close]').forEach(function(el){
+    el.addEventListener('click', close);
+  });
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape' && !modal.hidden) close();
+  });
+
+  /* Deep link: /#booking opens it. */
+  if (location.hash === '#booking') open();
 })();
 </script>
 </body>
