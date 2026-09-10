@@ -17,7 +17,7 @@ To replace the clip, drop the new master next to this folder and run (from `sont
 
 ## Real site screenshots
 
-Six real captures, all 1000 px wide WebP:
+Seven real captures, all 1000 px wide WebP:
 
 | Asset | Site | Size |
 |---|---|---|
@@ -27,12 +27,13 @@ Six real captures, all 1000 px wide WebP:
 | `assets/viyu-hub.webp` | viyu-hub-mu.vercel.app | 1000x2057 |
 | `assets/oliver-store.webp` | oliver-online-store.vercel.app | 1000x2057 |
 | `assets/knotie.webp` | knotie.ai | 1000x686 |
+| `assets/openflow.webp` | openflow.computer | 1000x686 |
 
-`knotie.webp` is the odd one out: knotie.ai is a scroll-driven page with a `100vh` hero, so
+`knotie.webp` and `openflow.webp` are the odd ones out: both are scroll-driven pages with a `100vh` hero, so
 a tall viewport just returns one enormous hero and URL fragments don't jump to the sections
-below it. It is captured at 1400x960 instead — one screen, the same aspect as the frame, so
-there is nothing to pan. Its card carries `.build-static`, which opts it out of the hover
-pan, and its markup omits the `HOVER` pill so no reveal is promised. To give it a pan you
+below them. They are captured at 1400x960 instead — one screen, the same aspect as the frame,
+so there is nothing to pan. Their cards carry `.build-static`, which opts them out of the
+hover pan, and their markup omits the `HOVER` pill so no reveal is promised. To give them a pan you
 need real scrolling (a driven browser, not `--screenshot`) and a stitched strip.
 
 They are used in two places, with the same idea in both — the top of the page at rest,
@@ -41,7 +42,7 @@ panned down to the bottom on hover, `HOVER` pill (`.peek`) as the affordance:
 - **The gallery marquee — "What it looks like when it's live".** Each `.shot-card` is an
   `<a>` to the live site wrapping a `.build-frame` (a 420 px browser chrome) and a
   `.shot-cap`. `.build-view img` is `object-fit:cover`, and the pan is `object-position`
-  going from `50% 0` to `50% 100%` over 9 s. Six cards, then the same six again as
+  going from `50% 0` to `50% 100%` over 9 s. Seven cards, then the same seven again as
   `aria-hidden` duplicates — `@keyframes gallery` translates the track by `-50%`, so the
   duplicate set is what makes the loop seamless. **Add or remove a card in both halves.**
 - **`#work` — the Leonardo case-study card.** The screenshot is `.realshot`, layered over
