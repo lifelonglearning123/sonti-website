@@ -389,6 +389,11 @@
   .award-detail b{font-weight:600}
   .ukri-lockup{justify-self:start;margin-top:10px;background:var(--paper);border-radius:12px;padding:14px 18px;line-height:0}
   .ukri-lockup img{display:block;width:210px;height:auto}
+  .award-proof{display:flex;flex-wrap:wrap;align-items:center;gap:20px;margin-top:10px}
+  .ukri-lockup{margin-top:0}
+  .gtr{display:grid;gap:3px;font-size:15px;line-height:1.35;text-decoration:none;border-bottom:1px solid var(--hair-on-ink);padding-bottom:6px;transition:border-color .2s var(--ease)}
+  .gtr:hover{border-color:var(--volt)}
+  .gtr .mono{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--smoke-on-ink)}
   .award-why{margin-top:clamp(48px,6vw,80px);display:grid;gap:32px}
   .why-head h3{font-size:clamp(28px,3.4vw,40px);max-width:22ch;margin-bottom:16px}
   .why-head p{font-size:17px;line-height:1.55;max-width:60ch;color:var(--smoke-on-ink);text-wrap:pretty}
@@ -1177,9 +1182,12 @@
         <p class="mono muted" style="margin-bottom:24px">Recognition</p>
         <h2 class="display h2" id="award-title">We won an Innovate UK grant.</h2>
         <div class="award-detail">
-          <p><b>One-Click Voice AI: Democratizing Enterprise Technology</b> — funded by Innovate UK, the UK government's innovation agency, part of UK Research and Innovation. Offer accepted 31 October 2025.</p>
+          <p><b>One-Click Voice AI: Democratizing Enterprise Technology</b> — awarded to Sonti Limited by Innovate UK, the UK government's innovation agency, part of UK Research and Innovation, under its Fast Start Response competition. Offer accepted 31 October 2025; the project ran to April 2026.</p>
           <p class="muted reveal">Innovate UK competitions are scored by independent assessors on how novel the technology is, how big the problem it addresses is, and whether the team can realistically deliver it. You don't win one on an idea. You win it by putting the engineering, the data and the numbers in front of people who build this for a living.</p>
-          <div class="ukri-lockup"><img src="assets/innovateuk.png" width="611" height="214" loading="lazy" decoding="async" alt="Innovate UK, part of UK Research and Innovation"></div>
+          <div class="award-proof">
+            <div class="ukri-lockup"><img src="assets/innovateuk.png" width="611" height="214" loading="lazy" decoding="async" alt="Innovate UK, part of UK Research and Innovation"></div>
+            <a class="gtr" href="https://gtr.ukri.org/projects?ref=10173064" target="_blank" rel="noopener">Check it yourself on Gateway to Research ↗<span class="mono">UKRI project 10173064</span></a>
+          </div>
         </div>
       </div>
       <div class="rosette pop" data-from="center" role="img" aria-label="Innovate UK grant awarded, 2025">
