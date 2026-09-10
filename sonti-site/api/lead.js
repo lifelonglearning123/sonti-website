@@ -11,11 +11,22 @@
      GHL_LOCATION_ID   the sub-account / location ID
      GHL_TOKEN         Private Integration Token with contacts.write
 
+   Optional — report the lead to TikTok's Events API as well:
+     TIKTOK_ACCESS_TOKEN      Events API access token for pixel DAHI7ABC77UCRCTVCVIG
+     TIKTOK_TEST_EVENT_CODE   while testing only; shows events under Test events
+
    `python -m http.server` cannot run this. Use `vercel dev` locally.
    ------------------------------------------------------------------ */
 
+const crypto = require('crypto');
+
 const UPSERT_URL  = 'https://services.leadconnectorhq.com/contacts/upsert';
 const GHL_VERSION = '2021-07-28';
+
+const TIKTOK_URL        = 'https://business-api.tiktok.com/open_api/v1.3/event/track/';
+const TIKTOK_PIXEL      = 'DAHI7ABC77UCRCTVCVIG';
+const TIKTOK_TIMEOUT_MS = 3000;
+const SITE_ORIGINS      = ['https://www.sonti.io', 'https://sonti.io'];
 
 const SOURCE  = 'sonti.io — Bring us your next AI request';
 const COUNTRY = 'GB';
@@ -102,6 +113,77 @@ function buildNote(data) {
   return lines.join('\n');
 }
 
+const sha256 = (value) => crypto.createHash('sha256').update(value).digest('hex');
+
+function clientIp(req) {
+  const forwarded = req.headers['x-forwarded-for'];
+  if (typeof forwarded === 'string' && forwarded) return forwarded.split(',')[0].trim();
+  return clean(req.headers['x-real-ip']);
+}
+
+/* The page comes from the browser, so only a sonti.io address is passed on. */
+function pageUrl(value) {
+  const url = clean(value).slice(0, 500);
+  const ours = SITE_ORIGINS.some((origin) => url === origin || url.startsWith(origin + '/'));
+  return ours ? url : 'https://www.sonti.io/';
+}
+
+/* The server-side copy of the pixel's Lead event. It only goes when the visitor
+   allowed cookies, and it carries the browser's event_id so TikTok counts the
+   lead once. The lead is already safe in GHL by now, so a TikTok problem is
+   logged and never shown to the visitor, and it can't hold the form up for
+   longer than TIKTOK_TIMEOUT_MS. */
+async function reportLeadToTikTok(req, data, contactId) {
+  const token   = process.env.TIKTOK_ACCESS_TOKEN;
+  const context = data.tiktok && typeof data.tiktok === 'object' ? data.tiktok : {};
+  if (!token || context.consent !== 'granted') return;
+
+  const user = { email: sha256(clean(data.email).toLowerCase()) };
+  if (contactId) user.external_id = sha256(String(contactId));
+  const ttclid = clean(context.ttclid).slice(0, 500);
+  if (ttclid) user.ttclid = ttclid;
+  const ttp = clean(context.ttp).slice(0, 500);
+  if (ttp) user.ttp = ttp;
+  const ip = clientIp(req);
+  if (ip) user.ip = ip;
+  const userAgent = clean(req.headers['user-agent']).slice(0, 500);
+  if (userAgent) user.user_agent = userAgent;
+
+  const type  = clean(data.type);
+  const event = {
+    event:      'Lead',
+    event_time: Math.floor(Date.now() / 1000),
+    user,
+    properties: { content_name: type ? `Enquiry: ${type}` : 'Enquiry' },
+    page:       { url: pageUrl(context.url) }
+  };
+  const eventId = clean(context.event_id).slice(0, 100);
+  if (eventId) event.event_id = eventId;
+
+  const body = { event_source: 'web', event_source_id: TIKTOK_PIXEL, data: [event] };
+  if (process.env.TIKTOK_TEST_EVENT_CODE) body.test_event_code = process.env.TIKTOK_TEST_EVENT_CODE;
+
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), TIKTOK_TIMEOUT_MS);
+  try {
+    const res = await fetch(TIKTOK_URL, {
+      method: 'POST',
+      headers: { 'Access-Token': token, 'Content-Type': 'application/json' },
+      body: JSON.stringify(body),
+      signal: controller.signal
+    });
+    let out = {};
+    try { out = await res.json(); } catch (_) { /* empty or non-JSON */ }
+    if (!res.ok || out.code !== 0) {
+      console.error('[TikTok] Lead event not accepted:', res.status, out.code, out.message);
+    }
+  } catch (err) {
+    console.error('[TikTok] Lead event failed:', err.name === 'AbortError' ? 'timed out' : err.message);
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
 module.exports = async (req, res) => {
   if (req.method !== 'POST') {
     res.setHeader('Allow', 'POST');
@@ -150,6 +232,10 @@ module.exports = async (req, res) => {
     } else {
       console.error('[GHL] Upsert returned no contact id; note skipped');
     }
+
+    /* Awaited, not fired and forgotten: Vercel can freeze the function as soon
+       as the response is sent. The call is capped at TIKTOK_TIMEOUT_MS. */
+    await reportLeadToTikTok(req, data, contactId);
 
     return res.status(200).json({ ok: true });
   } catch (err) {
