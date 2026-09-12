@@ -91,6 +91,21 @@ To regenerate after changing the SVG: render it to a 512x512 PNG (Chrome headles
 `<link rel="icon" href="/favicon.ico" sizes="any">` comes first so SVG-capable browsers
 still prefer the SVG.
 
+## Legal pages
+
+`privacy.html`, `terms.html`, `cookies.html` and `cookie-settings.html` are served at `/privacy`, `/terms`,
+`/cookies` and `/cookie-settings` (`cleanUrls` in `vercel.json`). They share `legal.css`, which copies the
+tokens, nav, buttons and footer from `index.html`, so change the two together. `legal.css` sits at the root
+rather than in `assets/`, because `assets/` is served with a one-year immutable cache.
+
+The cookie choice lives in `localStorage` as `sonti-consent` (`granted` or `denied`). The banner in
+`index.html` and the switch on `cookie-settings.html` both write it, and both delete TikTok's `_ttp`,
+`_tt_*`, `ttcsid*` and `ttclid` cookies and `sonti-ttclid` when someone says no.
+
+The cookie tables in `cookies.html` were taken from the live site on 12 Sep 2026 with headless Chrome:
+without consent, with consent, and with the booking calendar open. Re-check them whenever a tracking tag,
+the booking widget or another third-party script changes, and update the dates on the pages.
+
 ## Deploy
 
 `hero-options.html` and `higgsfield-prompt-pack.md` are design working files and are

@@ -1576,8 +1576,8 @@ window.sontiTikTok = (function(){
       </div>
     </div>
     <div class="foot-bottom">
-      <span>© 2026 Sonti.io. All rights reserved.</span>
-      <span><a href="#privacy">Privacy</a> · <a href="#terms">Terms</a> · <a href="#cookies" data-consent-open>Cookies</a></span>
+      <span>© 2026 Sonti Limited · Registered in England and Wales, company number 16322412 · Registered office: 5 Brayford Square, London E1 0SG</span>
+      <span><a href="/privacy">Privacy</a> · <a href="/terms">Terms</a> · <a href="/cookies">Cookie policy</a> · <a href="/cookie-settings">Cookie settings</a></span>
     </div>
     <div class="giant-wrap" aria-hidden="true"><p class="giant pop">Sonti.io</p></div>
   </div>
@@ -1987,7 +1987,7 @@ window.sontiTikTok = (function(){
 </script>
 <div class="consent" id="consent" role="region" aria-label="Cookie choice" hidden>
   <p class="mono">Cookies</p>
-  <p>We'd like to use TikTok's pixel to see which of our ads bring agencies here. It sets cookies, so nothing from TikTok loads unless you allow it.</p>
+  <p>We'd like to use TikTok's pixel to see which of our ads bring agencies here. It sets cookies, so nothing from TikTok loads unless you allow it. <a href="/cookies">Cookie policy</a></p>
   <div class="consent-actions">
     <button class="btn btn-volt btn-pill" type="button" data-consent-allow>Allow</button>
     <button class="btn btn-ghost btn-pill" type="button" data-consent-deny>No thanks</button>
@@ -1996,8 +1996,9 @@ window.sontiTikTok = (function(){
 
 <script>
 /* ---- cookie choice -----------------------------------------------------
-   Asks once and remembers the answer; "Cookies" in the footer asks again.
-   Saying no after a yes stops the pixel and clears TikTok's cookies. */
+   Asks once and remembers the answer; /cookie-settings changes it later and
+   uses the same key and clean-up. Saying no after a yes stops the pixel and
+   clears TikTok's cookies. */
 (function(){
   var KEY = 'sonti-consent';
   var bar = document.getElementById('consent');
@@ -2021,19 +2022,11 @@ window.sontiTikTok = (function(){
     var host = location.hostname;
     document.cookie.split(';').forEach(function(c){
       var name = c.split('=')[0].trim();
-      if (!/^(_ttp|_tt_|ttcsid)/.test(name)) return;
+      if (!/^(_ttp|_tt_|ttcsid|ttclid)/.test(name)) return;
       [host, '.' + host.replace(/^www\./, '')].forEach(function(domain){
         document.cookie = name + '=; Max-Age=0; path=/; domain=' + domain;
       });
       document.cookie = name + '=; Max-Age=0; path=/';
-    });
-  });
-
-  document.querySelectorAll('[data-consent-open]').forEach(function(el){
-    el.addEventListener('click', function(e){
-      e.preventDefault();
-      bar.hidden = false;
-      bar.querySelector('[data-consent-allow]').focus();
     });
   });
 
