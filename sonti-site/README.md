@@ -17,7 +17,7 @@ To replace the clip, drop the new master next to this folder and run (from `sont
 
 ## Real site screenshots
 
-Seven real captures, all 1000 px wide WebP:
+Eight real captures, all 1000 px wide WebP:
 
 | Asset | Site | Size |
 |---|---|---|
@@ -28,13 +28,34 @@ Seven real captures, all 1000 px wide WebP:
 | `assets/oliver-store.webp` | oliver-online-store.vercel.app | 1000x2057 |
 | `assets/knotie.webp` | knotie.ai | 1000x686 |
 | `assets/openflow.webp` | openflow.computer | 1000x686 |
+| `assets/kairoo.webp` | kairoo.family | 1000x686 |
 
-`knotie.webp` and `openflow.webp` are the odd ones out: both are scroll-driven pages with a `100vh` hero, so
+`knotie.webp`, `openflow.webp` and `kairoo.webp` are the odd ones out: all three are scroll-driven pages with a `100vh` hero, so
 a tall viewport just returns one enormous hero and URL fragments don't jump to the sections
 below them. They are captured at 1400x960 instead — one screen, the same aspect as the frame,
 so there is nothing to pan. Their cards carry `.build-static`, which opts them out of the
 hover pan, and their markup omits the `HOVER` pill so no reveal is promised. To give them a pan you
 need real scrolling (a driven browser, not `--screenshot`) and a stitched strip.
+
+### Featured build: Kairoo (`#kairoo`)
+
+The section straight after the marquee shows one build end to end: the app film, what was built, and three
+frames of the live site.
+
+- `assets/kairoo-app.mp4` (720x1564 H.264, no audio, about 2.5 MB) and `assets/kairoo-app-poster.jpg` come from
+  the client's 1320x2868 recording, `kairoo video.mp4`, which stays out of git and the deployment:
+
+      ffmpeg -i "kairoo video.mp4" -an -vf scale=720:-2:flags=lanczos -c:v libx264 -profile:v high -preset slow -crf 27 -pix_fmt yuv420p -movflags +faststart assets/kairoo-app.mp4
+      ffmpeg -ss 1.2 -i "kairoo video.mp4" -frames:v 1 -vf scale=720:-2:flags=lanczos -q:v 3 assets/kairoo-app-poster.jpg
+
+  Once the browser decodes it, the film's paper shades from `#faf7ee` at the top to `#f5f1e9` at the bottom, so
+  `.feature-film` is painted `#f8f5ec`, between the two, and the film's outer edge is feathered with a mask, as
+  the hero video's is. It plays muted only while it is on screen, gets a Play/Pause button, and never autoplays
+  under reduced motion; without JavaScript it falls back to the native controls.
+- `assets/kairoo-story.webp` and `assets/kairoo-compare.webp` are 1400x960 viewport captures part-way down
+  kairoo.family, reached by driving the scroll with mouse-wheel events in headless Chrome, since the story
+  animates on scroll. The comparison's two photos are lazy-loaded: force them to load before capturing, or that
+  frame comes out half empty.
 
 They are used in two places, with the same idea in both — the top of the page at rest,
 panned down to the bottom on hover, `HOVER` pill (`.peek`) as the affordance:

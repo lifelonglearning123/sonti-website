@@ -421,6 +421,25 @@ window.sontiTikTok = (function(){
   .case .live{display:inline-flex;align-items:center;gap:7px;padding:5px 11px;border:1px solid var(--ink);border-radius:999px;font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;transition:background .2s var(--ease),color .2s var(--ease)}
   .case .live i{flex:none;width:6px;height:6px;border-radius:50%;background:var(--volt);box-shadow:0 0 0 3px rgba(220,243,74,.35)}
   .case .live:hover{background:var(--ink);color:var(--paper)}
+  /* ---------- featured build (Kairoo) ---------- */
+  .feature-grid{display:grid;gap:16px}
+  @media(min-width:960px){.feature-grid{grid-template-columns:minmax(0,5fr) minmax(0,7fr)}}
+  /* The film's paper decodes from #faf7ee at the top to #f5f1e9 at the bottom. The panel sits between the two,
+     and the mask feathers the film's edge into it, as the hero video does, so no rectangle shows. */
+  .feature-film{position:relative;display:flex;align-items:center;justify-content:center;padding:clamp(24px,4vw,48px) clamp(16px,3vw,40px);background:#f8f5ec;border-radius:40px 40px var(--r-card) var(--r-card);overflow:hidden}
+  .feature-film .film{display:block;width:min(100%,380px);height:auto;background:#f8f5ec;-webkit-mask-image:linear-gradient(to right,transparent,#000 6%,#000 94%,transparent),linear-gradient(to bottom,transparent,#000 2.5%,#000 97.5%,transparent);mask-image:linear-gradient(to right,transparent,#000 6%,#000 94%,transparent),linear-gradient(to bottom,transparent,#000 2.5%,#000 97.5%,transparent);-webkit-mask-composite:source-in;mask-composite:intersect}
+  @media(max-width:640px){.feature-film .film{width:min(100%,280px)}}
+  .film-toggle{position:absolute;right:18px;bottom:18px;padding:8px 14px;border-radius:999px;border:1px solid rgba(11,11,10,.18);background:rgba(255,255,255,.78);font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink);cursor:pointer;transition:background-color .15s ease}
+  .film-toggle:hover{background:var(--paper)}
+  .feature-body{padding:clamp(20px,3vw,36px)}
+  .feature-body h3{font-size:clamp(30px,3.4vw,44px)}
+  .feature-site{display:grid;gap:16px;margin-top:16px}
+  @media(min-width:760px){.feature-site{grid-template-columns:repeat(3,minmax(0,1fr))}}
+  .site-shot{display:grid;gap:12px;align-content:start;padding:16px;background:var(--mist);border:1px solid var(--ash);border-radius:var(--r-card);text-decoration:none;color:inherit;transition:transform .35s var(--ease)}
+  .site-shot:hover{transform:translateY(-4px)}
+  .site-shot .build-frame{width:100%}
+  .site-note{font-size:14px;line-height:1.45;color:var(--slate);padding:0 4px;text-wrap:pretty}
+  @media(prefers-reduced-motion:reduce){.site-shot,.site-shot:hover{transition:none;transform:none}}
 
   /* ---------- live builds (real screenshots in the gallery marquee) ---------- */
   .build-frame{position:relative;width:420px;border:1px solid var(--ash);border-radius:12px;overflow:hidden;background:var(--paper)}
@@ -964,11 +983,14 @@ window.sontiTikTok = (function(){
   <div class="container">
     <div class="section-head para">
       <h2 class="display h2 rise-words" id="gallery-title">What it looks like when it's live</h2>
-      <p class="lead muted reveal">Seven things we've built, as their customers meet them. Not one of these is a mock-up — hover to pause the strip and look further down any page, click to open the live site.</p>
+      <p class="lead muted reveal">Eight things we've built, as their customers meet them. Not one of these is a mock-up — hover to pause the strip and look further down any page, click to open the live site.</p>
     </div>
   </div>
   <div class="gallery" aria-label="Examples of builds">
-    <div class="gallery-track"><a class="shot-card" href="https://www.leonardopower.com" target="_blank" rel="noopener"><div class="shot-frame"><div class="build-frame">
+    <div class="gallery-track"><a class="shot-card build-static" href="https://kairoo.family" target="_blank" rel="noopener"><div class="shot-frame"><div class="build-frame">
+  <div class="build-bar"><i></i><i></i><i></i><span class="url">kairoo.family</span></div>
+  <div class="build-view"><img src="assets/kairoo.webp" width="1000" height="686" loading="lazy" decoding="async" alt="The Kairoo homepage: “You shouldn’t have to be the bad cop in your own home.” over an illustrated village at dusk."></div>
+</div></div><div class="shot-cap"><b>Kairoo</b><span class="muted">A screen-time deal a parent and child sign together, kept by the app. Both apps, the backend and the website.</span><span class="build-foot"><span class="tag tag-ink">App + backend + website</span><span class="visit mono">Open ↗</span></span></div></a><a class="shot-card" href="https://www.leonardopower.com" target="_blank" rel="noopener"><div class="shot-frame"><div class="build-frame">
   <div class="build-bar"><i></i><i></i><i></i><span class="url">leonardopower.com</span><span class="peek mono">hover</span></div>
   <div class="build-view"><img src="assets/leonardo-power.webp" width="1000" height="2057" loading="lazy" decoding="async" alt="The Leonardo Power homepage — “Your new website answers the phone.” above screenshots of the client sites they have built."></div>
 </div></div><div class="shot-cap"><b>Leonardo Power</b><span class="muted">Websites that answer the phone, remember who called and book the job. Eleven live.</span><span class="build-foot"><span class="tag tag-sky">AI-enabled website</span><span class="visit mono">Open ↗</span></span></div></a><a class="shot-card" href="https://signal.macaws.ai" target="_blank" rel="noopener"><div class="shot-frame"><div class="build-frame">
@@ -989,7 +1011,10 @@ window.sontiTikTok = (function(){
 </div></div><div class="shot-cap"><b>Knotie AI</b><span class="muted">One-click AI products — voice, chat, APIs, CRM — a partner sells and bills on their own domain.</span><span class="build-foot"><span class="tag tag-lilac">White-label AI platform</span><span class="visit mono">Open ↗</span></span></div></a><a class="shot-card build-static" href="https://openflow.computer" target="_blank" rel="noopener"><div class="shot-frame"><div class="build-frame">
   <div class="build-bar"><i></i><i></i><i></i><span class="url">openflow.computer</span></div>
   <div class="build-view"><img src="assets/openflow.webp" width="1000" height="686" loading="lazy" decoding="async" alt="The OpenFlow homepage — “Free, private voice-to-text.” over a laptop lit by a purple soundwave, with a download button."></div>
-</div></div><div class="shot-cap"><b>OpenFlow</b><span class="muted">Free, private voice-to-text for macOS and Windows. Transcription runs on the machine and never leaves it.</span><span class="build-foot"><span class="tag tag-coral">On-device voice AI</span><span class="visit mono">Open ↗</span></span></div></a><a class="shot-card" href="https://www.leonardopower.com" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1"><div class="shot-frame"><div class="build-frame">
+</div></div><div class="shot-cap"><b>OpenFlow</b><span class="muted">Free, private voice-to-text for macOS and Windows. Transcription runs on the machine and never leaves it.</span><span class="build-foot"><span class="tag tag-coral">On-device voice AI</span><span class="visit mono">Open ↗</span></span></div></a><a class="shot-card build-static" href="https://kairoo.family" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1"><div class="shot-frame"><div class="build-frame">
+  <div class="build-bar"><i></i><i></i><i></i><span class="url">kairoo.family</span></div>
+  <div class="build-view"><img src="assets/kairoo.webp" width="1000" height="686" loading="lazy" decoding="async" alt=""></div>
+</div></div><div class="shot-cap"><b>Kairoo</b><span class="muted">A screen-time deal a parent and child sign together, kept by the app. Both apps, the backend and the website.</span><span class="build-foot"><span class="tag tag-ink">App + backend + website</span><span class="visit mono">Open ↗</span></span></div></a><a class="shot-card" href="https://www.leonardopower.com" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1"><div class="shot-frame"><div class="build-frame">
   <div class="build-bar"><i></i><i></i><i></i><span class="url">leonardopower.com</span><span class="peek mono">hover</span></div>
   <div class="build-view"><img src="assets/leonardo-power.webp" width="1000" height="2057" loading="lazy" decoding="async" alt=""></div>
 </div></div><div class="shot-cap"><b>Leonardo Power</b><span class="muted">Websites that answer the phone, remember who called and book the job. Eleven live.</span><span class="build-foot"><span class="tag tag-sky">AI-enabled website</span><span class="visit mono">Open ↗</span></span></div></a><a class="shot-card" href="https://signal.macaws.ai" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1"><div class="shot-frame"><div class="build-frame">
@@ -1014,7 +1039,57 @@ window.sontiTikTok = (function(){
   </div>
   <div class="container"><p class="gallery-hint mono"><span>Hover to pause</span><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M2 7h10M8 3l4 4-4 4"/></svg></p></div>
 </section>
-<section class="section" id="how" aria-labelledby="how-title" style="padding-top:0" data-spine="How it works" data-n="04">
+<section class="section feature" id="kairoo" aria-labelledby="kairoo-title" style="padding-top:0" data-spine="Featured build" data-n="04">
+  <div class="container">
+    <div class="section-head para">
+      <h2 class="display h2 rise-words" id="kairoo-title">The app, the backend and the website</h2>
+      <p class="lead muted reveal">Kairoo is a screen-time agreement a parent and child write and sign together, and an app that keeps it, so nobody has to be the bad cop. We designed both apps, built the backend they share and made the website families join from.</p>
+    </div>
+    <div class="feature-grid">
+      <div class="feature-film pop" data-from="left">
+        <video class="film" data-film muted loop playsinline controls preload="none" disablepictureinpicture disableremoteplayback width="720" height="1564" poster="assets/kairoo-app-poster.jpg" aria-label="A walkthrough of the Kairoo Kids app: today's plan, the deal the child helped write, what it covers, a ten-minute heads-up before time runs out, and credit for stopping on their own.">
+          <source src="assets/kairoo-app.mp4" type="video/mp4">
+        </video>
+        <button class="film-toggle" type="button" data-film-toggle aria-label="Play the Kairoo app video" hidden>Play</button>
+      </div>
+      <article class="case feature-body pop" data-from="right">
+        <div class="c-body">
+          <div class="c-top"><span class="tags"><span class="tag tag-ink">App design</span><span class="tag tag-line">Backend</span><span class="tag tag-line">Website</span></span><a class="live" href="https://kairoo.family" target="_blank" rel="noopener"><i></i>Live · kairoo.family</a></div>
+          <div>
+            <h3 class="display">Screen-time rules a family agrees on, and an app that keeps them</h3>
+            <p class="c-for">Built for Kairoo · for families with children about 8 to 14 · live at kairoo.family</p>
+          </div>
+          <dl>
+            <div><dt>App design</dt><dd>Two apps, Kairoo Parent and Kairoo Kids. On the child's phone: today's plan, the deal they helped write, a heads-up before time runs out and credit for stopping on their own.</dd></div>
+            <div><dt>Backend</dt><dd>The service both apps run on. It holds each family's signed agreement and carries every ask and answer between the two phones.</dd></div>
+            <div><dt>Website</dt><dd>kairoo.family tells the story as one long scroll through illustrated scenes, from the bedtime argument to the signed agreement, the research behind it and early-access sign-up.</dd></div>
+          </dl>
+          <div class="results">
+            <div><b>2</b><small>apps, one on each phone</small></div>
+            <div><b>3</b><small>kinds of ask: everyday, grey-area and big decisions</small></div>
+            <div><b>0</b><small>messages read or places tracked</small></div>
+          </div>
+        </div>
+      </article>
+    </div>
+    <div class="feature-site">
+      <a class="site-shot pop" style="--i:0" href="https://kairoo.family" target="_blank" rel="noopener">
+        <div class="build-frame"><div class="build-bar"><i></i><i></i><i></i><span class="url">kairoo.family</span></div><div class="build-view"><img src="assets/kairoo.webp" width="1000" height="686" loading="lazy" decoding="async" alt="The Kairoo homepage: “You shouldn’t have to be the bad cop in your own home.” over an illustrated village at dusk."></div></div>
+        <p class="site-note">The first screen: an illustrated village and the line the whole product answers.</p>
+      </a>
+      <a class="site-shot pop" style="--i:1" href="https://kairoo.family" target="_blank" rel="noopener">
+        <div class="build-frame"><div class="build-bar"><i></i><i></i><i></i><span class="url">kairoo.family</span></div><div class="build-view"><img src="assets/kairoo-story.webp" width="1000" height="686" loading="lazy" decoding="async" alt="A scene from the Kairoo story: a boy on a beanbag holds out his phone while his dad reads, under the line “When it’s time, Kairoo says it. Not you.”"></div></div>
+        <p class="site-note">The story plays out in scenes as you scroll. Here, time's up and Kairoo says so, not Dad.</p>
+      </a>
+      <a class="site-shot pop" style="--i:2" href="https://kairoo.family" target="_blank" rel="noopener">
+        <div class="build-frame"><div class="build-bar"><i></i><i></i><i></i><span class="url">kairoo.family</span></div><div class="build-view"><img src="assets/kairoo-compare.webp" width="1000" height="686" loading="lazy" decoding="async" alt="Kairoo's side-by-side comparison: the same evening without Kairoo, with a parent arguing, and with Kairoo, where the child stops on their own, above a table of how the rules differ."></div></div>
+        <p class="site-note">Drag the handle to compare the same evening without Kairoo and with it.</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="how" aria-labelledby="how-title" style="padding-top:0" data-spine="How it works" data-n="05">
   <div class="container">
     <div class="section-head para">
       <h2 class="display h2 rise-words" id="how-title">From your client's ask to a live build</h2>
@@ -1078,7 +1153,7 @@ window.sontiTikTok = (function(){
   </div>
 </section>
 
-<section class="section" id="model" aria-labelledby="model-title" style="padding-top:0" data-spine="Two offices" data-n="05">
+<section class="section" id="model" aria-labelledby="model-title" style="padding-top:0" data-spine="Two offices" data-n="06">
   <div class="container">
     <div class="section-head para">
       <h2 class="display h2 rise-words" id="model-title">Two offices. One accountable team.</h2>
@@ -1140,7 +1215,7 @@ window.sontiTikTok = (function(){
   </div>
 </section>
 
-<section class="section" id="work" aria-labelledby="work-title" style="padding-top:0" data-spine="Case studies" data-n="06">
+<section class="section" id="work" aria-labelledby="work-title" style="padding-top:0" data-spine="Case studies" data-n="07">
   <div class="container">
     <div class="tools-wrap" aria-label="Tools we build on">
       <div class="tools"><span>OpenAI</span><span>Anthropic</span><span>Twilio</span><span>HubSpot</span><span>Webflow</span><span>Shopify</span><span>WhatsApp</span><span>n8n</span><span>Make</span><span>Zapier</span><span>Next.js</span><span>WordPress</span><span>OpenAI</span><span>Anthropic</span><span>Twilio</span><span>HubSpot</span><span>Webflow</span><span>Shopify</span><span>WhatsApp</span><span>n8n</span><span>Make</span><span>Zapier</span><span>Next.js</span><span>WordPress</span></div>
@@ -1253,7 +1328,7 @@ window.sontiTikTok = (function(){
   </div>
 </section>
 
-<section class="block" id="award" aria-labelledby="award-title" data-spine="Innovate UK" data-n="07">
+<section class="block" id="award" aria-labelledby="award-title" data-spine="Innovate UK" data-n="08">
   <div class="container">
     <div class="award">
       <div class="pop" data-from="left">
@@ -1307,7 +1382,7 @@ window.sontiTikTok = (function(){
   </div>
 </section>
 
-<section class="sheet section" id="team" aria-labelledby="team-title" data-spine="Team" data-n="08">
+<section class="sheet section" id="team" aria-labelledby="team-title" data-spine="Team" data-n="09">
   <div class="container">
     <div class="section-head para">
       <h2 class="display h2 rise-words" id="team-title">The people behind your projects</h2>
@@ -1347,7 +1422,7 @@ window.sontiTikTok = (function(){
     </div>
   </div>
 </section>
-<section class="section" id="fit" aria-labelledby="fit-title" style="padding-top:0" data-spine="Right fit?" data-n="09">
+<section class="section" id="fit" aria-labelledby="fit-title" style="padding-top:0" data-spine="Right fit?" data-n="10">
   <div class="container">
     <div class="section-head para">
       <h2 class="display h2 rise-words" id="fit-title">Is Sonti right for your agency?</h2>
@@ -1376,7 +1451,7 @@ window.sontiTikTok = (function(){
   </div>
 </section>
 
-<section class="section" id="packages" aria-labelledby="packages-title" style="padding-top:0" data-spine="Packages" data-n="10">
+<section class="section" id="packages" aria-labelledby="packages-title" style="padding-top:0" data-spine="Packages" data-n="11">
   <div class="container">
     <div class="section-head para">
       <h2 class="display h2 rise-words" id="packages-title">Buy hours. Bring projects.</h2>
@@ -1424,7 +1499,7 @@ window.sontiTikTok = (function(){
   </div>
 </section>
 
-<section class="section" id="faq" aria-labelledby="faq-title" style="padding-top:0" data-spine="FAQ" data-n="11">
+<section class="section" id="faq" aria-labelledby="faq-title" style="padding-top:0" data-spine="FAQ" data-n="12">
   <div class="container">
     <div class="section-head para">
       <h2 class="display h2 rise-words" id="faq-title">Questions agencies ask first</h2>
@@ -1475,7 +1550,7 @@ window.sontiTikTok = (function(){
   </div>
 </section>
 
-<section class="block" id="contact" aria-labelledby="contact-title" data-spine="Start here" data-n="12">
+<section class="block" id="contact" aria-labelledby="contact-title" data-spine="Start here" data-n="13">
   <div class="container">
     <div class="contact">
       <div class="contact-side pop" data-from="left">
@@ -1894,6 +1969,55 @@ window.sontiTikTok = (function(){
     document.addEventListener('pointerover', function(e){ var t = e.target.closest && e.target.closest('a, button, summary, .shot-card, .ticket, label, input, textarea, select'); cur.classList.toggle('big', !!t); });
     (function loop(){ cx2 += (tx - cx2) * 0.22; cy2 += (ty - cy2) * 0.22; cur.style.transform = 'translate(' + cx2.toFixed(1) + 'px,' + cy2.toFixed(1) + 'px) translate(-50%,-50%)'; raf(loop); })();
   }
+})();
+</script>
+<script>
+/* ---- featured build: the Kairoo app film ------------------------------
+   Plays muted while it is on screen and pauses when it scrolls away. Without
+   JavaScript the native controls stay; with it they give way to one Play/Pause
+   button. Reduced motion never autoplays. */
+(function(){
+  var film = document.querySelector('[data-film]');
+  if (!film) return;
+  var toggle = document.querySelector('[data-film-toggle]');
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var userPaused = reduce;
+
+  film.removeAttribute('controls');
+  if (toggle) toggle.hidden = false;
+
+  function label(){
+    if (!toggle) return;
+    var playing = !film.paused;
+    toggle.textContent = playing ? 'Pause' : 'Play';
+    toggle.setAttribute('aria-label', (playing ? 'Pause' : 'Play') + ' the Kairoo app video');
+  }
+  function play(){
+    if (film.preload === 'none') film.preload = 'auto';
+    var p = film.play();
+    if (p && p.catch) p.catch(label);
+  }
+
+  film.addEventListener('play', label);
+  film.addEventListener('pause', label);
+  if (toggle) {
+    toggle.addEventListener('click', function(){
+      if (film.paused) { userPaused = false; play(); }
+      else { userPaused = true; film.pause(); }
+    });
+  }
+
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if (en.isIntersecting) { if (!userPaused) play(); }
+        else if (!film.paused) film.pause();
+      });
+    }, { threshold: 0.35 }).observe(film);
+  } else if (!userPaused) {
+    play();
+  }
+  label();
 })();
 </script>
 <div class="book" id="booking" hidden>
