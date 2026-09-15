@@ -29,6 +29,11 @@ function windowFor(phone) {
 }
 const currentWindow = () => (new Date().getUTCHours() < 12 ? 'am' : 'pm');
 
+/* GHL refuses to send to an address it considers invalid (a made-up test
+   address, a typo on the form). That lead can never get email, so the
+   sequence stops there rather than failing again every day. */
+const invalidEmail = (err) => err && err.body && err.body.canonicalCode === 'CONVERSATIONS_MSG_INVALID_EMAIL';
+
 async function send(contact, step, state) {
   const mail = render(step, contact);
   await ghl.sendEmail(contact.id, mail);
@@ -54,7 +59,10 @@ async function enrol(contactId, { sendDay0 = true } = {}) {
   await ghl.addTags(contactId, [ghl.TAGS.active]);
 
   let sent = sendDay0 ? [] : ['d0'];
-  if (sendDay0) sent = await send(contact, STEPS[0], { sent: [] });
+  if (sendDay0) {
+    try { sent = await send(contact, STEPS[0], { sent: [] }); }
+    catch (err) { if (invalidEmail(err)) return stopSequence(contact, 'invalid-email'); throw err; }
+  }
   return { contactId, result: 'enrolled', started, sent };
 }
 
@@ -63,6 +71,7 @@ async function enrol(contactId, { sendDay0 = true } = {}) {
 async function stopSequence(contact, reason) {
   const tags = [ghl.TAGS.finished];
   if (reason === 'replied' || reason === 'booked') tags.push(ghl.TAGS.engaged);
+  if (reason === 'invalid-email') tags.push(ghl.TAGS.invalidEmail);
   await ghl.addTags(contact.id, tags);
   await ghl.removeTags(contact.id, [ghl.TAGS.active]);
   return { contactId: contact.id, result: 'stopped', reason };
@@ -100,7 +109,9 @@ async function processContact(summary, window, dry) {
   const skipped = due.slice(0, -1).map((s) => s.key);
   if (dry) return { contactId: contact.id, result: 'would-send', step: step.key, day, skipped };
 
-  const sent = await send(contact, step, { sent: state.sent.concat(skipped) });
+  let sent;
+  try { sent = await send(contact, step, { sent: state.sent.concat(skipped) }); }
+  catch (err) { if (invalidEmail(err)) return stopSequence(contact, 'invalid-email'); throw err; }
   if (step.key === STEPS[STEPS.length - 1].key) {
     await ghl.addTags(contact.id, [ghl.TAGS.finished]);
     await ghl.removeTags(contact.id, [ghl.TAGS.active]);

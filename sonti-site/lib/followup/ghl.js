@@ -23,7 +23,8 @@ const TAGS = {
   active:   'follow-up',
   finished: 'follow-up-finished',
   engaged:  'engaged',
-  stop:     ['engaged', 'do-not-contact', 'follow-up-finished']
+  invalidEmail: 'email-invalid',
+  stop:     ['engaged', 'do-not-contact', 'follow-up-finished', 'email-invalid']
 };
 
 function env() {
