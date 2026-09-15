@@ -1,0 +1,163 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <template>
+      <style>
+        @font-face {
+          font-family: "Archivo";
+          font-style: normal;
+          font-weight: 400 900;
+          font-stretch: 62% 125%;
+          src: url("fonts/Archivo-400-900-normal.woff2") format("woff2");
+        }
+        @font-face {
+          font-family: "DM Mono";
+          font-style: normal;
+          font-weight: 500;
+          src: url("fonts/DMMono-500-normal.woff2") format("woff2");
+        }
+        #root {
+          position: absolute;
+          inset: 0;
+          pointer-events: none;
+        }
+        .beat {
+          position: absolute;
+          inset: 0;
+        }
+        /* Upper-left, clear of TikTok's top bar, button rail and ad CTA. */
+        .stack {
+          position: absolute;
+          left: 72px;
+          right: 140px;
+          top: 250px;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 14px;
+        }
+        /* The 0:15 run sits a little higher so it clears the chat panel in the agent shot. */
+        .stack.high {
+          top: 220px;
+        }
+        /* Audience tag: on screen from the very first frame so an agency knows the ad is for them. */
+        .tag {
+          display: inline-flex;
+          align-items: center;
+          gap: 14px;
+          padding: 14px 24px 14px 20px;
+          border-radius: 999px;
+          background: #0b0b0a;
+        }
+        .tag i {
+          display: block;
+          width: 16px;
+          height: 16px;
+          border-radius: 50%;
+          background: #dcf34a;
+        }
+        .tag span {
+          font-family: "DM Mono", ui-monospace, monospace;
+          font-weight: 500;
+          font-size: 38px;
+          line-height: 1;
+          letter-spacing: 0.1em;
+          text-transform: uppercase;
+          color: #ffffff;
+        }
+        .pill {
+          display: block;
+          max-width: 868px;
+          padding: 18px 28px 22px;
+          border-radius: 20px;
+          background: #0b0b0a;
+          color: #ffffff;
+          font-family: "Archivo", sans-serif;
+          font-stretch: 75%;
+          font-weight: 800;
+          text-transform: uppercase;
+          line-height: 0.92;
+          letter-spacing: -0.005em;
+          text-wrap: balance;
+          transform-origin: 0% 50%;
+        }
+        .v {
+          color: #dcf34a;
+        }
+        .xl {
+          font-size: 156px;
+        }
+        .lg {
+          font-size: 108px;
+        }
+        .md {
+          font-size: 92px;
+        }
+      </style>
+
+      <div id="root" data-composition-id="type" data-width="1080" data-height="1920">
+        <div id="beat-1" class="beat clip" data-start="0" data-duration="3" data-track-index="1">
+          <div class="stack">
+            <div class="tag" id="for-agencies"><i></i><span>For agencies</span></div>
+            <div class="pill xl" id="t1"><span class="v">Three</span> sites.</div>
+          </div>
+        </div>
+        <div id="beat-2" class="beat clip" data-start="3" data-duration="4" data-track-index="1">
+          <div class="stack"><div class="pill lg" id="t2">Every one is our <span class="v">own</span> customer.</div></div>
+        </div>
+        <div id="beat-3" class="beat clip" data-start="7" data-duration="5" data-track-index="1">
+          <div class="stack"><div class="pill lg" id="t3">Every one has <span class="v">AI</span> running inside it.</div></div>
+        </div>
+        <div id="beat-5a" class="beat clip" data-start="15" data-duration="3.5" data-track-index="1">
+          <div class="stack high">
+            <div class="pill md" id="t5a1">AI apps.</div>
+            <div class="pill md" id="t5a2">Agents.</div>
+            <div class="pill md" id="t5a3">Automations.</div>
+          </div>
+        </div>
+        <div id="beat-5b" class="beat clip" data-start="18.5" data-duration="3.5" data-track-index="1">
+          <div class="stack high">
+            <div class="pill md" id="t5b1">Built in <span class="v">24 hours.</span></div>
+            <div class="pill md" id="t5b2">Priced flat.</div>
+          </div>
+        </div>
+        <div id="beat-6" class="beat clip" data-start="22" data-duration="4" data-track-index="1">
+          <div class="stack">
+            <div class="pill lg" id="t6a">A <span class="v">named</span> team.</div>
+            <div class="pill lg" id="t6b">Not a marketplace.</div>
+          </div>
+        </div>
+      </div>
+
+      <script>
+        window.__timelines = window.__timelines || {};
+        const tl = gsap.timeline({ paused: true });
+        // One grid: 120 BPM, the same as assets/audio/loop.wav. Every onset is a whole beat.
+        const BEAT = 0.5;
+        const on = (beats) => beats * BEAT;
+
+        // The "For agencies" tag has no entrance: it must already be readable on frame one.
+
+        // kinetic-beat-slam: a different entrance per phrase, short attacks that land on the hit.
+        tl.fromTo("#t1", { scale: 1.3, filter: "blur(12px)", opacity: 0.2 }, { scale: 1, filter: "blur(0px)", opacity: 1, duration: 0.3, ease: "power4.out" }, on(0));
+        tl.fromTo("#t2", { x: -140, opacity: 0 }, { x: 0, opacity: 1, duration: 0.4, ease: "expo.out" }, on(6));
+        tl.fromTo("#t3", { y: 80, rotation: 2.5, opacity: 0 }, { y: 0, rotation: 0, opacity: 1, duration: 0.45, ease: "circ.out" }, on(14));
+
+        tl.fromTo("#t5a1", { scale: 1.25, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.3, ease: "power4.out" }, on(30));
+        tl.fromTo("#t5a2", { x: -120, opacity: 0 }, { x: 0, opacity: 1, duration: 0.3, ease: "expo.out" }, on(31));
+        tl.fromTo("#t5a3", { y: 60, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35, ease: "circ.out" }, on(32));
+
+        tl.fromTo("#t5b1", { scale: 1.25, filter: "blur(10px)", opacity: 0 }, { scale: 1, filter: "blur(0px)", opacity: 1, duration: 0.3, ease: "power4.out" }, on(37));
+        tl.fromTo("#t5b2", { x: -120, opacity: 0 }, { x: 0, opacity: 1, duration: 0.3, ease: "back.out(1.6)" }, on(39));
+
+        tl.fromTo("#t6a", { y: 70, rotation: 2, opacity: 0 }, { y: 0, rotation: 0, opacity: 1, duration: 0.4, ease: "circ.out" }, on(44));
+        tl.fromTo("#t6b", { x: -140, opacity: 0 }, { x: 0, opacity: 1, duration: 0.4, ease: "expo.out" }, on(48));
+
+        window.__timelines["type"] = tl;
+      </script>
+    </template>
+  </body>
+</html>

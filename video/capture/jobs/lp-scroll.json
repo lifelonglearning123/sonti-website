@@ -1,0 +1,13 @@
+{
+  "url": "https://www.leonardopower.com",
+  "out": "C:/python/website - sonti/video/our-name-is-on-it/assets/footage/lp-scroll.mp4",
+  "viewport": { "width": 432, "height": 768 }, "dsf": 2.5, "mobile": true,
+  "fps": 60, "duration": 24, "settleMs": 3500,
+  "setup": [
+    { "evaluate": "(() => { const b = [...document.querySelectorAll('button, a, [role=button]')].find(e => /^(reject|reject all|decline|decline all)$/i.test(e.textContent.trim()) && e.getClientRects().length); if (b) b.click(); return !!b; })()" },
+    { "wait": 1200 }
+  ],
+  "expectHidden": ".lpc",
+  "path": [ { "t": 0, "y": 0 }, { "t": 24, "y": 1500, "ease": "cruise", "ramp": 1.5 } ],
+  "stills": [0, 240, 720, 1200, 1439]
+}

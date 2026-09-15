@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      /* Brand faces from sonti-site, shipped locally so render never depends on the network. */
+      @font-face {
+        font-family: "Archivo";
+        font-style: normal;
+        font-weight: 400 900;
+        font-stretch: 62% 125%;
+        src: url("fonts/Archivo-400-900-normal.woff2") format("woff2");
+      }
+      @font-face {
+        font-family: "Instrument Sans";
+        font-style: normal;
+        font-weight: 400 700;
+        src: url("fonts/InstrumentSans-400-700-normal.woff2") format("woff2");
+      }
+      @font-face {
+        font-family: "DM Mono";
+        font-style: normal;
+        font-weight: 400;
+        src: url("fonts/DMMono-400-normal.woff2") format("woff2");
+      }
+      @font-face {
+        font-family: "DM Mono";
+        font-style: normal;
+        font-weight: 500;
+        src: url("fonts/DMMono-500-normal.woff2") format("woff2");
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        width: 1080px;
+        height: 1920px;
+        overflow: hidden;
+        background: #0b0b0a;
+      }
+      #root {
+        position: relative;
+        width: 1080px;
+        height: 1920px;
+        overflow: hidden;
+        background: #0b0b0a;
+      }
+      [data-composition-id="main"] > div[data-composition-src] {
+        position: absolute;
+        inset: 0;
+      }
+      /* Full-frame screen recordings: every capture is already 1080×1920. */
+      #root > video {
+        width: 1080px;
+        height: 1920px;
+        object-fit: cover;
+      }
+
+      /* 02:14 — the real taskbar clock, recorded alongside the page. Untimed wrappers
+         only position; the timed <video> inside carries every visible style. */
+      .clock-big {
+        position: absolute;
+        left: 230px;
+        top: 816px;
+        width: 560px;
+        height: 288px;
+      }
+      .clock-tray {
+        position: absolute;
+        left: 90px;
+        top: 200px;
+        width: 308px;
+        height: 158px;
+        z-index: 2;
+      }
+      .clock-big video,
+      .clock-tray video {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .clock-tray video {
+        border-radius: 16px;
+        box-shadow: 0 14px 44px rgba(11, 11, 10, 0.28);
+      }
+      #el-captions {
+        z-index: 5;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="90" data-width="1080" data-height="1920">
+      <!-- 0:00 The site, unannounced — room tone and keys only -->
+      <video id="v-open" class="clip" src="assets/footage/lp-scroll.mp4" data-start="0" data-duration="4" data-media-start="0" data-track-index="2" muted playsinline></video>
+
+      <!-- 0:04 Black (the root's own ground) -->
+
+      <!-- 0:08 The front desk: the question typed and sent at 0:14, the reply typed by 0:18, then held -->
+      <video id="v-agent" class="clip" src="assets/footage/lp-chat.mp4" data-start="8" data-duration="14" data-media-start="13.8" data-track-index="2" muted playsinline></video>
+
+      <!-- 0:22 Title card -->
+      <div id="el-title" data-composition-id="f04-title" data-composition-src="compositions/04-title.html" data-start="22" data-duration="3" data-track-index="1" data-width="1080" data-height="1920"></div>
+
+      <!-- 0:25 The estate: home, product page, quote form, mobile -->
+      <video id="v-m1" class="clip" src="assets/footage/m1-home.mp4" data-start="25" data-duration="1.3" data-media-start="0.5" data-track-index="2" muted playsinline></video>
+      <video id="v-m2" class="clip" src="assets/footage/m2-product.mp4" data-start="26.3" data-duration="1.3" data-media-start="0.5" data-track-index="2" muted playsinline></video>
+      <video id="v-m3" class="clip" src="assets/footage/m3-quote.mp4" data-start="27.6" data-duration="1.3" data-media-start="0.5" data-track-index="2" muted playsinline></video>
+      <video id="v-m4" class="clip" src="assets/footage/m4-mobile.mp4" data-start="28.9" data-duration="3.1" data-media-start="0.2" data-track-index="2" muted playsinline></video>
+
+      <!-- 0:32 02:14 — the clock first, then the enquiry finishing, being sent and answered.
+           Both night files start together (wall clock); the enquiry is typed 15 s in and sent ~21 s in. -->
+      <div class="clock-big">
+        <video id="v-night-clock-big" class="clip" src="assets/footage/night-clock.mp4" data-start="32" data-duration="1.5" data-media-start="16.1" data-track-index="3" muted playsinline></video>
+      </div>
+      <video id="v-night-page" class="clip" src="assets/footage/night-page.mp4" data-start="33.5" data-duration="10.5" data-media-start="17.6" data-track-index="2" muted playsinline></video>
+      <div class="clock-tray">
+        <video id="v-night-clock-tray" class="clip" src="assets/footage/night-clock.mp4" data-start="33.5" data-duration="10.5" data-media-start="17.6" data-track-index="4" muted playsinline></video>
+      </div>
+
+      <!-- 0:44 UK, 17:00 · 0:49 India, morning -->
+      <div id="el-uk" data-composition-id="f07-uk" data-composition-src="compositions/07-uk.html" data-start="44" data-duration="5" data-track-index="1" data-width="1080" data-height="1920"></div>
+      <div id="el-india" data-composition-id="f08-india" data-composition-src="compositions/08-india.html" data-start="49" data-duration="5" data-track-index="1" data-width="1080" data-height="1920"></div>
+
+      <!-- 0:54 The team, one at a time -->
+      <div id="el-team" data-composition-id="f09-team" data-composition-src="compositions/09-team.html" data-start="54" data-duration="14" data-track-index="1" data-width="1080" data-height="1920"></div>
+
+      <!-- 1:08 Credential -->
+      <div id="el-grant" data-composition-id="f10-grant" data-composition-src="compositions/10-grant.html" data-start="68" data-duration="6" data-track-index="1" data-width="1080" data-height="1920"></div>
+
+      <!-- 1:14 The site again, now recognisable -->
+      <video id="v-close" class="clip" src="assets/footage/lp-scroll.mp4" data-start="74" data-duration="12" data-media-start="4" data-track-index="2" muted playsinline></video>
+
+      <!-- 1:26 End card, held still to the last frame -->
+      <div id="el-end" data-composition-id="f12-end" data-composition-src="compositions/12-end.html" data-start="86" data-duration="4" data-track-index="1" data-width="1080" data-height="1920"></div>
+
+      <!-- Voiceover captions -->
+      <div id="el-captions" data-composition-id="captions" data-composition-src="compositions/captions.html" data-start="0" data-duration="90" data-track-index="5" data-width="1080" data-height="1920"></div>
+
+      <!-- Sound -->
+      <audio id="a-room" src="assets/audio/roomtone.wav" data-start="0" data-duration="90" data-track-index="10" data-volume="1"></audio>
+      <audio id="a-keys" src="assets/audio/keyboard.wav" data-start="0" data-duration="4" data-track-index="11" data-volume="1"></audio>
+      <!-- one sustained note from 0:22; the file resolves at 64 s and ends dead at 68 s = 1:30 -->
+      <audio id="a-music" src="assets/audio/music.wav" data-start="22" data-duration="68" data-track-index="12" data-volume="0.55"></audio>
+
+      <audio id="a-vo01" src="assets/audio/vo-b-vo01.wav" data-start="4.2" data-duration="5.02" data-track-index="13" data-volume="1"></audio>
+      <audio id="a-vo02" src="assets/audio/vo-b-vo02.wav" data-start="9.6" data-duration="5.07" data-track-index="13" data-volume="1"></audio>
+      <audio id="a-vo03" src="assets/audio/vo-b-vo03.wav" data-start="15.1" data-duration="6.35" data-track-index="13" data-volume="1"></audio>
+      <audio id="a-vo04" src="assets/audio/vo-b-vo04.wav" data-start="25.3" data-duration="5.21" data-track-index="13" data-volume="1"></audio>
+      <audio id="a-vo05" src="assets/audio/vo-b-vo05.wav" data-start="39.6" data-duration="4.38" data-track-index="13" data-volume="1"></audio>
+      <audio id="a-vo06" src="assets/audio/vo-b-vo06.wav" data-start="46.78" data-duration="3.75" data-track-index="13" data-volume="1"></audio>
+      <audio id="a-vo07" src="assets/audio/vo-b-vo07.wav" data-start="56.71" data-duration="7.73" data-track-index="13" data-volume="1"></audio>
+      <audio id="a-vo08" src="assets/audio/vo-b-vo08.wav" data-start="69" data-duration="3.18" data-track-index="13" data-volume="1"></audio>
+      <audio id="a-vo09" src="assets/audio/vo-b-vo09.wav" data-start="75.3" data-duration="4.96" data-track-index="13" data-volume="1"></audio>
+    </div>
+
+    <script>
+      window.__timelines = window.__timelines || {};
+      // Scene motion lives in the sub-compositions; the host only places clips and sound.
+      window.__timelines["main"] = gsap.timeline({ paused: true });
+    </script>
+  </body>
+</html>

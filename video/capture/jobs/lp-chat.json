@@ -1,0 +1,17 @@
+{
+  "url": "https://www.leonardopower.com",
+  "out": "C:/python/website - sonti/video/our-name-is-on-it/assets/footage/lp-chat.mp4",
+  "viewport": { "width": 432, "height": 768 }, "dsf": 2.5, "mobile": true,
+  "fps": 60, "duration": 40, "settleMs": 3500,
+  "setup": [
+    { "evaluate": "(() => { const b = [...document.querySelectorAll('button, a, [role=button]')].find(e => /^(reject|reject all|decline|decline all)$/i.test(e.textContent.trim()) && e.getClientRects().length); if (b) b.click(); return !!b; })()" },
+    { "wait": 1200 }
+  ],
+  "expectHidden": ".lpc",
+  "events": [
+    { "t": 0.4, "click": "[data-toggle-assist]" },
+    { "t": 14.5, "type": "Can it answer the phone when we're closed?", "into": "[data-assist-form] input", "cps": 9 },
+    { "t": 20.2, "press": "Enter" }
+  ],
+  "stills": [660, 1140, 1320, 1800, 2399]
+}

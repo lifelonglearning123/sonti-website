@@ -1,0 +1,42 @@
+{
+    "fps":  60,
+    "anchor":  {
+                   "offset":  -40,
+                   "selector":  "#included"
+               },
+    "stills":  [
+                   0,
+                   209
+               ],
+    "dsf":  2.5,
+    "settleMs":  3500,
+    "duration":  3.5,
+    "url":  "https://www.leonardopower.com",
+    "expectHidden":  ".lpc",
+    "setup":  [
+                  {
+                      "evaluate":  "(() =\u003e { const b = [...document.querySelectorAll(\u0027button, a, [role=button]\u0027)].find(e =\u003e /^(reject|reject all|decline|decline all)$/i.test(e.textContent.trim()) \u0026\u0026 e.getClientRects().length); if (b) b.click(); return !!b; })()"
+                  },
+                  {
+                      "wait":  1200
+                  }
+              ],
+    "out":  "C:/python/website - sonti/video/our-name-is-on-it/assets/footage/m4-mobile.mp4",
+    "mobile":  true,
+    "path":  [
+                 {
+                     "y":  0,
+                     "t":  0
+                 },
+                 {
+                     "y":  70,
+                     "t":  3.5,
+                     "ramp":  0.8,
+                     "ease":  "cruise"
+                 }
+             ],
+    "viewport":  {
+                     "height":  768,
+                     "width":  432
+                 }
+}

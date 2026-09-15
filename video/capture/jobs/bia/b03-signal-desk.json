@@ -1,0 +1,37 @@
+{
+    "url":  "https://signal.macaws.ai",
+    "path":  [
+                 {
+                     "y":  0,
+                     "t":  0
+                 },
+                 {
+                     "y":  140,
+                     "t":  1.2,
+                     "ramp":  0.15,
+                     "ease":  "cruise"
+                 }
+             ],
+    "mobile":  false,
+    "dsf":  0.9375,
+    "settleMs":  3500,
+    "fps":  30,
+    "setup":  [
+                  {
+                      "evaluate":  "(() =\u003e { const b = [...document.querySelectorAll(\u0027button, a, [role=button]\u0027)].find(e =\u003e /^(reject|reject all|decline|decline all)$/i.test(e.textContent.trim()) \u0026\u0026 e.getClientRects().length); if (b) b.click(); return !!b; })()"
+                  },
+                  {
+                      "wait":  1200
+                  }
+              ],
+    "stills":  [
+                   0,
+                   35
+               ],
+    "out":  "C:/python/website - sonti/video/capture/out/built-in-a-day/b03-signal-desk.mp4",
+    "viewport":  {
+                     "height":  2048,
+                     "width":  1152
+                 },
+    "duration":  1.2
+}

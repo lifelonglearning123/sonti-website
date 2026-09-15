@@ -1,0 +1,31 @@
+{
+    "url":  "https://signal.macaws.ai",
+    "mobile":  true,
+    "dsf":  2.5,
+    "settleMs":  3500,
+    "fps":  30,
+    "setup":  [
+                  {
+                      "evaluate":  "(() =\u003e { const b = [...document.querySelectorAll(\u0027button, a, [role=button]\u0027)].find(e =\u003e /^(reject|reject all|decline|decline all)$/i.test(e.textContent.trim()) \u0026\u0026 e.getClientRects().length); if (b) b.click(); return !!b; })()"
+                  },
+                  {
+                      "wait":  1000
+                  },
+                  {
+                      "evaluate":  "(() =\u003e { const el = [...document.querySelectorAll(\u0027div, span, p, h2, h3, h4\u0027)].find(e =\u003e /live call/i.test(e.textContent) \u0026\u0026 e.children.length === 0 \u0026\u0026 e.getClientRects().length); if (el) { const r = el.getBoundingClientRect(); window.scrollTo({ top: r.top + scrollY - 150, behavior: \u0027instant\u0027 }); } return !!el; })()"
+                  },
+                  {
+                      "wait":  1800
+                  }
+              ],
+    "stills":  [
+                   0,
+                   65
+               ],
+    "out":  "C:/python/website - sonti/video/capture/out/built-in-a-day/b09-dashboard.mp4",
+    "viewport":  {
+                     "height":  768,
+                     "width":  432
+                 },
+    "duration":  2.2
+}

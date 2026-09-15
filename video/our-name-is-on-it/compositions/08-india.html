@@ -1,0 +1,75 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <template>
+      <style>
+        @font-face {
+          font-family: "DM Mono";
+          font-style: normal;
+          font-weight: 500;
+          src: url("fonts/DMMono-500-normal.woff2") format("woff2");
+        }
+        #root {
+          position: absolute;
+          inset: 0;
+          background: #0b0b0a;
+          overflow: hidden;
+        }
+        .plate {
+          position: absolute;
+          inset: 0;
+          transform-origin: 45% 55%;
+        }
+        .plate img {
+          display: block;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+        .stamp {
+          position: absolute;
+          left: 90px;
+          top: 210px;
+          display: flex;
+          align-items: center;
+          gap: 16px;
+          padding: 14px 24px;
+          border-radius: 999px;
+          background: rgba(11, 11, 10, 0.8);
+        }
+        .dot {
+          width: 14px;
+          height: 14px;
+          border-radius: 50%;
+          background: #dcf34a;
+        }
+        .stamp span {
+          font-family: "DM Mono", ui-monospace, monospace;
+          font-weight: 500;
+          font-size: 30px;
+          line-height: 1;
+          letter-spacing: 0.1em;
+          text-transform: uppercase;
+          color: #ffffff;
+        }
+      </style>
+
+      <div id="root" data-composition-id="f08-india" data-width="1080" data-height="1920">
+        <div class="plate" id="india-plate" data-layout-allow-overflow>
+          <img src="assets/photos/india-office.jpg" alt="" />
+        </div>
+        <div class="stamp"><i class="dot"></i><span>India · 09:30</span></div>
+      </div>
+
+      <script>
+        window.__timelines = window.__timelines || {};
+        const tl = gsap.timeline({ paused: true });
+        tl.fromTo("#india-plate", { scale: 1.05 }, { scale: 1, duration: 5, ease: "none" }, 0);
+        window.__timelines["f08-india"] = tl;
+      </script>
+    </template>
+  </body>
+</html>

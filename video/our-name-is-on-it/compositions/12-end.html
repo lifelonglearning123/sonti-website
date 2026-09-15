@@ -1,0 +1,120 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <template>
+      <style>
+        @font-face {
+          font-family: "Archivo";
+          font-style: normal;
+          font-weight: 400 900;
+          font-stretch: 62% 125%;
+          src: url("fonts/Archivo-400-900-normal.woff2") format("woff2");
+        }
+        @font-face {
+          font-family: "Instrument Sans";
+          font-style: normal;
+          font-weight: 400 700;
+          src: url("fonts/InstrumentSans-400-700-normal.woff2") format("woff2");
+        }
+        @font-face {
+          font-family: "DM Mono";
+          font-style: normal;
+          font-weight: 500;
+          src: url("fonts/DMMono-500-normal.woff2") format("woff2");
+        }
+        #root {
+          position: absolute;
+          inset: 0;
+          background: #0b0b0a;
+        }
+        .stack {
+          position: absolute;
+          inset: 0;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          /* weighted up and left: TikTok's caption block and button rail own the bottom and right */
+          padding: 160px 150px 360px 90px;
+        }
+        .mark {
+          display: block;
+          width: 150px;
+          height: 150px;
+        }
+        .wordmark {
+          margin-top: 64px;
+          font-family: "Archivo", sans-serif;
+          font-stretch: 80%;
+          font-weight: 800;
+          font-size: 156px;
+          line-height: 0.9;
+          letter-spacing: -0.01em;
+          text-transform: uppercase;
+          color: #ffffff;
+          white-space: nowrap;
+        }
+        .tld {
+          font-weight: 500;
+          color: #a7aaa1;
+        }
+        .tag {
+          margin-top: 30px;
+          font-family: "Instrument Sans", sans-serif;
+          font-weight: 500;
+          font-size: 46px;
+          line-height: 1.2;
+          color: #a7aaa1;
+          white-space: nowrap;
+        }
+        .url {
+          margin-top: 120px;
+          display: flex;
+          flex-direction: column;
+        }
+        .url span {
+          font-family: "DM Mono", monospace;
+          font-weight: 500;
+          font-size: 58px;
+          line-height: 1;
+          color: #ffffff;
+        }
+        .rule {
+          display: block;
+          width: 100%;
+          height: 6px;
+          margin-top: 20px;
+          background: #dcf34a;
+        }
+      </style>
+
+      <div id="root" data-composition-id="f12-end" data-width="1080" data-height="1920">
+        <div class="stack">
+          <svg class="mark" viewBox="0 0 103 103" aria-hidden="true">
+            <rect width="103" height="103" rx="23" fill="#E8553A" />
+            <g fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M41 49v8a4 4 0 0 0 4 4h8.5" />
+              <rect x="32" y="33" width="16" height="16" rx="3.5" />
+              <rect x="53.5" y="54" width="16" height="16" rx="3.5" />
+            </g>
+          </svg>
+          <div class="wordmark">Sonti<span class="tld">.io</span></div>
+          <div class="tag">The team behind the agencies</div>
+          <div class="url">
+            <span>sonti.io</span>
+            <i class="rule"></i>
+          </div>
+        </div>
+      </div>
+
+      <script>
+        // Held still for its whole window; the music stops on the cut.
+        window.__timelines = window.__timelines || {};
+        window.__timelines["f12-end"] = gsap.timeline({ paused: true });
+      </script>
+    </template>
+  </body>
+</html>

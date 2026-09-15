@@ -1,0 +1,38 @@
+{
+    "url":  "https://www.leonardopower.com",
+    "path":  [
+                 {
+                     "y":  0,
+                     "t":  0
+                 },
+                 {
+                     "y":  120,
+                     "t":  1.2,
+                     "ramp":  0.15,
+                     "ease":  "cruise"
+                 }
+             ],
+    "mobile":  true,
+    "dsf":  2.5,
+    "settleMs":  3500,
+    "fps":  30,
+    "setup":  [
+                  {
+                      "evaluate":  "(() =\u003e { const b = [...document.querySelectorAll(\u0027button, a, [role=button]\u0027)].find(e =\u003e /^(reject|reject all|decline|decline all)$/i.test(e.textContent.trim()) \u0026\u0026 e.getClientRects().length); if (b) b.click(); return !!b; })()"
+                  },
+                  {
+                      "wait":  1200
+                  }
+              ],
+    "stills":  [
+                   0,
+                   35
+               ],
+    "out":  "C:/python/website - sonti/video/capture/out/built-in-a-day/b02-leonardo-mob.mp4",
+    "viewport":  {
+                     "height":  768,
+                     "width":  432
+                 },
+    "expectHidden":  ".lpc",
+    "duration":  1.2
+}

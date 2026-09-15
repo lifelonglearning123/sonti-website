@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <template>
+      <style>
+        @font-face {
+          font-family: "Archivo";
+          font-style: normal;
+          font-weight: 400 900;
+          font-stretch: 62% 125%;
+          src: url("fonts/Archivo-400-900-normal.woff2") format("woff2");
+        }
+        #root {
+          position: absolute;
+          inset: 0;
+          background: #dcf34a;
+        }
+        .card {
+          position: absolute;
+          inset: 0;
+          display: flex;
+          align-items: center;
+          padding: 0 140px 180px 72px;
+        }
+        .big {
+          font-family: "Archivo", sans-serif;
+          font-stretch: 75%;
+          font-weight: 800;
+          font-size: 220px;
+          line-height: 0.86;
+          letter-spacing: -0.015em;
+          text-transform: uppercase;
+          color: #0b0b0a;
+          text-wrap: balance;
+        }
+      </style>
+
+      <div id="root" data-composition-id="volt" data-width="1080" data-height="1920">
+        <div class="card"><div class="big">Ours to show.</div></div>
+      </div>
+
+      <script>
+        // Hard cut in on the dropped beat; the silence is the emphasis, so nothing moves.
+        window.__timelines = window.__timelines || {};
+        window.__timelines["volt"] = gsap.timeline({ paused: true });
+      </script>
+    </template>
+  </body>
+</html>

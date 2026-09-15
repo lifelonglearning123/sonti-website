@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      @font-face {
+        font-family: "Archivo";
+        font-style: normal;
+        font-weight: 400 900;
+        font-stretch: 62% 125%;
+        src: url("fonts/Archivo-400-900-normal.woff2") format("woff2");
+      }
+      @font-face {
+        font-family: "Instrument Sans";
+        font-style: normal;
+        font-weight: 400 700;
+        src: url("fonts/InstrumentSans-400-700-normal.woff2") format("woff2");
+      }
+      @font-face {
+        font-family: "DM Mono";
+        font-style: normal;
+        font-weight: 500;
+        src: url("fonts/DMMono-500-normal.woff2") format("woff2");
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        width: 1080px;
+        height: 1920px;
+        overflow: hidden;
+        background: #0b0b0a;
+      }
+      #root {
+        position: relative;
+        width: 1080px;
+        height: 1920px;
+        overflow: hidden;
+        background: #0b0b0a;
+      }
+      [data-composition-id="main"] > div[data-composition-src] {
+        position: absolute;
+        inset: 0;
+      }
+      /* Every site capture is already 1080×1920. */
+      #root > video {
+        width: 1080px;
+        height: 1920px;
+        object-fit: cover;
+      }
+      #el-cursor {
+        z-index: 4;
+      }
+      #el-type {
+        z-index: 5;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 120 BPM throughout (assets/audio/loop.wav): a beat is 0.5 s and every cut below lands on one. -->
+    <div id="root" data-composition-id="main" data-start="0" data-duration="30" data-width="1080" data-height="1920">
+      <!-- 0:00 Three sites, six half-second looks, logos in shot -->
+      <video id="v-s1" class="clip" src="assets/footage/b01-leonardo-desk.mp4" data-start="0" data-duration="0.5" data-media-start="0.3" data-track-index="2" muted playsinline></video>
+      <video id="v-s2" class="clip" src="assets/footage/b03-signal-desk.mp4" data-start="0.5" data-duration="0.5" data-media-start="0.3" data-track-index="2" muted playsinline></video>
+      <video id="v-s3" class="clip" src="assets/footage/b05-nexus-desk.mp4" data-start="1" data-duration="0.5" data-media-start="0.3" data-track-index="2" muted playsinline></video>
+      <video id="v-s4" class="clip" src="assets/footage/b02-leonardo-mob.mp4" data-start="1.5" data-duration="0.5" data-media-start="0.3" data-track-index="2" muted playsinline></video>
+      <video id="v-s5" class="clip" src="assets/footage/b04-signal-mob.mp4" data-start="2" data-duration="0.5" data-media-start="0.3" data-track-index="2" muted playsinline></video>
+      <video id="v-s6" class="clip" src="assets/footage/b06-nexus-mob.mp4" data-start="2.5" data-duration="0.5" data-media-start="0.3" data-track-index="2" muted playsinline></video>
+
+      <!-- 0:03 Hold on one hero, cursor moving -->
+      <video id="v-hero" class="clip" src="assets/footage/b07-hero-hold.mp4" data-start="3" data-duration="4" data-media-start="0.3" data-track-index="2" muted playsinline></video>
+      <div id="el-cursor" data-composition-id="cursor" data-composition-src="compositions/cursor.html" data-start="3" data-duration="4" data-track-index="3" data-width="1080" data-height="1920"></div>
+
+      <!-- 0:07 Build interface (stand-in until real build footage arrives) -->
+      <div id="el-build" data-composition-id="build" data-composition-src="compositions/build.html" data-start="7" data-duration="5" data-track-index="1" data-width="1080" data-height="1920"></div>
+
+      <!-- 0:12 Volt card; the loop drops out for one beat -->
+      <div id="el-volt" data-composition-id="volt" data-composition-src="compositions/volt.html" data-start="12" data-duration="3" data-track-index="1" data-width="1080" data-height="1920"></div>
+
+      <!-- 0:15 A booking flow, an AI agent replying, a dashboard, mobile -->
+      <video id="v-book" class="clip" src="assets/footage/b08-booking.mp4" data-start="15" data-duration="1.5" data-media-start="0.4" data-track-index="2" muted playsinline></video>
+      <video id="v-agent" class="clip" src="assets/footage/lp-chat.mp4" data-start="16.5" data-duration="2" data-media-start="20.6" data-track-index="2" muted playsinline></video>
+      <video id="v-dash" class="clip" src="assets/footage/b09-dashboard.mp4" data-start="18.5" data-duration="1.5" data-media-start="0.4" data-track-index="2" muted playsinline></video>
+      <div id="el-phone" data-composition-id="phone" data-composition-src="compositions/phone.html" data-start="20" data-duration="2" data-track-index="1" data-width="1080" data-height="1920"></div>
+
+      <!-- 0:22 Four faces, one per beat -->
+      <div id="el-team" data-composition-id="team" data-composition-src="compositions/team.html" data-start="22" data-duration="4" data-track-index="1" data-width="1080" data-height="1920"></div>
+
+      <!-- 0:26 End card; nothing moves -->
+      <div id="el-end" data-composition-id="end" data-composition-src="compositions/end.html" data-start="26" data-duration="4" data-track-index="1" data-width="1080" data-height="1920"></div>
+
+      <!-- On-screen copy for sound-off viewing -->
+      <div id="el-type" data-composition-id="type" data-composition-src="compositions/type.html" data-start="0" data-duration="26" data-track-index="5" data-width="1080" data-height="1920"></div>
+
+      <!-- Percussive loop from frame one -->
+      <audio id="a-loop" src="assets/audio/loop.wav" data-start="0" data-duration="30" data-track-index="10" data-volume="1"></audio>
+    </div>
+
+    <script>
+      window.__timelines = window.__timelines || {};
+      // Motion lives in the sub-compositions; the host places clips and sound on the beat grid.
+      window.__timelines["main"] = gsap.timeline({ paused: true });
+    </script>
+  </body>
+</html>

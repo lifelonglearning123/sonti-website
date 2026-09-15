@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <template>
+      <style>
+        #root {
+          position: absolute;
+          inset: 0;
+          background: #0b0b0a;
+          overflow: hidden;
+        }
+        /* A drawn phone around a real mobile capture — no hand, nothing invented. */
+        .phone {
+          position: absolute;
+          left: 258px;
+          top: 520px;
+          width: 564px;
+          height: 978px;
+          padding: 16px;
+          border-radius: 84px;
+          background: #1a1a18;
+          box-shadow:
+            0 0 0 2px #2c2d29,
+            0 40px 120px rgba(0, 0, 0, 0.55);
+        }
+        .screen {
+          position: relative;
+          width: 532px;
+          height: 946px;
+          border-radius: 70px;
+          overflow: hidden;
+          background: #000000;
+        }
+        .screen video {
+          display: block;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+        .island {
+          position: absolute;
+          left: 50%;
+          top: 18px;
+          width: 124px;
+          height: 36px;
+          margin-left: -62px;
+          border-radius: 18px;
+          background: #0b0b0a;
+          z-index: 2;
+        }
+      </style>
+
+      <div id="root" data-composition-id="phone" data-width="1080" data-height="1920">
+        <div class="phone">
+          <div class="screen">
+            <video id="phone-rec" class="clip" src="assets/footage/b10-nexus-phone.mp4" data-start="0" data-duration="2" data-media-start="0.1" data-track-index="1" muted playsinline></video>
+            <i class="island"></i>
+          </div>
+        </div>
+      </div>
+
+      <script>
+        window.__timelines = window.__timelines || {};
+        window.__timelines["phone"] = gsap.timeline({ paused: true });
+      </script>
+    </template>
+  </body>
+</html>

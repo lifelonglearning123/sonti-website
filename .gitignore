@@ -6,3 +6,15 @@
 .DS_Store
 Thumbs.db
 /Team/
+
+# video production: dependencies, captures, generated media and renders stay local
+/video/**/node_modules/
+/video/**/.hyperframes/
+/video/capture/out/
+/video/audio-work/
+/video/our-name-is-on-it/assets/
+/video/our-name-is-on-it/renders/
+/video/built-in-a-day/assets/
+/video/built-in-a-day/renders/
+
+.vercel

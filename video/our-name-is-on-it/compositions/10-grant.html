@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <template>
+      <style>
+        @font-face {
+          font-family: "DM Mono";
+          font-style: normal;
+          font-weight: 500;
+          src: url("fonts/DMMono-500-normal.woff2") format("woff2");
+        }
+        #root {
+          position: absolute;
+          inset: 0;
+          background: #0b0b0a;
+        }
+        .line {
+          position: absolute;
+          inset: 0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 22px;
+          padding: 0 150px 0 90px;
+        }
+        .dot {
+          width: 16px;
+          height: 16px;
+          border-radius: 50%;
+          background: #dcf34a;
+          flex: none;
+        }
+        .txt {
+          font-family: "DM Mono", ui-monospace, monospace;
+          font-weight: 500;
+          font-size: 32px;
+          line-height: 1;
+          letter-spacing: 0.1em;
+          text-transform: uppercase;
+          color: #e6e7e2;
+          white-space: nowrap;
+        }
+      </style>
+
+      <div id="root" data-composition-id="f10-grant" data-width="1080" data-height="1920">
+        <div class="line">
+          <span class="dot"></span>
+          <span class="txt">Innovate UK grant winner</span>
+        </div>
+      </div>
+
+      <script>
+        // Set small and not animated, by direction.
+        window.__timelines = window.__timelines || {};
+        window.__timelines["f10-grant"] = gsap.timeline({ paused: true });
+      </script>
+    </template>
+  </body>
+</html>

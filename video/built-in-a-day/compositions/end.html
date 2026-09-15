@@ -1,0 +1,111 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <template>
+      <style>
+        @font-face {
+          font-family: "Archivo";
+          font-style: normal;
+          font-weight: 400 900;
+          font-stretch: 62% 125%;
+          src: url("fonts/Archivo-400-900-normal.woff2") format("woff2");
+        }
+        @font-face {
+          font-family: "Instrument Sans";
+          font-style: normal;
+          font-weight: 400 700;
+          src: url("fonts/InstrumentSans-400-700-normal.woff2") format("woff2");
+        }
+        @font-face {
+          font-family: "DM Mono";
+          font-style: normal;
+          font-weight: 500;
+          src: url("fonts/DMMono-500-normal.woff2") format("woff2");
+        }
+        #root {
+          position: absolute;
+          inset: 0;
+          background: #0b0b0a;
+        }
+        .stack {
+          position: absolute;
+          inset: 0;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          /* weighted up: the ad CTA bar and caption block own the bottom of the frame */
+          padding: 160px 150px 420px 90px;
+        }
+        .lockup {
+          display: flex;
+          flex-direction: column;
+          align-items: stretch;
+        }
+        .wordmark {
+          font-family: "Archivo", sans-serif;
+          font-stretch: 80%;
+          font-weight: 800;
+          font-size: 170px;
+          line-height: 0.9;
+          letter-spacing: -0.01em;
+          text-transform: uppercase;
+          color: #ffffff;
+          white-space: nowrap;
+        }
+        .tld {
+          font-weight: 500;
+          color: #a7aaa1;
+        }
+        .rule {
+          display: block;
+          height: 8px;
+          margin-top: 26px;
+          background: #dcf34a;
+        }
+        .line {
+          margin-top: 72px;
+          font-family: "Instrument Sans", sans-serif;
+          font-weight: 500;
+          font-size: 50px;
+          line-height: 1.2;
+          color: #ffffff;
+          white-space: nowrap;
+        }
+        .cta {
+          margin-top: 26px;
+          font-family: "DM Mono", monospace;
+          font-weight: 500;
+          font-size: 40px;
+          line-height: 1.2;
+          color: #a7aaa1;
+          white-space: nowrap;
+        }
+        .cta b {
+          font-weight: 500;
+          color: #dcf34a;
+        }
+      </style>
+
+      <div id="root" data-composition-id="end" data-width="1080" data-height="1920">
+        <div class="stack">
+          <div class="lockup">
+            <div class="wordmark">Sonti<span class="tld">.io</span></div>
+            <i class="rule"></i>
+          </div>
+          <div class="line">Your brand, if you are an agency</div>
+          <div class="cta"><b>sonti.io</b> → book a discovery call</div>
+        </div>
+      </div>
+
+      <script>
+        // Nothing moves.
+        window.__timelines = window.__timelines || {};
+        window.__timelines["end"] = gsap.timeline({ paused: true });
+      </script>
+    </template>
+  </body>
+</html>

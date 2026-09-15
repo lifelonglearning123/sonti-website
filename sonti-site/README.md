@@ -23,7 +23,8 @@ hold where they are. Nothing is stored on Vercel.
 
 Env vars: `GHL_LOCATION_ID`, `GHL_TOKEN` (needs contacts, conversations/message
 and customFields scopes), `CRON_SECRET`, `FOLLOWUP_WEBHOOK_SECRET`, optional
-`FOLLOWUP_FROM_EMAIL`. Local dry run: set those in the shell and
+`FOLLOWUP_FROM_EMAIL` (production uses hello@message.sonti.io, the domain verified
+in GHL's Email Services; change it there and in Vercel together). Local dry run: set those in the shell and
 `node -e "require('./lib/followup/engine').runDue({dry:true}).then(r=>console.log(JSON.stringify(r)))"`.
 
 ## Hero video

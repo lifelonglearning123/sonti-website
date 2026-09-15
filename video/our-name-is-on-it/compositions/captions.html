@@ -1,0 +1,97 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <template>
+      <style>
+        @font-face {
+          font-family: "Instrument Sans";
+          font-style: normal;
+          font-weight: 400 700;
+          src: url("fonts/InstrumentSans-400-700-normal.woff2") format("woff2");
+        }
+        #root {
+          position: absolute;
+          inset: 0;
+          pointer-events: none;
+        }
+        .cue {
+          position: absolute;
+          inset: 0;
+        }
+        /* The pill sits clear of TikTok's button rail (right) and caption block (bottom). */
+        .cap {
+          position: absolute;
+          left: 90px;
+          right: 150px;
+          top: 1240px;
+          display: flex;
+          justify-content: center;
+        }
+        .cap span {
+          display: inline-block;
+          max-width: 840px;
+          padding: 16px 26px 18px;
+          border-radius: 18px;
+          background: rgba(11, 11, 10, 0.86);
+          color: #ffffff;
+          font-family: "Instrument Sans", "Helvetica Neue", Arial, sans-serif;
+          font-weight: 500;
+          font-size: 44px;
+          line-height: 1.25;
+          text-align: center;
+          text-wrap: balance;
+        }
+        /* keeps a compound like "twenty-four" from breaking at its hyphen */
+        .nw {
+          font-style: normal;
+          white-space: nowrap;
+        }
+        /* High band, above whatever the lower picture is doing (the chat panel grows up to
+           ~375px once the reply lands; the closing scroll's headline sits low). Wider and a
+           touch smaller so most lines stay on one row — the button rail doesn't reach this high. */
+        .cap.hi {
+          left: 60px;
+          right: 60px;
+          top: 250px;
+        }
+        .cap.hi span {
+          max-width: 960px;
+          font-size: 38px;
+          padding: 14px 24px 16px;
+        }
+        /* Night shot: below the clock tray, above the chat panel. */
+        .cap.mid {
+          top: 450px;
+        }
+      </style>
+
+      <!-- Cue times follow the vo-b-*.words.json timings at the VO starts set in index.html. -->
+      <div id="root" data-composition-id="captions" data-width="1080" data-height="1920">
+        <div id="cue-01" class="cue clip" data-start="4.2" data-duration="2.8" data-track-index="1"><div class="cap"><span>This is our own customer’s site.</span></div></div>
+        <div id="cue-02" class="cue clip" data-start="7.32" data-duration="2.2" data-track-index="1"><div class="cap"><span>Not a template, not a demo.</span></div></div>
+        <div id="cue-03" class="cue clip" data-start="9.6" data-duration="5.37" data-track-index="1"><div class="cap hi"><span>We designed it, built it and deployed it in <em class="nw">twenty-four</em> hours.</span></div></div>
+        <div id="cue-04" class="cue clip" data-start="15.1" data-duration="3.16" data-track-index="1"><div class="cap hi"><span>The enquiry agent answers at two in the morning.</span></div></div>
+        <div id="cue-05" class="cue clip" data-start="18.7" data-duration="3.05" data-track-index="1"><div class="cap hi"><span>Quotes go out before anyone opens a laptop.</span></div></div>
+        <div id="cue-06" class="cue clip" data-start="25.3" data-duration="5.51" data-track-index="1"><div class="cap"><span>Leonardo Power runs eleven sites on one AI stack.</span></div></div>
+        <div id="cue-07" class="cue clip" data-start="39.6" data-duration="2.04" data-track-index="1"><div class="cap mid"><span>Nobody was awake for that.</span></div></div>
+        <div id="cue-08" class="cue clip" data-start="41.66" data-duration="2.4" data-track-index="1"><div class="cap mid"><span>That is the point of building it this way.</span></div></div>
+        <div id="cue-09" class="cue clip" data-start="46.78" data-duration="2.18" data-track-index="1"><div class="cap"><span>The brief landed at five.</span></div></div>
+        <div id="cue-10" class="cue clip" data-start="49.1" data-duration="1.73" data-track-index="1"><div class="cap"><span>There was progress by nine.</span></div></div>
+        <div id="cue-11" class="cue clip" data-start="56.71" data-duration="2.8" data-track-index="1"><div class="cap"><span>This is the team that did it.</span></div></div>
+        <div id="cue-12" class="cue clip" data-start="59.61" data-duration="2.78" data-track-index="1"><div class="cap"><span>Briefed in the UK, built in India,</span></div></div>
+        <div id="cue-13" class="cue clip" data-start="62.49" data-duration="2.25" data-track-index="1"><div class="cap"><span>ten deep, on call around the clock.</span></div></div>
+        <div id="cue-14" class="cue clip" data-start="69" data-duration="3.48" data-track-index="1"><div class="cap"><span>Innovate UK backed us to do this.</span></div></div>
+        <div id="cue-15" class="cue clip" data-start="75.3" data-duration="1.62" data-track-index="1"><div class="cap hi"><span>If you are an agency,</span></div></div>
+        <div id="cue-16" class="cue clip" data-start="76.92" data-duration="3.64" data-track-index="1"><div class="cap hi"><span>we will do the same under your brand and your invoice.</span></div></div>
+      </div>
+
+      <script>
+        window.__timelines = window.__timelines || {};
+        window.__timelines["captions"] = gsap.timeline({ paused: true });
+      </script>
+    </template>
+  </body>
+</html>
