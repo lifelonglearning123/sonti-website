@@ -7,7 +7,7 @@
 
 const BOOKING = 'https://www.sonti.io/#booking';
 
-const ABOUT = 'Sonti is the AI and automation team behind agencies. When a client asks for a chatbot, a voice agent, an AI-enabled website or an automation that you can\'t build in-house, we build it, and it ships under your brand. A UK team scopes and manages, a core team in India builds, so it\'s $25 to $40 an hour all-in. We build with AI, so it\'s fast.';
+const ABOUT = 'Sonti is the AI and automation team behind agencies. When a client asks for a chatbot, a voice agent, an AI-enabled website or an automation that you can\'t build in-house, we build it, and it ships under your brand. A senior analyst scopes and manages your project, our core engineering team in India builds it, so it\'s $25 to $40 an hour all-in. We build with AI, so it\'s fast.';
 
 const SIGN = 'Chao\nCo-Founder, Sonti';
 
@@ -21,9 +21,9 @@ ${ABOUT}
 
 The quickest next step is a 30-minute discovery call. You tell me the ask, I tell you how we'd build it and roughly what it takes.
 
-Pick a time here: {booking}
+Pick a time that suits you here: {booking}
 
-The calendar is in UK time. If nothing fits, reply with your number and a good time where you are and I'll call you.
+If nothing on the calendar fits your time zone, reply with a good time and your number and I'll call you.
 
 ${SIGN}
 sonti.io` },
@@ -35,9 +35,9 @@ The first thing agencies ask is what it costs, so here it is.
 
 Between $25 and $40 an hour, all-in. $1,000 buys 25 hours, $2,500 buys 80, $5,000 buys 200. Every project is estimated in hours before it starts, and that estimate is what you sign off.
 
-"All-in" is the part that matters. An hour includes the UK business analyst who scopes and quotes the project, the engineers and QA who build it, the documentation, and the AI tokens used to build and test it. There's no usage bill from us on top.
+"All-in" is the part that matters. An hour includes the senior business analyst who scopes and quotes the project, the engineers and QA who build it, the documentation, and the AI tokens used to build and test it. There's no usage bill from us on top.
 
-The rate is possible because our core team is in India: senior engineers, AI specialists and QA in dedicated squads, building to UK standards. Your side of it stays in the UK: one named contact, client calls in UK hours, and a contract, invoice and data agreement with a UK company.
+The rate is possible because our core team is in India: senior engineers, AI specialists and QA in dedicated squads. What you get on your side is one named contact, client calls at times that suit you, and a contract, invoice and data processing agreement with a registered company.
 
 You keep the client and set the price they pay. We stay invisible.
 
@@ -45,14 +45,14 @@ Want the numbers for a real client? Book 30 minutes: {booking}
 
 ${SIGN}` },
 
-  { key: 'd3', day: 3, subject: 'Send it at 5pm. Progress by 9am.', body:
+  { key: 'd3', day: 3, subject: 'Send a brief tonight. See progress in the morning.', body:
 `Hi {first_name},
 
 Two reasons our builds move quickly.
 
 The first is that we build with AI as well as building AI. Scoping, first-pass code, test suites and documentation all start from AI drafts that our engineers then check and finish. It takes days out of every project, and it's why a small team ships like a large one.
 
-The second is the clock. The India team's day starts four and a half hours before London's, so a brief you send at 5pm has progress in your inbox by 9am.
+The second is the clock. Our engineering team works while you're offline, so a brief you send at the end of your day has progress in your inbox when you start the next one.
 
 What that looks like in practice: a scope and an estimate in hours within two working days of your brief. A chatbot on a client's existing content live in three to four weeks. A voice agent in four to eight. A single automation in days.
 
@@ -65,9 +65,9 @@ ${SIGN}` },
 
 AI and automation are what we do, not a line added to a web agency's services page.
 
-Innovate UK, the UK government's innovation agency, gave Sonti a £49,800 grant to make voice AI affordable for small businesses. It's on the public record as UKRI project 10173064. Grants like that are scored by independent assessors on the engineering, not the pitch.
+Sonti won a £49,800 government innovation grant to make voice AI affordable for small businesses. It's on the public record as UKRI project 10173064, and grants like that are scored by independent assessors on the engineering, not the pitch.
 
-The team behind it: an AI and machine learning lead, a head of engineering and an automation lead in India, with UK analysts who speak agency rather than code. We build with OpenAI, Anthropic and Google models as well as open-source ones, on the platforms your clients already pay for: HubSpot, Shopify, Webflow, WordPress, Make, n8n, Zapier.
+The team behind it: an AI and machine learning lead, a head of engineering and an automation lead in India, with analysts who speak agency rather than code. We build with OpenAI, Anthropic and Google models as well as open-source ones, on the platforms your clients already pay for: HubSpot, Shopify, Webflow, WordPress, Make, n8n, Zapier.
 
 And it's in production. Leonardo Power's website answers visitors in the studio's own words and rings their phone within 60 seconds. Eleven client sites run on the same stack: https://www.leonardopower.com
 
@@ -149,7 +149,7 @@ Is it white-label? Yes, by default. If you'd like us on client calls, we come as
 
 Who owns the code? You or your client, as set out in the contract. Never us. Everything is handed over with source, documentation and admin access.
 
-Where does the data go? You contract with our UK business, with a data processing agreement as standard. Builds are hosted in UK or EU regions unless your client says otherwise.
+Where does the data go? You contract with a registered company, with a data processing agreement as standard. Builds are hosted in the region your client needs, and your client's data never leaves it.
 
 How quickly? A scope and estimate within two working days. A chatbot in three to four weeks, a voice agent in four to eight, a single automation in days.
 
