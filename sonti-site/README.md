@@ -2,6 +2,30 @@
 
 Static site: `index.html` + `assets/`. No build step. Deployed on Vercel.
 
+## Lead follow-up (`api/followup/`, `lib/followup/`)
+
+Thirty days of email to every new lead, run from here rather than from a
+GoHighLevel workflow. GHL stays the CRM: each email is sent through the
+contact's conversation there, and the contact's custom fields
+`followup_started` (the day they arrived) and `followup_sent` (step keys
+already sent) plus the tags `follow-up` / `follow-up-finished` / `engaged`
+hold where they are. Nothing is stored on Vercel.
+
+- `lib/followup/emails.js` — the copy. Edit here, commit, done.
+- `api/followup/webhook.js` — the doorbell. A two-step GHL workflow
+  (Contact Created → Webhook) POSTs to `/api/followup/webhook?key=$FOLLOWUP_WEBHOOK_SECRET`;
+  it records the start date, tags the contact and sends Day 0.
+- `api/followup/run.js` — the daily pass, called by the two crons in
+  `vercel.json` (07:30 UTC for the UK, Europe, Australia, NZ and India;
+  14:30 UTC for the Americas, chosen by phone prefix). Stops a lead who has
+  replied on any channel, booked, or is on DND, otherwise sends the step due.
+  Manual run: `GET /api/followup/run?dry=1` with `Authorization: Bearer $CRON_SECRET`.
+
+Env vars: `GHL_LOCATION_ID`, `GHL_TOKEN` (needs contacts, conversations/message
+and customFields scopes), `CRON_SECRET`, `FOLLOWUP_WEBHOOK_SECRET`, optional
+`FOLLOWUP_FROM_EMAIL`. Local dry run: set those in the shell and
+`node -e "require('./lib/followup/engine').runDue({dry:true}).then(r=>console.log(JSON.stringify(r)))"`.
+
 ## Hero video
 
 `assets/hero-blocks-hevc.mp4` (1920x1920 HEVC, Safari / hardware-decode browsers) with
