@@ -1,6 +1,65 @@
-# Sonti.io website
+# Macaws.ai website
 
 Static site: `index.html` + `assets/`. No build step. Deployed on Vercel.
+
+The page sells three products to small and medium-sized businesses whose owners are not
+technical: **Signal** (the AI receptionist, signal.macaws.ai, £99 a month), **Nexus** (the
+customer hub, crm.macaws.ai, a white-labelled GoHighLevel, £50 a seat a month) and the
+**Google Business Profile** service (free audit from the GBP Audit tool, then £99 a month
+managed). Every section leads with the owner's problem, then the fix; product jargon is
+kept for the FAQ.
+
+The page keeps the fourteen numbered sections (`data-n="00"` to `"13"`) and their layouts.
+Section ids that other things link to: `#services` (the three product cards, with
+`#signal`, `#nexus` and `#google` on the cards), `#how`, `#model` (the Nexus day),
+`#work` (results), `#award`, `#team`, `#fit`, `#packages` (pricing), `#faq`, `#contact`,
+`#booking` (the calendar modal, also opened by `/#booking`).
+
+## Business in a Box (`business-in-a-box.html`, served at `/business-in-a-box`)
+
+The offer page for businesses in their first year of trading: all three tools for £250 a year
+(plus VAT), paid once, nothing auto-renews. It is generated from `index.html` by
+`scratchpad/build_box.py` in the session that made it, but it is a plain static page: the
+`<head>`, the whole `<style>` block, the footer, the booking modal and the scripts are copied
+verbatim from `index.html`, so when the shared CSS or the footer changes on the home page,
+copy them across again (or diff the two files). Page-specific CSS sits at the end of the style
+block under `/* business in a box */`.
+
+Hero visuals were generated with Higgsfield (GPT Image 2.5 for the still, Kling 3.0 for the
+loop, start and end frame set to the same still so it loops seamlessly):
+
+| Asset | What | Notes |
+|---|---|---|
+| `assets/box-hero.webp` | 1200x1200 still, also the video poster | background gain-matched to the canvas `#e6e7e2` |
+| `assets/box-hero.mp4` | 1080x1080 H.264, 5 s, silent, same colour correction | `id="blocks-loop"` so the home page's autoplay fallback JS applies; `.no-video` shows the still |
+
+The form posts to the same `/api/lead` with a hidden `type` of "Business in a Box" (tag
+`business-in-a-box`) and a `started` field ("When did you start trading?") that goes into the
+note. The thirty-day follow-up sequence runs for these leads too.
+
+The home page links here from the hero eyebrow tag and the footer.
+
+## Brand
+
+`assets/macaws-logo.png` is the wordmark with the parrot, trimmed from `../macaws_logo.png`
+(371×92). It sits in the nav and footer as `.brand .logo` (28 px / 32 px tall). Favicons and
+`apple-touch-icon.png` are the parrot alone, cut from the same PNG; the touch icon is white on
+coral `#ef4f41`, the logo's coral, which is also the `theme-color`. Regenerate them from the
+source PNG if the logo changes.
+
+Company details in the footer and legal pages: FairFax Group Ltd, trading as Macaws.ai,
+company number 14517057, registered office c/o Growth Accountants Ltd, Merlin House, Brunel
+Road, Theale, Reading RG7 4AB. Contact address used on the site: hello@macaws.ai.
+
+## Lead form (`api/lead.js`)
+
+Posts to the Macaws.ai GoHighLevel location. Fields: `name`, `business`, `email`, `phone`
+(optional), `type` (the "biggest problem" dropdown, which becomes a tag: `signal`, `nexus`,
+`google-profile`, `gbp-audit`, `all-three`, `unsure`) and `brief` (saved as a note).
+Env vars: `GHL_LOCATION_ID`, `GHL_TOKEN`, optional `TIKTOK_ACCESS_TOKEN`.
+
+The TikTok pixel ID in `index.html` and `api/lead.js` is still the one the Sonti site used;
+swap it for the Macaws pixel before running ads.
 
 ## Lead follow-up (`api/followup/`, `lib/followup/`)
 
@@ -11,7 +70,7 @@ contact's conversation there, and the contact's custom fields
 already sent) plus the tags `follow-up` / `follow-up-finished` / `engaged`
 hold where they are. Nothing is stored on Vercel.
 
-- `lib/followup/emails.js` — the copy. Edit here, commit, done.
+- `lib/followup/emails.js` — the copy, written for owners. Edit here, commit, done.
 - `api/followup/webhook.js` — the doorbell. A two-step GHL workflow
   (Contact Created → Webhook) POSTs to `/api/followup/webhook?key=$FOLLOWUP_WEBHOOK_SECRET`;
   it records the start date, tags the contact and sends Day 0.
@@ -23,8 +82,12 @@ hold where they are. Nothing is stored on Vercel.
 
 Env vars: `GHL_LOCATION_ID`, `GHL_TOKEN` (needs contacts, conversations/message
 and customFields scopes), `CRON_SECRET`, `FOLLOWUP_WEBHOOK_SECRET`, optional
-`FOLLOWUP_FROM_EMAIL` (production uses hello@message.sonti.io, the domain verified
-in GHL's Email Services; change it there and in Vercel together). Local dry run: set those in the shell and
+`FOLLOWUP_FROM_EMAIL` (a sending domain verified in GHL's Email Services for the Macaws
+location; change it there and in Vercel together). The custom fields `followup_started`
+and `followup_sent` must exist on the Macaws location; their IDs go in `FOLLOWUP_FIELD_STARTED`
+and `FOLLOWUP_FIELD_SENT`. `.env.local` (git-ignored) holds every variable for local runs, and
+`node scripts/check-ghl.js` is a read-only test that the token works and prints those two IDs.
+Local dry run: set those in the shell and
 `node -e "require('./lib/followup/engine').runDue({dry:true}).then(r=>console.log(JSON.stringify(r)))"`.
 
 ## Hero video
@@ -42,63 +105,33 @@ To replace the clip, drop the new master next to this folder and run (from `sont
 
 ## Real site screenshots
 
-Eight real captures, all 1000 px wide WebP:
+All 1000 px wide WebP, captured with headless Chrome:
 
-| Asset | Site | Size |
-|---|---|---|
-| `assets/leonardo-power.webp` | leonardopower.com | 1000x2057 |
-| `assets/signal.webp` | signal.macaws.ai | 1000x2057 |
-| `assets/nexusportal.webp` | nexusportal.digital | 1000x2057 |
-| `assets/viyu-hub.webp` | viyu-hub-mu.vercel.app | 1000x2057 |
-| `assets/oliver-store.webp` | oliver-online-store.vercel.app | 1000x2057 |
-| `assets/knotie.webp` | knotie.ai | 1000x686 |
-| `assets/openflow.webp` | openflow.computer | 1000x686 |
-| `assets/kairoo.webp` | kairoo.family | 1000x686 |
+| Asset | Site | Size | Used in |
+|---|---|---|---|
+| `assets/signal.webp` | signal.macaws.ai | 1000x2057 | gallery marquee |
+| `assets/signal-1/2/3.webp` | signal.macaws.ai, three 1400x960 windows down the page | 1000x686 | `#featured` frames |
+| `assets/nexus.webp` | crm.macaws.ai | 1000x2057 | gallery marquee |
+| `assets/nexus-one.webp`, `nexus-two.webp` | crm.macaws.ai, top and the feature grid | 1000x625 | the two cards in `#model` |
+| `assets/leonardo-power.webp` | leonardopower.com | 1000x2057 | marquee, `#work` |
+| `assets/viyu-hub.webp` | viyu-hub-mu.vercel.app | 1000x2057 | marquee |
+| `assets/oliver-store.webp` | oliver-online-store.vercel.app | 1000x2057 | marquee |
+| `assets/signal-ai-phone.webp` | Signal's call screen | 480x1920 | `#work`, behind the phone mock on hover |
 
-`knotie.webp`, `openflow.webp` and `kairoo.webp` are the odd ones out: all three are scroll-driven pages with a `100vh` hero, so
-a tall viewport just returns one enormous hero and URL fragments don't jump to the sections
-below them. They are captured at 1400x960 instead — one screen, the same aspect as the frame,
-so there is nothing to pan. Their cards carry `.build-static`, which opts them out of the
-hover pan, and their markup omits the `HOVER` pill so no reveal is promised. To give them a pan you
-need real scrolling (a driven browser, not `--screenshot`) and a stitched strip.
+`kairoo*.webp`, `knotie.webp`, `openflow.webp`, `uk-team.webp`, `india-office.webp` and the
+Kairoo film are no longer referenced by the page and can be deleted once nobody needs them.
 
-### Featured build: Kairoo (`#kairoo`)
+The marquee cards and the `#work` case cards share one idea: the top of the page at rest,
+panned down to the bottom on hover, `HOVER` pill (`.peek`) as the affordance. Cards for pages
+with a `100vh` hero carry `.build-static` and skip the pan.
 
-The section straight after the marquee shows one build end to end: the app film, what was built, and three
-frames of the live site.
-
-- `assets/kairoo-app.mp4` (720x1564 H.264, no audio, about 2.5 MB) and `assets/kairoo-app-poster.jpg` come from
-  the client's 1320x2868 recording, `kairoo video.mp4`, which stays out of git and the deployment:
-
-      ffmpeg -i "kairoo video.mp4" -an -vf scale=720:-2:flags=lanczos -c:v libx264 -profile:v high -preset slow -crf 27 -pix_fmt yuv420p -movflags +faststart assets/kairoo-app.mp4
-      ffmpeg -ss 1.2 -i "kairoo video.mp4" -frames:v 1 -vf scale=720:-2:flags=lanczos -q:v 3 assets/kairoo-app-poster.jpg
-
-  Once the browser decodes it, the film's paper shades from `#faf7ee` at the top to `#f5f1e9` at the bottom, so
-  `.feature-film` is painted `#f8f5ec`, between the two, and the film's outer edge is feathered with a mask, as
-  the hero video's is. It plays muted only while it is on screen, gets a Play/Pause button, and never autoplays
-  under reduced motion; without JavaScript it falls back to the native controls.
-- `assets/kairoo-story.webp` and `assets/kairoo-compare.webp` are 1400x960 viewport captures part-way down
-  kairoo.family, reached by driving the scroll with mouse-wheel events in headless Chrome, since the story
-  animates on scroll. The comparison's two photos are lazy-loaded: force them to load before capturing, or that
-  frame comes out half empty.
-
-They are used in two places, with the same idea in both — the top of the page at rest,
-panned down to the bottom on hover, `HOVER` pill (`.peek`) as the affordance:
-
-- **The gallery marquee — "What it looks like when it's live".** Each `.shot-card` is an
-  `<a>` to the live site wrapping a `.build-frame` (a 420 px browser chrome) and a
-  `.shot-cap`. `.build-view img` is `object-fit:cover`, and the pan is `object-position`
-  going from `50% 0` to `50% 100%` over 9 s. Seven cards, then the same seven again as
-  `aria-hidden` duplicates — `@keyframes gallery` translates the track by `-50%`, so the
-  duplicate set is what makes the loop seamless. **Add or remove a card in both halves.**
-- **`#work` — the Leonardo case-study card.** The screenshot is `.realshot`, layered over
-  the animated `.mock-concierge` and hidden until hover, so that frame shows the mock at
-  rest and the live site on hover. The frame is fixed-size there, so the pan is
-  `translateY(calc(272px - 100%))`.
-
-Both are behind `@media (hover:hover) and (pointer:fine)` and are frozen at the top under
-`prefers-reduced-motion`. **Touch devices never see the pan** — worth revisiting if mobile
-traffic matters.
+- **The gallery marquee.** Each `.shot-card` is an `<a>` to the live site wrapping a
+  `.build-frame` and a `.shot-cap`. Five cards, then the same five again as `aria-hidden`
+  duplicates, so `@keyframes gallery` (translate by `-50%`) loops seamlessly.
+  **Add or remove a card in both halves.**
+- **`#featured`** is Signal end to end: the animated phone mock (`.mock-voice`, the same markup
+  as the first `#work` case) in the film slot, the story beside it, and three frames of
+  signal.macaws.ai below.
 
 To capture a site, load it at 1400 px wide with a 2880 px tall viewport (so everything is
 "in view" and scroll-reveal animations fire), then resize to 1000 px and save as WebP
@@ -106,36 +139,9 @@ quality 72:
 
     chrome --headless=new --hide-scrollbars --window-size=1400,2880 --virtual-time-budget=8000 --screenshot=out.png https://example.com
 
-Live sites capture fine as-is. leonardopower.com had to be served locally with this CSS
-injected first — otherwise the strip is half-empty and has a cookie banner across it:
-
-    html.js .fly{opacity:1 !important;transform:none !important;animation:none !important}
-    [class*="lpc-"]{display:none !important}
-    .palette,.assist{display:none !important}
-
-## Favicon
-
-Source artwork was `Sonti.png` (116x131, only 103x103 of it is the icon). Too small to
-upscale, so the mark — coral squircle, two white rounded squares, elbow connector — was
-redrawn as `assets/favicon.svg` on a `0 0 103 103` viewBox, matching the original to within
-antialiasing on the shape edges. Every raster below is rendered from that SVG, so all sizes
-are crisp:
-
-| File | Purpose |
-|---|---|
-| `assets/favicon.svg` | modern browsers, any size |
-| `favicon.ico` (root) | legacy, 16/32/48 in one file |
-| `assets/favicon-16/32/48/192.png` | classic PNG rel=icon |
-| `assets/apple-touch-icon.png` | iOS home screen, 180x180 |
-
-`apple-touch-icon.png` is deliberately **full-bleed coral with square corners** — iOS applies
-its own mask, and a transparent-cornered icon would composite onto black. Everything else
-keeps the rounded corners and transparency.
-
-To regenerate after changing the SVG: render it to a 512x512 PNG (Chrome headless with
-`--default-background-color=00000000` for transparency), then downsample with LANCZOS.
-`<link rel="icon" href="/favicon.ico" sizes="any">` comes first so SVG-capable browsers
-still prefer the SVG.
+For the three `signal-N.webp` frames, crop 1400x960 windows at y = 0, 1130 and 1880 from the
+tall capture and resize to 1000x686. For the Nexus cards, crop 1400x875 (16:10) windows and
+resize to 1000x625.
 
 ## Legal pages
 
@@ -144,13 +150,13 @@ still prefer the SVG.
 tokens, nav, buttons and footer from `index.html`, so change the two together. `legal.css` sits at the root
 rather than in `assets/`, because `assets/` is served with a one-year immutable cache.
 
-The cookie choice lives in `localStorage` as `sonti-consent` (`granted` or `denied`). The banner in
+The cookie choice lives in `localStorage` as `macaws-consent` (`granted` or `denied`). The banner in
 `index.html` and the switch on `cookie-settings.html` both write it, and both delete TikTok's `_ttp`,
-`_tt_*`, `ttcsid*` and `ttclid` cookies and `sonti-ttclid` when someone says no.
+`_tt_*`, `ttcsid*` and `ttclid` cookies and `macaws-ttclid` when someone says no.
 
-The cookie tables in `cookies.html` were taken from the live site on 12 Sep 2026 with headless Chrome:
-without consent, with consent, and with the booking calendar open. Re-check them whenever a tracking tag,
-the booking widget or another third-party script changes, and update the dates on the pages.
+The cookie tables in `cookies.html` were taken from the Sonti site on 12 Sep 2026 with headless Chrome.
+Re-check them on the Macaws domain before launch and whenever a tracking tag, the booking widget or
+another third-party script changes, and update the dates on the pages.
 
 ## Deploy
 

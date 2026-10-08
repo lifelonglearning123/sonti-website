@@ -3,14 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Sonti.io</title>
-<meta name="description" content="Sonti.io is the white-label AI and automation production team behind agencies. Chatbots, voice agents, AI-enabled websites and specialist automation — briefed in the UK, engineered in India, delivered under your brand. Packages from $1,000 for 25 hours, AI tokens included.">
+<title>Macaws.ai — the phone answered, every customer kept, found on Google</title>
+<meta name="description" content="Macaws.ai gives small businesses three simple tools, set up for you: Signal answers every call and books the job, Nexus keeps every customer and follow-up in one place, and we get your Google Business Profile found first. From £99 a month, no setup fee, cancel any time. Cambridge, UK.">
 <link rel="icon" href="/favicon.ico" sizes="any">
-<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/favicon-32.png" type="image/png" sizes="32x32">
 <link rel="icon" href="assets/favicon-192.png" type="image/png" sizes="192x192">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
-<meta name="theme-color" content="#e8553a">
+<meta name="theme-color" content="#ef4f41">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Instrument+Sans:wght@400..700&family=DM+Mono:wght@400;500&display=swap">
@@ -19,10 +18,10 @@
 /* ---- TikTok pixel ----------------------------------------------------
    Nothing from TikTok loads until a visitor allows cookies in the banner
    at the foot of the page (UK PECR). The choice is kept in localStorage
-   as "sonti-consent": "granted" or "denied". */
-window.sontiTikTok = (function(){
-  var KEY = 'sonti-consent';
-  var CLICK_KEY = 'sonti-ttclid';
+   as "macaws-consent": "granted" or "denied". */
+window.macawsTikTok = (function(){
+  var KEY = 'macaws-consent';
+  var CLICK_KEY = 'macaws-ttclid';
   var CLICK_TTL = 7 * 24 * 60 * 60 * 1000; /* TikTok's default 7-day click window */
   var loaded = false;
   var clickId = '';
@@ -241,8 +240,10 @@ window.sontiTikTok = (function(){
   .brand .mark{width:26px;height:26px;flex:none;transition:transform .35s var(--ease)}
   .brand:hover .mark{transform:scale(1.08)}
   @media(prefers-reduced-motion:reduce){.brand .mark{transition:none}.brand:hover .mark{transform:none}}
-  .wordmark{font-family:var(--display);font-stretch:80%;font-weight:800;font-size:22px;letter-spacing:-.01em;text-transform:uppercase;line-height:1}
-  .wordmark .tld{font-weight:500;color:var(--smoke)}
+  .brand .logo{height:28px;width:auto;transition:transform .35s var(--ease)}
+  .brand:hover .logo{transform:scale(1.04)}
+  @media(prefers-reduced-motion:reduce){.brand .logo{transition:none}.brand:hover .logo{transform:none}}
+  .foot-brand .logo{height:32px}
   .nav-links{display:none;gap:4px}
   .nav-links a{text-decoration:none;font-weight:500;font-size:15px;padding:10px 14px;border-radius:999px;color:var(--slate);transition:background-color .15s ease}
   .nav-links a:hover,.nav-links a.active{background:var(--paper);color:var(--ink)}
@@ -304,7 +305,7 @@ window.sontiTikTok = (function(){
   .ticker span:nth-child(3n+1)::after{background:var(--coral)}
   @keyframes ticker{to{transform:translateX(-50%)}}
 
-  /* ---------- ask / gap / sonti ---------- */
+  /* ---------- ask / gap / triad ---------- */
   .triad{display:grid;gap:40px}
   @media(min-width:800px){.triad{grid-template-columns:repeat(3,1fr);gap:32px}}
   .triad .word{font-size:clamp(48px,5.6vw,80px);margin-bottom:20px;white-space:nowrap}
@@ -793,29 +794,19 @@ window.sontiTikTok = (function(){
 <div class="progress" aria-hidden="true"></div>
 <div class="spine" aria-hidden="true">
   <div class="spine-track"><div class="spine-fill"></div></div>
-  <div class="spine-label"><span class="n" id="spine-num">00</span><span id="spine-text">Sonti.io</span></div>
+  <div class="spine-label"><span class="n" id="spine-num">00</span><span id="spine-text">macaws.ai</span></div>
 </div>
 
 <header class="nav" id="top">
   <div class="container">
     <div class="nav-pill">
-      <a class="brand" href="#top" aria-label="Sonti.io — back to top">
-        <svg class="mark" viewBox="0 0 103 103" aria-hidden="true">
-          <rect width="103" height="103" rx="23" fill="#e8553a"/>
-          <g fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M41 49v8a4 4 0 0 0 4 4h8.5"/>
-            <rect x="32" y="33" width="16" height="16" rx="3.5"/>
-            <rect x="53.5" y="54" width="16" height="16" rx="3.5"/>
-          </g>
-        </svg>
-        <span class="wordmark">Sonti<span class="tld">.io</span></span>
-      </a>
+      <a class="brand" href="#top" aria-label="macaws.ai — back to top"><img class="logo" src="assets/macaws-logo.png" width="371" height="92" alt="macaws.ai" decoding="async"></a>
       <nav class="nav-links" aria-label="Primary">
-        <a href="#services">Services</a>
+        <a href="#services">Products</a>
         <a href="#how">How it works</a>
-        <a href="#work">Work</a>
+        <a href="#work">Results</a>
+        <a href="#packages">Pricing</a>
         <a href="#team">Team</a>
-        <a href="#packages">Packages</a>
         <a href="#faq">FAQ</a>
       </nav>
       <div class="nav-actions">
@@ -826,11 +817,11 @@ window.sontiTikTok = (function(){
       </div>
     </div>
     <nav class="nav-menu" id="nav-menu" aria-label="Primary (mobile)">
-      <a href="#services">Services</a>
+      <a href="#services">Products</a>
       <a href="#how">How it works</a>
-      <a href="#work">Work</a>
+      <a href="#work">Results</a>
+      <a href="#packages">Pricing</a>
       <a href="#team">Team</a>
-      <a href="#packages">Packages</a>
       <a href="#faq">FAQ</a>
       <a href="#booking" data-book>Book a call</a>
     </nav>
@@ -838,35 +829,34 @@ window.sontiTikTok = (function(){
 </header>
 
 <main>
-<section class="hero" aria-labelledby="hero-title" data-spine="Sonti.io" data-n="00">
+<section class="hero" aria-labelledby="hero-title" data-spine="macaws.ai" data-n="00">
   <div class="container">
     <div class="hero-grid">
       <div class="hero-copy">
         <div class="eyebrow fu" style="--fd:.05s">
-          <span class="tag tag-volt">For agencies</span>
-          <span class="tag">White-label by default</span>
-          <span class="tag">UK-briefed · India-built</span>
+          <span class="tag tag-volt">For small businesses</span>
+          <span class="tag">Set up for you</span>
+          <span class="tag">Cambridge, UK</span>
+          <a class="tag tag-coral" href="/business-in-a-box" style="text-decoration:none">New business? £250 for year one →</a>
         </div>
         <h1 class="display h1" id="hero-title">
-          <span class="wr"><span class="w" style="--i:0">We</span></span>
-          <span class="wr"><span class="w" style="--i:1">become</span></span>
-          <span class="wr"><span class="w" style="--i:2">your</span></span>
-          <span class="wr"><span class="w" style="--i:3">agency's</span></span>
-          <span class="wr"><span class="w" style="--i:4">AI&nbsp;&amp;</span></span>
-          <span class="wr"><span class="w" style="--i:5">automation</span></span>
-          <span class="wr"><span class="w" style="--i:6">backbone.</span></span>
+          <span class="wr"><span class="w" style="--i:0">Never</span></span>
+          <span class="wr"><span class="w" style="--i:1">miss</span></span>
+          <span class="wr"><span class="w" style="--i:2">a</span></span>
+          <span class="wr"><span class="w" style="--i:3">customer</span></span>
+          <span class="wr"><span class="w" style="--i:4">again.</span></span>
         </h1>
-        <p class="lead reveal fu" data-reveal="load" style="--fd:.6s;margin-top:32px">Your clients are asking for chatbots, voice agents, AI-enabled websites and “can we automate this?”. We're the production team that builds all of it — scoped by our UK business analysts, engineered by our team in India, and delivered under <span class="hl">your brand</span>.</p>
+        <p class="lead reveal fu" data-reveal="load" style="--fd:.6s;margin-top:32px">Calls you couldn't get to. Quotes you forgot to chase. People who searched for what you do and found someone else. Macaws.ai is three simple tools that answer the phone, keep every customer in touch and get you found on Google — set up for you, so you can <span class="hl">get on with the work</span>.</p>
         <div class="cta-row fu" style="--fd:.75s">
-          <a class="btn btn-ink" href="#booking" data-book>Book a discovery call
+          <a class="btn btn-ink" href="#booking" data-book>Book a free 20-minute call
             <svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
           </a>
-          <a class="btn btn-ghost" href="#work">See the work</a>
+          <a class="btn btn-ghost" href="#contact">Get a free Google audit</a>
         </div>
         <ul class="proof mono fu" style="--fd:.9s" aria-label="Credentials">
-          <li><span class="dot dot-volt"></span>Innovate UK grant winner</li>
-          <li><span class="dot"></span>One UK point of contact</li>
-          <li><span class="dot"></span>Packages from $1,000 · AI tokens included</li>
+          <li><span class="dot dot-volt"></span>Live in days, not months</li>
+          <li><span class="dot"></span>No tech skills needed</li>
+          <li><span class="dot"></span>From £99 a month · cancel any time</li>
         </ul>
       </div>
 
@@ -876,18 +866,18 @@ window.sontiTikTok = (function(){
           <source src="assets/hero-blocks-hevc.mp4" type='video/mp4; codecs="hvc1"'>
           <source src="assets/hero-blocks.mp4" type='video/mp4; codecs="avc1.640029"'>
         </video>
-        <div class="blocks" id="blocks" role="img" aria-label="A cluster of floating building blocks labelled Sonti, Voice, Chat, Automate and AI site">
+        <div class="blocks" id="blocks" role="img" aria-label="A cluster of floating building blocks labelled Macaws, Signal, Nexus, Google and Reviews">
           <svg viewBox="0 0 520 580" aria-hidden="true">
 <defs><pattern id="dots" width="26" height="26" patternUnits="userSpaceOnUse"><circle class="grid-dots" cx="1.2" cy="1.2" r="1.2"/></pattern></defs>
 <rect x="0" y="40" width="520" height="520" rx="40" fill="url(#dots)"/>
 <g transform="translate(285,130)"><g class="plx" data-depth="0.85"><g class="cube" style="--d:4.3s;--delay:-0.6s;--amp:18px"><polygon points="0,-46 39.8,-23 0,0 -39.8,-23" fill="#e3dcff"/><polygon points="-39.8,-23 0,0 0,46 -39.8,23" fill="#a08fe0"/><polygon points="0,0 39.8,-23 39.8,23 0,46" fill="#c9b8ff"/></g></g></g>
 <g transform="translate(75,150)"><g class="plx" data-depth="1"><g class="cube" style="--d:4.5s;--delay:-1.7s;--amp:19px"><polygon points="0,-34 29.4,-17 0,0 -29.4,-17" fill="#ffffff"/><polygon points="-29.4,-17 0,0 0,34 -29.4,17" fill="#cfd1ca"/><polygon points="0,0 29.4,-17 29.4,17 0,34" fill="#e9eae5"/></g></g></g>
-<g transform="translate(400,215)"><g class="plx" data-depth="0.7"><g class="cube" style="--d:4.7s;--delay:-1.2s;--amp:16px"><polygon points="0,-64 55.4,-32 0,0 -55.4,-32" fill="#eef98a"/><polygon points="-55.4,-32 0,0 0,64 -55.4,32" fill="#b6cc2a"/><polygon points="0,0 55.4,-32 55.4,32 0,64" fill="#dcf34a"/><text transform="matrix(0.866,-0.5,0,1,0,0)" x="9" y="39.7" font-size="10.2" fill="#0b0b0a">Voice</text></g></g></g>
-<g transform="translate(195,300)"><g class="plx" data-depth="0.5"><g class="cube" style="--d:5.4s;--delay:-2.1s;--amp:13px"><polygon points="0,-80 69.3,-40 0,0 -69.3,-40" fill="#ffffff"/><polygon points="-69.3,-40 0,0 0,80 -69.3,40" fill="#cfd1ca"/><polygon points="0,0 69.3,-40 69.3,40 0,80" fill="#e9eae5"/><text transform="matrix(0.866,-0.5,0,1,0,0)" x="11.2" y="49.6" font-size="12.8" fill="#0b0b0a">Chat</text></g></g></g>
-<g transform="translate(330,330)"><g class="plx" data-depth="0.35"><g class="cube" style="--d:6.2s;--delay:0s;--amp:10px"><polygon points="0,-100 86.6,-50 0,0 -86.6,-50" fill="#34352f"/><polygon points="-86.6,-50 0,0 0,100 -86.6,50" fill="#0b0b0a"/><polygon points="0,0 86.6,-50 86.6,50 0,100" fill="#1e1f1b"/><text transform="matrix(0.866,-0.5,0,1,0,0)" x="14" y="62" font-size="16.0" fill="#dcf34a">Sonti</text></g></g></g>
-<g transform="translate(150,455)"><g class="plx" data-depth="0.6"><g class="cube" style="--d:5.9s;--delay:-3.3s;--amp:15px"><polygon points="0,-56 48.5,-28 0,0 -48.5,-28" fill="#ff9d86"/><polygon points="-48.5,-28 0,0 0,56 -48.5,28" fill="#d64f31"/><polygon points="0,0 48.5,-28 48.5,28 0,56" fill="#ff6b4a"/><text transform="matrix(0.866,-0.5,0,1,0,0)" x="7.8" y="34.7" font-size="9" fill="#0b0b0a">Automate</text></g></g></g>
+<g transform="translate(400,215)"><g class="plx" data-depth="0.7"><g class="cube" style="--d:4.7s;--delay:-1.2s;--amp:16px"><polygon points="0,-64 55.4,-32 0,0 -55.4,-32" fill="#eef98a"/><polygon points="-55.4,-32 0,0 0,64 -55.4,32" fill="#b6cc2a"/><polygon points="0,0 55.4,-32 55.4,32 0,64" fill="#dcf34a"/><text transform="matrix(0.866,-0.5,0,1,0,0)" x="9" y="39.7" font-size="10.2" fill="#0b0b0a">Signal</text></g></g></g>
+<g transform="translate(195,300)"><g class="plx" data-depth="0.5"><g class="cube" style="--d:5.4s;--delay:-2.1s;--amp:13px"><polygon points="0,-80 69.3,-40 0,0 -69.3,-40" fill="#ffffff"/><polygon points="-69.3,-40 0,0 0,80 -69.3,40" fill="#cfd1ca"/><polygon points="0,0 69.3,-40 69.3,40 0,80" fill="#e9eae5"/><text transform="matrix(0.866,-0.5,0,1,0,0)" x="11.2" y="49.6" font-size="12.8" fill="#0b0b0a">Nexus</text></g></g></g>
+<g transform="translate(330,330)"><g class="plx" data-depth="0.35"><g class="cube" style="--d:6.2s;--delay:0s;--amp:10px"><polygon points="0,-100 86.6,-50 0,0 -86.6,-50" fill="#34352f"/><polygon points="-86.6,-50 0,0 0,100 -86.6,50" fill="#0b0b0a"/><polygon points="0,0 86.6,-50 86.6,50 0,100" fill="#1e1f1b"/><text transform="matrix(0.866,-0.5,0,1,0,0)" x="14" y="62" font-size="13.5" fill="#dcf34a">Macaws</text></g></g></g>
+<g transform="translate(150,455)"><g class="plx" data-depth="0.6"><g class="cube" style="--d:5.9s;--delay:-3.3s;--amp:15px"><polygon points="0,-56 48.5,-28 0,0 -48.5,-28" fill="#ff9d86"/><polygon points="-48.5,-28 0,0 0,56 -48.5,28" fill="#d64f31"/><polygon points="0,0 48.5,-28 48.5,28 0,56" fill="#ff6b4a"/><text transform="matrix(0.866,-0.5,0,1,0,0)" x="7.8" y="34.7" font-size="9" fill="#0b0b0a">Google</text></g></g></g>
 <g transform="translate(440,440)"><g class="plx" data-depth="0.8"><g class="cube" style="--d:5.1s;--delay:-2.6s;--amp:17px"><polygon points="0,-42 36.4,-21 0,0 -36.4,-21" fill="#34352f"/><polygon points="-36.4,-21 0,0 0,42 -36.4,21" fill="#0b0b0a"/><polygon points="0,0 36.4,-21 36.4,21 0,42" fill="#1e1f1b"/></g></g></g>
-<g transform="translate(250,500)"><g class="plx" data-depth="0.65"><g class="cube" style="--d:6.5s;--delay:-4.1s;--amp:12px"><polygon points="0,-48 41.6,-24 0,0 -41.6,-24" fill="#c4e8ff"/><polygon points="-41.6,-24 0,0 0,48 -41.6,24" fill="#5fb2e8"/><polygon points="0,0 41.6,-24 41.6,24 0,48" fill="#8fd3ff"/><text transform="matrix(0.866,-0.5,0,1,0,0)" x="6.7" y="29.8" font-size="9" fill="#0b0b0a">AI site</text></g></g></g>
+<g transform="translate(250,500)"><g class="plx" data-depth="0.65"><g class="cube" style="--d:6.5s;--delay:-4.1s;--amp:12px"><polygon points="0,-48 41.6,-24 0,0 -41.6,-24" fill="#c4e8ff"/><polygon points="-41.6,-24 0,0 0,48 -41.6,24" fill="#5fb2e8"/><polygon points="0,0 41.6,-24 41.6,24 0,48" fill="#8fd3ff"/><text transform="matrix(0.866,-0.5,0,1,0,0)" x="6.7" y="29.8" font-size="9" fill="#0b0b0a">Reviews</text></g></g></g>
 </svg>
         </div>
       </div>
@@ -895,195 +885,169 @@ window.sontiTikTok = (function(){
     </div>
 
     <div class="scroll-cue mono" aria-hidden="true"><span>Scroll</span><svg viewBox="0 0 14 14"><path d="M7 2v10M3 8l4 4 4-4"/></svg></div>
-    <div class="ticker-wrap" aria-label="Requests agencies bring us">
+    <div class="ticker-wrap" aria-label="What owners tell us">
       <div class="ticker">
-        <span>“Can our site answer questions about the menu?”</span>
-        <span>“We need WhatsApp support that actually helps”</span>
-        <span>“A voice agent for after-hours bookings”</span>
-        <span>“Automate the monthly reporting”</span>
-        <span>“Personalise the homepage per visitor”</span>
-        <span>“A lead-qualifying bot for the property listings”</span>
-        <span>“Turn the brochure library into an AI concierge”</span>
-        <span>“Push HubSpot leads to sales in Slack”</span>
-        <span>“Can our site answer questions about the menu?”</span>
-        <span>“We need WhatsApp support that actually helps”</span>
-        <span>“A voice agent for after-hours bookings”</span>
-        <span>“Automate the monthly reporting”</span>
-        <span>“Personalise the homepage per visitor”</span>
-        <span>“A lead-qualifying bot for the property listings”</span>
-        <span>“Turn the brochure library into an AI concierge”</span>
-        <span>“Push HubSpot leads to sales in Slack”</span>
+        <span>“I was up a ladder when they rang”</span>
+        <span>“They left a voicemail. I never called back.”</span>
+        <span>“We're not even on the first page of Google”</span>
+        <span>“I sent the quote and forgot to chase it”</span>
+        <span>“Who answers while I'm on holiday?”</span>
+        <span>“Half our reviews have no reply”</span>
+        <span>“The enquiry sat in my inbox for a week”</span>
+        <span>“Customers can't find our opening hours”</span>
+        <span>“I was up a ladder when they rang”</span>
+        <span>“They left a voicemail. I never called back.”</span>
+        <span>“We're not even on the first page of Google”</span>
+        <span>“I sent the quote and forgot to chase it”</span>
+        <span>“Who answers while I'm on holiday?”</span>
+        <span>“Half our reviews have no reply”</span>
+        <span>“The enquiry sat in my inbox for a week”</span>
+        <span>“Customers can't find our opening hours”</span>
       </div>
     </div>
   </div>
 </section>
 
-<section class="block" style="margin-top:clamp(56px,8vw,96px)" aria-labelledby="ask-title" data-spine="Why agencies come to us" data-n="01">
+<section class="block" style="margin-top:clamp(56px,8vw,96px)" aria-labelledby="ask-title" data-spine="What changes" data-n="01">
   <div class="container">
-    <h2 class="mono muted pop" id="ask-title" style="margin-bottom:48px">Why agencies come to us</h2>
+    <h2 class="mono muted pop" id="ask-title" style="margin-bottom:48px">What changes when it's running</h2>
     <div class="triad">
       <div>
-        <p class="display word pop" data-from="center" style="--i:0">Same team.</p>
-        <p class="reveal">On a freelance platform every project means a new stranger — new standards, new habits, new onboarding. With Sonti it's the same team every time. The analyst who scoped your last build scopes the next one, and the engineers already know your clients.</p>
+        <p class="display word pop" data-from="center" style="--i:0">More sales.</p>
+        <p class="reveal">Every call answered, every quote chased, every local search that finds you first. The customers you were losing without ever knowing about them become the ones in your diary.</p>
       </div>
       <div>
-        <p class="display word pop" data-from="center" style="--i:2">UK-based.</p>
-        <p class="reveal">You contract with a UK business, and the team understands what UK, US and European clients actually need — GDPR and data residency, accessibility, the tone that lands in each market. Your client's requirements never get lost in translation.</p>
+        <p class="display word pop" data-from="center" style="--i:2">Less admin.</p>
+        <p class="reveal">No voicemails to return, no call notes to type up, no spreadsheet of people to get back to. Reminders, follow-ups and review requests go out on their own, and you see it all in one place on your phone.</p>
       </div>
       <div>
-        <p class="display word volt pop" data-from="center" style="--i:4">Tech-led.</p>
-        <p class="reveal">We build with the latest tools and models, chosen for the job rather than by habit. That makes every build efficient twice over: fewer hours to ship it, and fewer tokens to run it once it's live.</p>
+        <p class="display word volt pop" data-from="center" style="--i:4">Set up for you.</p>
+        <p class="reveal">You tell us about your business on one call. We build it, switch it on and keep it running. When something needs changing, you message a person, not a settings page.</p>
       </div>
     </div>
   </div>
 </section>
 
-<section class="sheet section" id="services" aria-labelledby="services-title" data-spine="What we build" data-n="02">
+<section class="sheet section" id="services" aria-labelledby="services-title" data-spine="Three tools" data-n="02">
   <div class="container">
     <div class="section-head para">
-      <h2 class="display h2 rise-words" id="services-title">What we build for your clients</h2>
-      <p class="lead muted reveal">Almost every request an agency forwards us fits one of these six. Bring the ask however rough it is — we'll tell you which one it is, and what it takes.</p>
+      <h2 class="display h2 rise-words" id="services-title">Three tools. One job: more customers, less chasing.</h2>
+      <p class="lead muted reveal">Each one works on its own. Together they cover the whole journey, from the moment someone searches for what you do to the day they come back.</p>
     </div>
     <div class="services">
-      <article class="card service pop" style="--i:0;--accent:var(--sky)">
-        <div class="icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="M3 9h18M7 6.5h.01M10 6.5h.01"/><path d="M8 14l2 2 4-4"/></svg></div>
-        <div><h3 class="display h3">AI-enabled websites</h3><p>Websites with intelligence built in: site-wide answers from the client's own content, personalised pages, lead qualification and booking without a human in the loop.</p></div>
-        <div class="tags"><span class="tag tag-line">Next.js</span><span class="tag tag-line">Webflow + AI</span><span class="tag tag-line">Headless CMS</span></div>
-      </article>
-      <article class="card service pop" style="--i:1;--accent:var(--lilac)">
-        <div class="icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6a3 3 0 0 1 3-3h10a3 3 0 0 1 3 3v7a3 3 0 0 1-3 3H9l-5 4z"/><path d="M8 9h8M8 12h5"/></svg></div>
-        <div><h3 class="display h3">Chatbots &amp; AI assistants</h3><p>Assistants trained on the client's products, policies and FAQs — on the website, WhatsApp or Messenger — that hand off to a person the moment it matters.</p></div>
-        <div class="tags"><span class="tag tag-line">OpenAI</span><span class="tag tag-line">Anthropic</span><span class="tag tag-line">RAG</span><span class="tag tag-line">WhatsApp</span></div>
-      </article>
-      <article class="card service pop" style="--i:2;--accent:var(--coral)">
+      <article class="card service pop" id="signal" style="--i:0;--accent:var(--coral)">
         <div class="icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12h2M7 8v8M11 5v14M15 8v8M19 10v4"/></svg></div>
-        <div><h3 class="display h3">Voice agents</h3><p>Phone agents that answer, book, reschedule and qualify — on UK numbers, in natural voices, logging every call to the client's CRM. Inbound, outbound or both.</p></div>
-        <div class="tags"><span class="tag tag-line">Twilio</span><span class="tag tag-line">Speech-to-text</span><span class="tag tag-line">CRM handoff</span></div>
+        <div><h3 class="display h3">Signal: the phone, answered</h3><p>A receptionist that picks up every call in under three seconds, day or night, in a voice callers take for a person. It knows your services, your prices and your hours, books the job into your diary during the call, and puts urgent callers straight through to you. Every call recorded, written up and in your inbox before the caller has put the phone down.</p></div>
+        <div class="tags"><span class="tag tag-line">Keeps your number</span><span class="tag tag-line">Books into your diary</span><span class="tag tag-line">£99 a month</span></div>
       </article>
-      <article class="card service pop" style="--i:3;--accent:var(--volt)">
-        <div class="icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="6" height="6" rx="1.5"/><rect x="15" y="15" width="6" height="6" rx="1.5"/><rect x="15" y="3" width="6" height="6" rx="1.5"/><path d="M9 6h6M18 9v6M6 9v9h9"/></svg></div>
-        <div><h3 class="display h3">Workflow &amp; marketing automation</h3><p>The unglamorous work that eats agency hours: lead routing, CRM hygiene, reporting, onboarding sequences, approvals — automated across the tools the client already pays for.</p></div>
-        <div class="tags"><span class="tag tag-line">HubSpot</span><span class="tag tag-line">Make</span><span class="tag tag-line">n8n</span><span class="tag tag-line">Zapier</span></div>
+      <article class="card service pop" id="nexus" style="--i:1;--accent:var(--lilac)">
+        <div class="icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6a3 3 0 0 1 3-3h10a3 3 0 0 1 3 3v7a3 3 0 0 1-3 3H9l-5 4z"/><path d="M8 9h8M8 12h5"/></svg></div>
+        <div><h3 class="display h3">Nexus: every customer in one place</h3><p>Calls, texts, emails and WhatsApp in one inbox, with each customer's history beside the conversation. Quotes get chased, appointments get a reminder, and happy customers get asked for a review, all without you remembering to. Open it on your phone and see who is waiting on you.</p></div>
+        <div class="tags"><span class="tag tag-line">One inbox</span><span class="tag tag-line">Follow-ups sent for you</span><span class="tag tag-line">£50 a seat</span></div>
       </article>
-      <article class="card service pop" style="--i:4;--accent:var(--sky)">
-        <div class="icon"><svg viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="12" cy="6" rx="8" ry="3"/><path d="M4 6v12c0 1.7 3.6 3 8 3s8-1.3 8-3V6"/><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></svg></div>
-        <div><h3 class="display h3">AI content &amp; data pipelines</h3><p>Content at scale with guardrails — product descriptions, localisation, briefs — plus the data plumbing behind it: feeds, enrichment, deduplication and dashboards.</p></div>
-        <div class="tags"><span class="tag tag-line">Bulk generation</span><span class="tag tag-line">Enrichment</span><span class="tag tag-line">Dashboards</span></div>
-      </article>
-      <article class="card service pop" style="--i:5;--accent:var(--lilac)">
-        <div class="icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 3v4M15 3v4M9 17v4M15 17v4M3 9h4M3 15h4M17 9h4M17 15h4"/><rect x="7" y="7" width="10" height="10" rx="2"/><path d="M10 12h4"/></svg></div>
-        <div><h3 class="display h3">Custom AI integrations</h3><p>When the ask doesn't fit a box: internal copilots, document processing, models wired into the client's own systems. Scoped properly, built once, documented for whoever comes next.</p></div>
-        <div class="tags"><span class="tag tag-line">Internal copilots</span><span class="tag tag-line">Document AI</span><span class="tag tag-line">APIs</span></div>
+      <article class="card service pop" id="google" style="--i:2;--accent:var(--sky)">
+        <div class="icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="M3 9h18M7 6.5h.01M10 6.5h.01"/><path d="M8 14l2 2 4-4"/></svg></div>
+        <div><h3 class="display h3">Google: found first</h3><p>When someone nearby searches for what you do, your Google Business Profile is the first thing they see. We check yours free, in about a minute, and tell you what is costing you calls. Then, if you want, we fix it and run it: photos, posts, review replies, hours and services kept right, every month.</p></div>
+        <div class="tags"><span class="tag tag-line">Free audit</span><span class="tag tag-line">Managed for you</span><span class="tag tag-line">£99 a month</span></div>
       </article>
     </div>
   </div>
 </section>
 
-<section class="gallery-section" aria-labelledby="gallery-title" data-spine="Recent builds" data-n="03">
+<section class="gallery-section" aria-labelledby="gallery-title" data-spine="Live sites" data-n="03">
   <div class="container">
     <div class="section-head para">
       <h2 class="display h2 rise-words" id="gallery-title">What it looks like when it's live</h2>
-      <p class="lead muted reveal">Eight things we've built, as their customers meet them. Not one of these is a mock-up — hover to pause the strip and look further down any page, click to open the live site.</p>
+      <p class="lead muted reveal">Our own products and a few of the businesses running on them, as their customers meet them. Hover to pause the strip and look further down a page, click to open the live site.</p>
     </div>
   </div>
-  <div class="gallery" aria-label="Examples of builds">
-    <div class="gallery-track"><a class="shot-card build-static" href="https://kairoo.family" target="_blank" rel="noopener"><div class="shot-frame"><div class="build-frame">
-  <div class="build-bar"><i></i><i></i><i></i><span class="url">kairoo.family</span></div>
-  <div class="build-view"><img src="assets/kairoo.webp" width="1000" height="686" loading="lazy" decoding="async" alt="The Kairoo homepage: “You shouldn’t have to be the bad cop in your own home.” over an illustrated village at dusk."></div>
-</div></div><div class="shot-cap"><b>Kairoo</b><span class="muted">A screen-time deal a parent and child sign together, kept by the app. Both apps, the backend and the website.</span><span class="build-foot"><span class="tag tag-ink">App + backend + website</span><span class="visit mono">Open ↗</span></span></div></a><a class="shot-card" href="https://www.leonardopower.com" target="_blank" rel="noopener"><div class="shot-frame"><div class="build-frame">
-  <div class="build-bar"><i></i><i></i><i></i><span class="url">leonardopower.com</span><span class="peek mono">hover</span></div>
-  <div class="build-view"><img src="assets/leonardo-power.webp" width="1000" height="2057" loading="lazy" decoding="async" alt="The Leonardo Power homepage — “Your new website answers the phone.” above screenshots of the client sites they have built."></div>
-</div></div><div class="shot-cap"><b>Leonardo Power</b><span class="muted">Websites that answer the phone, remember who called and book the job. Eleven live.</span><span class="build-foot"><span class="tag tag-sky">AI-enabled website</span><span class="visit mono">Open ↗</span></span></div></a><a class="shot-card" href="https://signal.macaws.ai" target="_blank" rel="noopener"><div class="shot-frame"><div class="build-frame">
+  <div class="gallery" aria-label="Live products and sites">
+    <div class="gallery-track"><a class="shot-card" href="https://signal.macaws.ai" target="_blank" rel="noopener"><div class="shot-frame"><div class="build-frame">
   <div class="build-bar"><i></i><i></i><i></i><span class="url">signal.macaws.ai</span><span class="peek mono">hover</span></div>
-  <div class="build-view"><img src="assets/signal.webp" width="1000" height="2057" loading="lazy" decoding="async" alt="The Signal homepage — “Never miss another call.” beside a call being answered, with 24/7, under three seconds and twelve minutes as the headline numbers."></div>
-</div></div><div class="shot-cap"><b>Signal</b><span class="muted">A white-label AI receptionist an agency resells as its own. Live in twelve minutes.</span><span class="build-foot"><span class="tag tag-coral">Voice agent</span><span class="visit mono">Open ↗</span></span></div></a><a class="shot-card" href="https://nexusportal.digital/" target="_blank" rel="noopener"><div class="shot-frame"><div class="build-frame">
-  <div class="build-bar"><i></i><i></i><i></i><span class="url">nexusportal.digital</span><span class="peek mono">hover</span></div>
-  <div class="build-view"><img src="assets/nexusportal.webp" width="1000" height="2057" loading="lazy" decoding="async" alt="The NexusPortal homepage — “The CRM your agency runs on — under your brand.” above a screenshot of the dashboard."></div>
-</div></div><div class="shot-cap"><b>NexusPortal</b><span class="muted">A branded CRM front end over GoHighLevel — SMS, email and WhatsApp in one thread.</span><span class="build-foot"><span class="tag tag-lilac">White-label CRM</span><span class="visit mono">Open ↗</span></span></div></a><a class="shot-card" href="https://viyu-hub-mu.vercel.app/" target="_blank" rel="noopener"><div class="shot-frame"><div class="build-frame">
-  <div class="build-bar"><i></i><i></i><i></i><span class="url">viyu-hub-mu.vercel.app</span><span class="peek mono">hover</span></div>
-  <div class="build-view"><img src="assets/viyu-hub.webp" width="1000" height="2057" loading="lazy" decoding="async" alt="The ViYu Hub homepage — “The operating system for serviced accommodation.” beside a panel showing what it costs per unit."></div>
-</div></div><div class="shot-cap"><b>ViYu Hub</b><span class="muted">Bookings, guest messaging, payments and a voice receptionist for serviced accommodation.</span><span class="build-foot"><span class="tag tag-volt">Automation</span><span class="visit mono">Open ↗</span></span></div></a><a class="shot-card" href="https://oliver-online-store.vercel.app/" target="_blank" rel="noopener"><div class="shot-frame"><div class="build-frame">
-  <div class="build-bar"><i></i><i></i><i></i><span class="url">oliver-online-store.vercel.app</span><span class="peek mono">hover</span></div>
-  <div class="build-view"><img src="assets/oliver-store.webp" width="1000" height="2057" loading="lazy" decoding="async" alt="The Oliver Embroidery storefront — “Your logo, stitched in by Thursday.” above a grid of garment categories."></div>
-</div></div><div class="shot-cap"><b>Oliver Embroidery</b><span class="muted">A 3,350-product workwear store with artwork upload, and a staff console behind it.</span><span class="build-foot"><span class="tag tag-sky">Ecommerce + console</span><span class="visit mono">Open ↗</span></span></div></a><a class="shot-card build-static" href="https://knotie.ai" target="_blank" rel="noopener"><div class="shot-frame"><div class="build-frame">
-  <div class="build-bar"><i></i><i></i><i></i><span class="url">knotie.ai</span></div>
-  <div class="build-view"><img src="assets/knotie.webp" width="1000" height="686" loading="lazy" decoding="async" alt="The Knotie AI homepage — “Sell AI products under your brand” beside an orbit of the services a partner can resell."></div>
-</div></div><div class="shot-cap"><b>Knotie AI</b><span class="muted">One-click AI products — voice, chat, APIs, CRM — a partner sells and bills on their own domain.</span><span class="build-foot"><span class="tag tag-lilac">White-label AI platform</span><span class="visit mono">Open ↗</span></span></div></a><a class="shot-card build-static" href="https://openflow.computer" target="_blank" rel="noopener"><div class="shot-frame"><div class="build-frame">
-  <div class="build-bar"><i></i><i></i><i></i><span class="url">openflow.computer</span></div>
-  <div class="build-view"><img src="assets/openflow.webp" width="1000" height="686" loading="lazy" decoding="async" alt="The OpenFlow homepage — “Free, private voice-to-text.” over a laptop lit by a purple soundwave, with a download button."></div>
-</div></div><div class="shot-cap"><b>OpenFlow</b><span class="muted">Free, private voice-to-text for macOS and Windows. Transcription runs on the machine and never leaves it.</span><span class="build-foot"><span class="tag tag-coral">On-device voice AI</span><span class="visit mono">Open ↗</span></span></div></a><a class="shot-card build-static" href="https://kairoo.family" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1"><div class="shot-frame"><div class="build-frame">
-  <div class="build-bar"><i></i><i></i><i></i><span class="url">kairoo.family</span></div>
-  <div class="build-view"><img src="assets/kairoo.webp" width="1000" height="686" loading="lazy" decoding="async" alt=""></div>
-</div></div><div class="shot-cap"><b>Kairoo</b><span class="muted">A screen-time deal a parent and child sign together, kept by the app. Both apps, the backend and the website.</span><span class="build-foot"><span class="tag tag-ink">App + backend + website</span><span class="visit mono">Open ↗</span></span></div></a><a class="shot-card" href="https://www.leonardopower.com" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1"><div class="shot-frame"><div class="build-frame">
+  <div class="build-view"><img src="assets/signal.webp" width="1000" height="2057" loading="lazy" decoding="async" alt="The Signal homepage: “Never miss another call.” beside a recording of a real call, with 24/7, under three seconds and twelve minutes as the headline numbers."></div>
+</div></div><div class="shot-cap"><b>Signal</b><span class="muted">The receptionist that answers every call and books the job while you work. Hear a real call on the site.</span><span class="build-foot"><span class="tag tag-coral">The phone, answered</span><span class="visit mono">Open ↗</span></span></div></a><a class="shot-card" href="https://crm.macaws.ai" target="_blank" rel="noopener"><div class="shot-frame"><div class="build-frame">
+  <div class="build-bar"><i></i><i></i><i></i><span class="url">crm.macaws.ai</span><span class="peek mono">hover</span></div>
+  <div class="build-view"><img src="assets/nexus.webp" width="1000" height="2057" loading="lazy" decoding="async" alt="The Nexus homepage: “The CRM your business runs on, set up the day you join.” above the six things it does: contacts, one thread per customer, pipeline, bookings."></div>
+</div></div><div class="shot-cap"><b>Nexus</b><span class="muted">Every customer, every conversation and every booking in one account, ready the day you join.</span><span class="build-foot"><span class="tag tag-lilac">Every customer, one place</span><span class="visit mono">Open ↗</span></span></div></a><a class="shot-card" href="https://www.leonardopower.com" target="_blank" rel="noopener"><div class="shot-frame"><div class="build-frame">
   <div class="build-bar"><i></i><i></i><i></i><span class="url">leonardopower.com</span><span class="peek mono">hover</span></div>
-  <div class="build-view"><img src="assets/leonardo-power.webp" width="1000" height="2057" loading="lazy" decoding="async" alt=""></div>
-</div></div><div class="shot-cap"><b>Leonardo Power</b><span class="muted">Websites that answer the phone, remember who called and book the job. Eleven live.</span><span class="build-foot"><span class="tag tag-sky">AI-enabled website</span><span class="visit mono">Open ↗</span></span></div></a><a class="shot-card" href="https://signal.macaws.ai" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1"><div class="shot-frame"><div class="build-frame">
+  <div class="build-view"><img src="assets/leonardo-power.webp" width="1000" height="2057" loading="lazy" decoding="async" alt="The Leonardo Power homepage: “Your new website answers the phone.” above screenshots of the client sites they have built."></div>
+</div></div><div class="shot-cap"><b>Leonardo Power</b><span class="muted">A small web studio whose own site answers visitors and rings the owner. Eleven client sites run on the same setup.</span><span class="build-foot"><span class="tag tag-sky">A website that answers</span><span class="visit mono">Open ↗</span></span></div></a><a class="shot-card" href="https://viyu-hub-mu.vercel.app/" target="_blank" rel="noopener"><div class="shot-frame"><div class="build-frame">
+  <div class="build-bar"><i></i><i></i><i></i><span class="url">viyu-hub-mu.vercel.app</span><span class="peek mono">hover</span></div>
+  <div class="build-view"><img src="assets/viyu-hub.webp" width="1000" height="2057" loading="lazy" decoding="async" alt="The ViYu Hub homepage: “The operating system for serviced accommodation.” beside a panel showing what it costs per unit."></div>
+</div></div><div class="shot-cap"><b>ViYu Hub</b><span class="muted">Bookings, guest messages, payments and a voice receptionist for a serviced-accommodation business.</span><span class="build-foot"><span class="tag tag-volt">Bookings and messages</span><span class="visit mono">Open ↗</span></span></div></a><a class="shot-card" href="https://oliver-online-store.vercel.app/" target="_blank" rel="noopener"><div class="shot-frame"><div class="build-frame">
+  <div class="build-bar"><i></i><i></i><i></i><span class="url">oliver-online-store.vercel.app</span><span class="peek mono">hover</span></div>
+  <div class="build-view"><img src="assets/oliver-store.webp" width="1000" height="2057" loading="lazy" decoding="async" alt="The Oliver Embroidery storefront: “Your logo, stitched in by Thursday.” above a grid of garment categories."></div>
+</div></div><div class="shot-cap"><b>Oliver Embroidery</b><span class="muted">A workwear shop with 3,350 products, artwork upload and a simple console for the staff behind the counter.</span><span class="build-foot"><span class="tag tag-sky">Online shop</span><span class="visit mono">Open ↗</span></span></div></a><a class="shot-card" href="https://signal.macaws.ai" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1"><div class="shot-frame"><div class="build-frame">
   <div class="build-bar"><i></i><i></i><i></i><span class="url">signal.macaws.ai</span><span class="peek mono">hover</span></div>
   <div class="build-view"><img src="assets/signal.webp" width="1000" height="2057" loading="lazy" decoding="async" alt=""></div>
-</div></div><div class="shot-cap"><b>Signal</b><span class="muted">A white-label AI receptionist an agency resells as its own. Live in twelve minutes.</span><span class="build-foot"><span class="tag tag-coral">Voice agent</span><span class="visit mono">Open ↗</span></span></div></a><a class="shot-card" href="https://nexusportal.digital/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1"><div class="shot-frame"><div class="build-frame">
-  <div class="build-bar"><i></i><i></i><i></i><span class="url">nexusportal.digital</span><span class="peek mono">hover</span></div>
-  <div class="build-view"><img src="assets/nexusportal.webp" width="1000" height="2057" loading="lazy" decoding="async" alt=""></div>
-</div></div><div class="shot-cap"><b>NexusPortal</b><span class="muted">A branded CRM front end over GoHighLevel — SMS, email and WhatsApp in one thread.</span><span class="build-foot"><span class="tag tag-lilac">White-label CRM</span><span class="visit mono">Open ↗</span></span></div></a><a class="shot-card" href="https://viyu-hub-mu.vercel.app/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1"><div class="shot-frame"><div class="build-frame">
+</div></div><div class="shot-cap"><b>Signal</b><span class="muted">The receptionist that answers every call and books the job while you work. Hear a real call on the site.</span><span class="build-foot"><span class="tag tag-coral">The phone, answered</span><span class="visit mono">Open ↗</span></span></div></a><a class="shot-card" href="https://crm.macaws.ai" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1"><div class="shot-frame"><div class="build-frame">
+  <div class="build-bar"><i></i><i></i><i></i><span class="url">crm.macaws.ai</span><span class="peek mono">hover</span></div>
+  <div class="build-view"><img src="assets/nexus.webp" width="1000" height="2057" loading="lazy" decoding="async" alt=""></div>
+</div></div><div class="shot-cap"><b>Nexus</b><span class="muted">Every customer, every conversation and every booking in one account, ready the day you join.</span><span class="build-foot"><span class="tag tag-lilac">Every customer, one place</span><span class="visit mono">Open ↗</span></span></div></a><a class="shot-card" href="https://www.leonardopower.com" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1"><div class="shot-frame"><div class="build-frame">
+  <div class="build-bar"><i></i><i></i><i></i><span class="url">leonardopower.com</span><span class="peek mono">hover</span></div>
+  <div class="build-view"><img src="assets/leonardo-power.webp" width="1000" height="2057" loading="lazy" decoding="async" alt=""></div>
+</div></div><div class="shot-cap"><b>Leonardo Power</b><span class="muted">A small web studio whose own site answers visitors and rings the owner. Eleven client sites run on the same setup.</span><span class="build-foot"><span class="tag tag-sky">A website that answers</span><span class="visit mono">Open ↗</span></span></div></a><a class="shot-card" href="https://viyu-hub-mu.vercel.app/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1"><div class="shot-frame"><div class="build-frame">
   <div class="build-bar"><i></i><i></i><i></i><span class="url">viyu-hub-mu.vercel.app</span><span class="peek mono">hover</span></div>
   <div class="build-view"><img src="assets/viyu-hub.webp" width="1000" height="2057" loading="lazy" decoding="async" alt=""></div>
-</div></div><div class="shot-cap"><b>ViYu Hub</b><span class="muted">Bookings, guest messaging, payments and a voice receptionist for serviced accommodation.</span><span class="build-foot"><span class="tag tag-volt">Automation</span><span class="visit mono">Open ↗</span></span></div></a><a class="shot-card" href="https://oliver-online-store.vercel.app/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1"><div class="shot-frame"><div class="build-frame">
+</div></div><div class="shot-cap"><b>ViYu Hub</b><span class="muted">Bookings, guest messages, payments and a voice receptionist for a serviced-accommodation business.</span><span class="build-foot"><span class="tag tag-volt">Bookings and messages</span><span class="visit mono">Open ↗</span></span></div></a><a class="shot-card" href="https://oliver-online-store.vercel.app/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1"><div class="shot-frame"><div class="build-frame">
   <div class="build-bar"><i></i><i></i><i></i><span class="url">oliver-online-store.vercel.app</span><span class="peek mono">hover</span></div>
   <div class="build-view"><img src="assets/oliver-store.webp" width="1000" height="2057" loading="lazy" decoding="async" alt=""></div>
-</div></div><div class="shot-cap"><b>Oliver Embroidery</b><span class="muted">A 3,350-product workwear store with artwork upload, and a staff console behind it.</span><span class="build-foot"><span class="tag tag-sky">Ecommerce + console</span><span class="visit mono">Open ↗</span></span></div></a><a class="shot-card build-static" href="https://knotie.ai" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1"><div class="shot-frame"><div class="build-frame">
-  <div class="build-bar"><i></i><i></i><i></i><span class="url">knotie.ai</span></div>
-  <div class="build-view"><img src="assets/knotie.webp" width="1000" height="686" loading="lazy" decoding="async" alt=""></div>
-</div></div><div class="shot-cap"><b>Knotie AI</b><span class="muted">One-click AI products — voice, chat, APIs, CRM — a partner sells and bills on their own domain.</span><span class="build-foot"><span class="tag tag-lilac">White-label AI platform</span><span class="visit mono">Open ↗</span></span></div></a><a class="shot-card build-static" href="https://openflow.computer" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1"><div class="shot-frame"><div class="build-frame">
-  <div class="build-bar"><i></i><i></i><i></i><span class="url">openflow.computer</span></div>
-  <div class="build-view"><img src="assets/openflow.webp" width="1000" height="686" loading="lazy" decoding="async" alt=""></div>
-</div></div><div class="shot-cap"><b>OpenFlow</b><span class="muted">Free, private voice-to-text for macOS and Windows. Transcription runs on the machine and never leaves it.</span><span class="build-foot"><span class="tag tag-coral">On-device voice AI</span><span class="visit mono">Open ↗</span></span></div></a></div>
+</div></div><div class="shot-cap"><b>Oliver Embroidery</b><span class="muted">A workwear shop with 3,350 products, artwork upload and a simple console for the staff behind the counter.</span><span class="build-foot"><span class="tag tag-sky">Online shop</span><span class="visit mono">Open ↗</span></span></div></a></div>
   </div>
-  <div class="container"><p class="gallery-hint mono"><span>Hover to pause</span><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M2 7h10M8 3l4 4-4 4"/></svg></p></div>
+  <div class="container"><p class="gallery-hint mono"><span>Hover to pause</span></p></div>
 </section>
-<section class="section feature" id="kairoo" aria-labelledby="kairoo-title" style="padding-top:0" data-spine="Featured build" data-n="04">
+<section class="section feature" id="featured" aria-labelledby="featured-title" style="padding-top:0" data-spine="The call at 23:41" data-n="04">
   <div class="container">
     <div class="section-head para">
-      <h2 class="display h2 rise-words" id="kairoo-title">The app, the backend and the website</h2>
-      <p class="lead muted reveal">Kairoo is a screen-time agreement a parent and child write and sign together, and an app that keeps it, so nobody has to be the bad cop. We designed both apps, built the backend they share and made the website families join from.</p>
+      <h2 class="display h2 rise-words" id="featured-title">The call you'd have missed</h2>
+      <p class="lead muted reveal">It's 23:41 on a Wednesday. Half of someone's sockets have gone dead and they are ringing every electrician on Google until one picks up. Here is what happens when it's Signal that answers.</p>
     </div>
     <div class="feature-grid">
       <div class="feature-film pop" data-from="left">
-        <video class="film" data-film muted loop playsinline controls preload="none" disablepictureinpicture disableremoteplayback width="720" height="1564" poster="assets/kairoo-app-poster.jpg" aria-label="A walkthrough of the Kairoo Kids app: today's plan, the deal the child helped write, what it covers, a ten-minute heads-up before time runs out, and credit for stopping on their own.">
-          <source src="assets/kairoo-app.mp4" type="video/mp4">
-        </video>
-        <button class="film-toggle" type="button" data-film-toggle aria-label="Play the Kairoo app video" hidden>Play</button>
+        <div class="mock frame-phone mock-voice" data-cycle="11500" role="img" aria-label="Signal taking an electrical call late at night, working out the fault and booking the job into the diary">
+  <div class="call-head"><span class="mono">Incoming · 23:41</span><strong>Your business</strong><span class="mono live"><i></i>Signal · 00:38</span></div>
+  <div class="wave" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+  <div class="transcript">
+    <p class="line seq" data-at="500"><b>Caller</b>Half my sockets have gone dead — is anyone out tonight?</p>
+    <p class="line agent seq" data-at="2300"><b>Signal</b>Sorry to hear it. Has the consumer unit tripped, or is it only that circuit?</p>
+    <p class="line seq" data-at="5000"><b>Caller</b>One switch is down and won't stay up.</p>
+    <p class="line agent seq" data-at="6300"><b>Signal</b>That's a fault on the circuit. I can get someone to you first thing — what's the postcode?</p>
+  </div>
+  <div class="toast seq" data-at="7800"><span class="tick">✓</span>Job booked · 08:00 · written to your diary</div>
+</div>
       </div>
       <article class="case feature-body pop" data-from="right">
         <div class="c-body">
-          <div class="c-top"><span class="tags"><span class="tag tag-ink">App design</span><span class="tag tag-line">Backend</span><span class="tag tag-line">Website</span></span><a class="live" href="https://kairoo.family" target="_blank" rel="noopener"><i></i>Live · kairoo.family</a></div>
+          <div class="c-top"><span class="tags"><span class="tag tag-coral">Signal</span><span class="tag tag-line">£99 a month</span></span><a class="live" href="https://signal.macaws.ai" target="_blank" rel="noopener"><i></i>Live · signal.macaws.ai</a></div>
           <div>
-            <h3 class="display">Screen-time rules a family agrees on, and an app that keeps them</h3>
-            <p class="c-for">Built for Kairoo · for families with children about 8 to 14 · live at kairoo.family</p>
+            <h3 class="display">Answered in two rings. Booked before you woke up.</h3>
+            <p class="c-for">For any business whose phone rings while they work: trades, clinics, salons, garages, letting agents, kennels</p>
           </div>
           <dl>
-            <div><dt>App design</dt><dd>Two apps, Kairoo Parent and Kairoo Kids. On the child's phone: today's plan, the deal they helped write, a heads-up before time runs out and credit for stopping on their own.</dd></div>
-            <div><dt>Backend</dt><dd>The service both apps run on. It holds each family's signed agreement and carries every ask and answer between the two phones.</dd></div>
-            <div><dt>Website</dt><dd>kairoo.family tells the story as one long scroll through illustrated scenes, from the bedtime argument to the signed agreement, the research behind it and early-access sign-up.</dd></div>
+            <div><dt>What happens</dt><dd>Signal answers on your number in a calm, natural voice. It asks the questions you would ask, checks your diary, books the slot and reads it back. If the caller needs you now, it puts them through to your mobile.</dd></div>
+            <div><dt>What you see</dt><dd>An email and a message with the caller's name, number, what they wanted and the booking, plus the recording and a written transcript. Nothing to type up, nobody to ring back.</dd></div>
+            <div><dt>What it knows</dt><dd>Your business, not the internet. It reads your website and the notes from our call, so it quotes your prices, your hours and your areas, and says “I'll get someone to call you” when it doesn't know.</dd></div>
           </dl>
           <div class="results">
-            <div><b>2</b><small>apps, one on each phone</small></div>
-            <div><b>3</b><small>kinds of ask: everyday, grey-area and big decisions</small></div>
-            <div><b>0</b><small>messages read or places tracked</small></div>
+            <div><b>&lt;3s</b><small>picks up, before the third ring</small></div>
+            <div><b>24/7</b><small>nights, weekends, holidays</small></div>
+            <div><b data-count="12" data-suffix=" min">12 min</b><small>from sign-up to a live number</small></div>
           </div>
         </div>
       </article>
     </div>
     <div class="feature-site">
-      <a class="site-shot pop" style="--i:0" href="https://kairoo.family" target="_blank" rel="noopener">
-        <div class="build-frame"><div class="build-bar"><i></i><i></i><i></i><span class="url">kairoo.family</span></div><div class="build-view"><img src="assets/kairoo.webp" width="1000" height="686" loading="lazy" decoding="async" alt="The Kairoo homepage: “You shouldn’t have to be the bad cop in your own home.” over an illustrated village at dusk."></div></div>
-        <p class="site-note">The first screen: an illustrated village and the line the whole product answers.</p>
+      <a class="site-shot pop" style="--i:0" href="https://signal.macaws.ai" target="_blank" rel="noopener">
+        <div class="build-frame"><div class="build-bar"><i></i><i></i><i></i><span class="url">signal.macaws.ai</span></div><div class="build-view"><img src="assets/signal-1.webp" width="1000" height="686" loading="lazy" decoding="async" alt="The top of signal.macaws.ai: “Never miss another call.” beside a player with a real recorded call, an electrical job being booked."></div></div>
+        <p class="site-note">Hear it before you buy it. The site plays real calls: an electrical job, an estate-agent viewing, a cold call being filtered out.</p>
       </a>
-      <a class="site-shot pop" style="--i:1" href="https://kairoo.family" target="_blank" rel="noopener">
-        <div class="build-frame"><div class="build-bar"><i></i><i></i><i></i><span class="url">kairoo.family</span></div><div class="build-view"><img src="assets/kairoo-story.webp" width="1000" height="686" loading="lazy" decoding="async" alt="A scene from the Kairoo story: a boy on a beanbag holds out his phone while his dad reads, under the line “When it’s time, Kairoo says it. Not you.”"></div></div>
-        <p class="site-note">The story plays out in scenes as you scroll. Here, time's up and Kairoo says so, not Dad.</p>
+      <a class="site-shot pop" style="--i:1" href="https://signal.macaws.ai" target="_blank" rel="noopener">
+        <div class="build-frame"><div class="build-bar"><i></i><i></i><i></i><span class="url">signal.macaws.ai</span></div><div class="build-view"><img src="assets/signal-2.webp" width="1000" height="686" loading="lazy" decoding="async" alt="The four steps on signal.macaws.ai: describe your business, pick a voice, plug it in, watch it answer."></div></div>
+        <p class="site-note">Four steps and it's answering. We do them with you on the setup call, so you don't have to.</p>
       </a>
-      <a class="site-shot pop" style="--i:2" href="https://kairoo.family" target="_blank" rel="noopener">
-        <div class="build-frame"><div class="build-bar"><i></i><i></i><i></i><span class="url">kairoo.family</span></div><div class="build-view"><img src="assets/kairoo-compare.webp" width="1000" height="686" loading="lazy" decoding="async" alt="Kairoo's side-by-side comparison: the same evening without Kairoo, with a parent arguing, and with Kairoo, where the child stops on their own, above a table of how the rules differ."></div></div>
-        <p class="site-note">Drag the handle to compare the same evening without Kairoo and with it.</p>
+      <a class="site-shot pop" style="--i:2" href="https://signal.macaws.ai" target="_blank" rel="noopener">
+        <div class="build-frame"><div class="build-bar"><i></i><i></i><i></i><span class="url">signal.macaws.ai</span></div><div class="build-view"><img src="assets/signal-3.webp" width="1000" height="686" loading="lazy" decoding="async" alt="A transcript on signal.macaws.ai of a boiler call ending in “Job booked · Engineer Mark · Tue 27 May · 8:30am”, beside the line “A voice that doesn't tell.”"></div></div>
+        <p class="site-note">A transcript of a boiler call, from “how can I help?” to the engineer booked for Tuesday at half eight.</p>
       </a>
     </div>
   </div>
@@ -1092,28 +1056,28 @@ window.sontiTikTok = (function(){
 <section class="section" id="how" aria-labelledby="how-title" style="padding-top:0" data-spine="How it works" data-n="05">
   <div class="container">
     <div class="section-head para">
-      <h2 class="display h2 rise-words" id="how-title">From your client's ask to a live build</h2>
-      <p class="lead muted reveal">Five steps, in this order, every time. You stay the face of the project; we stay the engine behind it. Three requests that came in this way:</p>
+      <h2 class="display h2 rise-words" id="how-title">From a 20-minute call to live, in a week</h2>
+      <p class="lead muted reveal">You don't install anything or learn anything. You tell us about the business, we set it up, you check it, it goes live. Three requests that came in this way:</p>
     </div>
 
-    <div class="tickets-row" aria-label="Example client requests">
+    <div class="tickets-row" aria-label="Example requests">
       <article class="ticket t1 pop" data-from="center" style="--i:0">
-        <div class="t-head mono"><span>Request 0417</span><span class="t-status"><i></i>In build · India</span></div>
-        <p class="t-title">Voice agent for appointment bookings</p>
-        <p class="t-meta muted">From a healthcare marketing agency<br>Client: 11-practice dental group</p>
-        <div class="tags"><span class="tag tag-line">Voice</span><span class="tag tag-line">Practice software</span></div>
+        <div class="t-head mono"><span>Request 0417</span><span class="t-status"><i></i>Live · day 2</span></div>
+        <p class="t-title">Answer the phone while I'm on jobs</p>
+        <p class="t-meta muted">A plumbing and heating firm, two vans<br>Calls go to voicemail from 8 to 6</p>
+        <div class="tags"><span class="tag tag-line">Signal</span><span class="tag tag-line">Existing number</span></div>
       </article>
       <article class="ticket t2 pop" data-from="center" style="--i:1">
-        <div class="t-head mono"><span>Request 0418</span><span class="t-status"><i></i>Scoping · UK</span></div>
-        <p class="t-title">Chatbot trained on 400 product pages</p>
-        <p class="t-meta muted">From an ecommerce agency<br>Client: outdoor equipment retailer</p>
-        <div class="tags"><span class="tag tag-line">Chat</span><span class="tag tag-line">Shopify</span><span class="tag tag-line">WhatsApp</span></div>
+        <div class="t-head mono"><span>Request 0418</span><span class="t-status"><i></i>Setting up</span></div>
+        <p class="t-title">Chase quotes and remind patients</p>
+        <p class="t-meta muted">A dental practice, one receptionist<br>Enquiries by phone, email and Instagram</p>
+        <div class="tags"><span class="tag tag-line">Nexus</span><span class="tag tag-line">Signal</span></div>
       </article>
       <article class="ticket t3 pop" data-from="center" style="--i:2">
         <div class="t-head mono"><span>Request 0419</span><span class="t-status"><i></i>Delivered</span></div>
-        <p class="t-title">Monthly client reporting on autopilot</p>
-        <p class="t-meta muted">From a performance agency<br>For their own operations team</p>
-        <div class="tags"><span class="tag tag-line">Automation</span><span class="tag tag-line">GA4</span><span class="tag tag-line">Meta Ads</span></div>
+        <p class="t-title">Get us on the first page of Google</p>
+        <p class="t-meta muted">A builder, family-run<br>Twelve reviews, none replied to, no photos since 2023</p>
+        <div class="tags"><span class="tag tag-line">Google profile</span><span class="tag tag-line">Free audit</span></div>
       </article>
     </div>
 
@@ -1121,77 +1085,77 @@ window.sontiTikTok = (function(){
     <ol class="steps">
       <li class="step pop" data-from="left" style="--i:0;--bar:var(--volt)">
         <span class="num" aria-hidden="true">1</span>
-        <h3>Brief</h3>
-        <p>Forward us the client's ask — an email, a call recording, a napkin sketch. A UK business analyst turns it into a scope you can put in front of your client.</p>
-        <span class="where mono muted">UK · business analyst</span>
+        <h3>Tell us</h3>
+        <p>A 20-minute call. What you do, what you charge, where customers get lost, and where the calls should go. That's all we need. Bring your website address if you have one.</p>
+        <span class="where mono muted">Day 1 · 20 minutes of your time</span>
       </li>
       <li class="step pop" data-from="left" style="--i:1;--bar:var(--sky)">
         <span class="num" aria-hidden="true">2</span>
-        <h3>Estimate</h3>
-        <p>Within two working days your analyst tells you how many hours the build takes from your package and when it lands, written for you to mark up and pass on. Hours are agreed before any are used.</p>
-        <span class="where mono muted">UK · hours agreed up front</span>
+        <h3>We build it</h3>
+        <p>Signal learns your business from your website and our notes. Nexus is set up with your contacts, your diary and the follow-ups you want. Your Google profile is audited and the fixes listed.</p>
+        <span class="where mono muted">Days 2 to 4 · our team</span>
       </li>
       <li class="step step-ink pop" data-from="left" style="--i:2;--bar:var(--coral)">
         <span class="num" aria-hidden="true">3</span>
-        <h3>Build</h3>
-        <p>A dedicated squad in India builds it — engineers, an AI specialist and QA — with progress waiting in your inbox every UK morning.</p>
-        <span class="where mono muted">India · dedicated squad</span>
+        <h3>You check it</h3>
+        <p>Ring the number and talk to it. Send yourself a test enquiry. Read the follow-up messages. Tell us what to change, in a text if you like, and we change it.</p>
+        <span class="where mono muted">Day 5 · you, ten minutes</span>
       </li>
       <li class="step pop" data-from="left" style="--i:3;--bar:var(--lilac)">
         <span class="num" aria-hidden="true">4</span>
-        <h3>QA &amp; handover</h3>
-        <p>Tested against the scope, documented, and branded as yours. Your client never has to know we exist — unless you'd like us on the call.</p>
-        <span class="where mono muted">UK + India · white-label</span>
+        <h3>Go live</h3>
+        <p>Your number is pointed at Signal, always or only when you can't answer. The inbox goes on your phone. The first Google fixes are made. From here, it's running.</p>
+        <span class="where mono muted">Day 7 · live</span>
       </li>
       <li class="step pop" data-from="left" style="--i:4;--bar:var(--volt)">
         <span class="num" aria-hidden="true">5</span>
-        <h3>Support</h3>
-        <p>We stay on for fixes, model updates and the next request, drawing from the same package. Most agencies bring us the second project before the first has finished.</p>
-        <span class="where mono muted">Ongoing · same team, same hours</span>
+        <h3>We keep it running</h3>
+        <p>Every month: the receptionist tuned from real calls, posts and photos on your Google profile, reviews replied to, and a one-page summary of what came in. Change your prices or hours? Message us.</p>
+        <span class="where mono muted">Every month · included</span>
       </li>
     </ol>
   </div>
 </section>
 
-<section class="section" id="model" aria-labelledby="model-title" style="padding-top:0" data-spine="Two offices" data-n="06">
+<section class="section" id="model" aria-labelledby="model-title" style="padding-top:0" data-spine="Every customer" data-n="06">
   <div class="container">
     <div class="section-head para">
-      <h2 class="display h2 rise-words" id="model-title">Two offices. One accountable team.</h2>
-      <p class="lead muted reveal">UK analysts who speak agency, not code. Indian engineers who build to UK standards at Indian rates. That pairing is the whole business model.</p>
+      <h2 class="display h2 rise-words" id="model-title">Every customer, every message, one place.</h2>
+      <p class="lead muted reveal">Nexus is where it all lands: the calls Signal takes, the texts, the emails, the WhatsApps, and the follow-ups that go out on their own. Open it on your phone and you can see who is waiting on you.</p>
     </div>
     <div class="offices">
       <article class="office card pop" data-from="left">
-        <div class="flag"><span class="pin"></span><span class="mono muted">United Kingdom</span></div>
-        <h3 class="display">The front door</h3>
+        <div class="flag"><span class="pin"></span><span class="mono muted">The inbox</span></div>
+        <h3 class="display">One thread per customer</h3>
         <ul>
-          <li>Business analysts who scope, spec and quote every project</li>
-          <li>One named point of contact for you and, if you want, your client</li>
-          <li>Project management, client calls and sign-off in UK hours</li>
-          <li>Contracts, invoicing and data agreements with a UK business</li>
+          <li>Calls, texts, emails and WhatsApp in a single conversation, in order</li>
+          <li>Every call Signal takes lands here with the recording and a written summary</li>
+          <li>Notes, quotes and bookings sit beside the conversation, not in someone's head</li>
+          <li>Reply from your phone, or let the team reply from theirs</li>
         </ul>
-        <div class="img-slot filled"><img src="assets/uk-team.webp" width="1400" height="875" loading="lazy" decoding="async" alt="Four of the UK team sitting on the orange bleacher seating in the London office, a screen reading “A place for all” on the wall behind them."></div>
-        <p class="rate">Your requests are taken, scoped and managed here.</p>
+        <div class="img-slot filled"><img src="assets/nexus-one.webp" width="1000" height="625" loading="lazy" decoding="async" alt="The Nexus homepage: “The CRM your business runs on, set up the day you join.” with contacts, conversations, pipeline and calendar in one account."></div>
+        <p class="rate">Live at crm.macaws.ai · £50 a seat, a month</p>
       </article>
       <article class="office card card-ink pop" data-from="right">
-        <div class="flag"><span class="pin"></span><span class="mono muted">India</span></div>
-        <h3 class="display">The engine room</h3>
+        <div class="flag"><span class="pin"></span><span class="mono muted">The follow-ups</span></div>
+        <h3 class="display">Chased for you</h3>
         <ul>
-          <li>Senior engineers, AI/ML specialists and QA in dedicated squads</li>
-          <li>Daily progress, code reviews and testing managed to UK standards</li>
-          <li>Rates that make one-off client projects worth saying yes to</li>
-          <li>Working day starts four and a half hours before London's</li>
+          <li>Quote sent and no answer in two days? A friendly nudge goes out</li>
+          <li>Appointment tomorrow? A reminder by text the evening before</li>
+          <li>Job finished? A thank-you and a link to leave a Google review</li>
+          <li>Not heard from someone in six months? A hello, with your current offer</li>
         </ul>
-        <div class="img-slot filled"><img src="assets/india-office.webp" width="767" height="479" loading="lazy" decoding="async" alt="The India engineering floor: developers at dual monitors full of code, a whiteboard of architecture notes on the left and “Think big, build fast, iterate often” on the far wall."></div>
-        <p class="rate">Your builds are engineered, tested and documented here.</p>
+        <div class="img-slot filled"><img src="assets/nexus-two.webp" width="1000" height="625" loading="lazy" decoding="async" alt="The six things Nexus does: every contact in one place, one thread per customer, a pipeline that moves, bookings in context, quick to work in, light or dark."></div>
+        <p class="rate">You write the messages once with us. Nexus sends them every time.</p>
       </article>
     </div>
 
     <figure class="clock pop" aria-labelledby="clock-title">
       <div class="clock-head">
-        <h3 class="display" id="clock-title">Send it at 5pm. Progress by 9am.</h3>
-        <span class="mono muted">Working hours · UK summer time</span>
+        <h3 class="display" id="clock-title">A Tuesday, with Macaws running.</h3>
+        <span class="mono muted">24 hours · a two-van trade business</span>
       </div>
-      <div class="track" role="img" aria-label="24-hour timeline: the India team works 05:00 to 14:00 UK time, the UK team 09:00 to 17:30, giving a five-hour daily overlap.">
+      <div class="track" role="img" aria-label="24-hour timeline: Signal answers calls around the clock, you are on the tools from 08:00 to 18:00, and the evening and night are where the missed calls used to be.">
         <div class="axis"></div>
         <div class="tick" style="left:0"><span>00:00</span></div>
         <div class="tick" style="left:12.5%"><span class="minor">03:00</span></div>
@@ -1202,62 +1166,62 @@ window.sontiTikTok = (function(){
         <div class="tick" style="left:75%"><span>18:00</span></div>
         <div class="tick" style="left:87.5%"><span class="minor">21:00</span></div>
         <div class="tick" style="left:100%"><span>24:00</span></div>
-        <div class="overlap" style="left:37.5%;width:20.83%"><span>5h overlap</span></div>
-        <div class="bar india" style="left:20.83%;width:37.5%">India · 05:00–14:00</div>
-        <div class="bar uk" style="left:37.5%;width:35.42%">UK · 09:00–17:30</div>
+        <div class="overlap" style="left:75%;width:25%"><span>after hours</span></div>
+        <div class="bar india" style="left:0;width:100%">Signal answers · 00:00–24:00</div>
+        <div class="bar uk" style="left:33.33%;width:41.67%">You, on the tools · 08:00–18:00</div>
       </div>
       <figcaption class="clock-notes">
-        <div><strong>Brief before you leave</strong><p>Anything you send by 17:30 is in the India squad's queue when their day starts at 05:00 UK time.</p></div>
-        <div><strong>Five hours of overlap</strong><p>09:00–14:00 UK is shared time for stand-ups, demos and decisions with the engineers, not just the analyst.</p></div>
-        <div><strong>Winter shifts it earlier</strong><p>When the UK leaves summer time, India is five and a half hours ahead: the day starts at 04:00 UK and the overlap is four hours.</p></div>
+        <div><strong>07:40 · Before you're up</strong><p>Someone rings about a leaking tap. Signal books them for Thursday morning and the job is in your diary when you check it over breakfast.</p></div>
+        <div><strong>12:15 · On a job</strong><p>The quote you sent on Monday gets its nudge from Nexus. The customer replies “yes please” by text. You see it at lunch and reply with a thumbs up.</p></div>
+        <div><strong>18:30 · Done for the day</strong><p>Yesterday's customer gets a thank-you and a review link. The five stars land on your Google profile, where the next person searching will see them.</p></div>
       </figcaption>
     </figure>
   </div>
 </section>
 
-<section class="section" id="work" aria-labelledby="work-title" style="padding-top:0" data-spine="Case studies" data-n="07">
+<section class="section" id="work" aria-labelledby="work-title" style="padding-top:0" data-spine="Results" data-n="07">
   <div class="container">
-    <div class="tools-wrap" aria-label="Tools we build on">
-      <div class="tools"><span>OpenAI</span><span>Anthropic</span><span>Twilio</span><span>HubSpot</span><span>Webflow</span><span>Shopify</span><span>WhatsApp</span><span>n8n</span><span>Make</span><span>Zapier</span><span>Next.js</span><span>WordPress</span><span>OpenAI</span><span>Anthropic</span><span>Twilio</span><span>HubSpot</span><span>Webflow</span><span>Shopify</span><span>WhatsApp</span><span>n8n</span><span>Make</span><span>Zapier</span><span>Next.js</span><span>WordPress</span></div>
+    <div class="tools-wrap" aria-label="Works with">
+      <div class="tools"><span>Google Calendar</span><span>Outlook</span><span>WhatsApp</span><span>Gmail</span><span>Stripe</span><span>QuickBooks</span><span>Shopify</span><span>WordPress</span><span>Zapier</span><span>HubSpot</span><span>Twilio</span><span>OpenAI</span><span>Google Calendar</span><span>Outlook</span><span>WhatsApp</span><span>Gmail</span><span>Stripe</span><span>QuickBooks</span><span>Shopify</span><span>WordPress</span><span>Zapier</span><span>HubSpot</span><span>Twilio</span><span>OpenAI</span></div>
     </div>
     <div class="section-head para">
-      <h2 class="display h2 rise-words" id="work-title">Three builds agencies sold as their own</h2>
-      <p class="lead muted reveal">A voice agent, an AI-enabled website and an automation — one of each, so you can see what the finished thing looks like before your client asks. Two of the three are live: <a href="https://signal.artificialignorance.io" target="_blank" rel="noopener">signal.artificialignorance.io</a> and <a href="https://www.leonardopower.com" target="_blank" rel="noopener">leonardopower.com</a>.</p>
+      <h2 class="display h2 rise-words" id="work-title">Three businesses, three things fixed</h2>
+      <p class="lead muted reveal">One of each: the phone, the follow-up and the Google profile, so you can see what the finished thing looks like before we talk. Two are live today: <a href="https://signal.macaws.ai" target="_blank" rel="noopener">signal.macaws.ai</a> and <a href="https://www.leonardopower.com" target="_blank" rel="noopener">leonardopower.com</a>.</p>
     </div>
     <div class="cases">
       <article class="case pop" style="--i:0">
-        <div class="shot"><div class="mock frame-phone mock-voice" data-cycle="11500" role="img" aria-label="The Signal voice agent taking an electrical call late at night, triaging the fault and booking the job into the diary">
-  <div class="call-head"><span class="mono">Incoming · 23:41</span><strong>Artificial Ignorance</strong><span class="mono live"><i></i>AI receptionist · 00:38</span></div>
+        <div class="shot"><div class="mock frame-phone mock-voice" data-cycle="11500" role="img" aria-label="Signal taking a call for a letting agent, offering a viewing and booking it">
+  <div class="call-head"><span class="mono">Incoming · 18:52</span><strong>Hartley Lettings</strong><span class="mono live"><i></i>Signal · 00:41</span></div>
   <div class="wave" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
   <div class="transcript">
-    <p class="line seq" data-at="500"><b>Caller</b>Half my sockets have gone dead — is anyone out tonight?</p>
-    <p class="line agent seq" data-at="2300"><b>Agent</b>Sorry to hear it. Has the consumer unit tripped, or is it only that circuit?</p>
-    <p class="line seq" data-at="5000"><b>Caller</b>One switch is down and won't stay up.</p>
-    <p class="line agent seq" data-at="6300"><b>Agent</b>That's a fault on the circuit. I can get someone to you first thing — what's the postcode?</p>
+    <p class="line seq" data-at="500"><b>Caller</b>Hi, is the two-bed on Mill Road still available?</p>
+    <p class="line agent seq" data-at="2300"><b>Signal</b>It is. Viewings are Thursday from four. Would half past four suit you?</p>
+    <p class="line seq" data-at="5000"><b>Caller</b>Could we do five? I finish at half four.</p>
+    <p class="line agent seq" data-at="6300"><b>Signal</b>Five o'clock Thursday it is. Can I take your name and a mobile number for the confirmation?</p>
   </div>
-  <div class="toast seq" data-at="7800"><span class="tick">✓</span>Job booked · 08:00 · written to the diary</div>
+  <div class="toast seq" data-at="7800"><span class="tick">✓</span>Viewing booked · Thu 17:00 · confirmation sent</div>
   <span class="peek mono">hover</span>
   <div class="realshot" aria-hidden="true"><img src="assets/signal-ai-phone.webp" width="480" height="1920" loading="lazy" decoding="async" alt=""></div>
 </div></div>
         <div class="c-body">
-          <div class="c-top"><span class="tag tag-coral">Voice agent</span><a class="live" href="https://signal.artificialignorance.io" target="_blank" rel="noopener"><i></i>Live · signal.artificialignorance.io</a></div>
+          <div class="c-top"><span class="tag tag-coral">The phone</span><span class="sample">Example business</span></div>
           <div>
-            <h3 class="display">A voice agent an agency sells as its own</h3>
-            <p class="c-for">Built for Artificial Ignorance · sold to UK trades and service businesses · live at signal.artificialignorance.io</p>
+            <h3 class="display">A letting agent who stopped losing the after-six calls</h3>
+            <p class="c-for">Signal · a two-person lettings office · calls after 17:30 used to go to voicemail</p>
           </div>
           <dl>
-            <div><dt>The ask</dt><dd>They wanted an AI receptionist with their own name on it, on their own pricing, sold monthly — not a reseller badge on someone else's product, and not a year of building one.</dd></div>
-            <div><dt>What we built</dt><dd>Signal: a voice agent that answers on the client's existing number, trained on that business rather than the internet. It triages, qualifies, books into the diary during the call and hands over to a human when it should — shipped under the agency's brand, at the agency's prices.</dd></div>
+            <div><dt>The problem</dt><dd>Tenants ring about listings when they finish work, which is when the office has closed. By the next morning they've booked a viewing with someone else.</dd></div>
+            <div><dt>What runs now</dt><dd>Signal answers in the agent's name, knows which properties are available and when viewings are, books the slot and texts the confirmation. Anything odd, it takes a message and the agent rings back at nine.</dd></div>
           </dl>
           <div class="results">
-            <div><b>&lt;3s</b><small>picks up, before the third ring</small></div>
-            <div><b data-count="12" data-suffix=" min">12 min</b><small>from signing up to a live number</small></div>
-            <div><b>24/7</b><small>including 23:41 on a Wednesday</small></div>
+            <div><b>&lt;3s</b><small>to answer, every call</small></div>
+            <div><b>24/7</b><small>including 18:52 on a Tuesday</small></div>
+            <div><b>0</b><small>voicemails to return in the morning</small></div>
           </div>
         </div>
       </article>
       <article class="case pop" style="--i:1">
-        <div class="shot"><div class="mock frame-browser mock-concierge" data-cycle="10500" role="img" aria-label="The assistant on leonardopower.com answering a visitor, writing the lead into the CRM and ringing their mobile">
+        <div class="shot"><div class="mock frame-browser mock-concierge" data-cycle="10500" role="img" aria-label="The assistant on leonardopower.com answering a visitor, saving the enquiry and ringing the owner's mobile">
   <div class="bar"><i></i><i></i><i></i><span class="url">leonardopower.com</span><span class="peek mono">hover</span></div>
   <div class="page split">
     <div class="site">
@@ -1277,50 +1241,50 @@ window.sontiTikTok = (function(){
   <div class="realshot" aria-hidden="true"><img src="assets/leonardo-power.webp" width="1000" height="2057" alt="" loading="lazy" decoding="async"></div>
 </div></div>
         <div class="c-body">
-          <div class="c-top"><span class="tag tag-sky">AI-enabled website</span><a class="live" href="https://www.leonardopower.com" target="_blank" rel="noopener"><i></i>Live · leonardopower.com</a></div>
+          <div class="c-top"><span class="tag tag-sky">The follow-up</span><a class="live" href="https://www.leonardopower.com" target="_blank" rel="noopener"><i></i>Live · leonardopower.com</a></div>
           <div>
-            <h3 class="display">A studio's own site that answers the phone</h3>
-            <p class="c-for">Built for Leonardo Power · a UK web design studio · live at leonardopower.com</p>
+            <h3 class="display">A small studio whose website rings the owner</h3>
+            <p class="c-for">Built for Leonardo Power · a web design studio in the UK · live at leonardopower.com</p>
           </div>
           <dl>
-            <div><dt>The ask</dt><dd>Leonardo Power sells small businesses a website that comes with a front desk. Their own site had to <em>be</em> the product rather than describe it — including for the visitor who lands at 2am.</dd></div>
-            <div><dt>What we built</dt><dd>The site, and the assistant that ships with it: it answers from every page in the studio's own words, writes each enquiry into the CRM with the pages that visitor read, and — once they confirm a code by text — rings their mobile and takes the call as the business.</dd></div>
+            <div><dt>The problem</dt><dd>Visitors landed at all hours with one question, didn't find the answer, and left. The ones who did fill in the form got a reply two days later.</dd></div>
+            <div><dt>What runs now</dt><dd>The site answers in the studio's own words, saves every enquiry with the pages that visitor read, and, once they confirm a code by text, rings the owner's mobile and puts the two of them together while the visitor is still on the page.</dd></div>
           </dl>
           <div class="results">
-            <div><b data-count="11">11</b><small>client sites live on the same stack</small></div>
-            <div><b data-count="60" data-suffix=" s">60 s</b><small>from asking to your phone ringing</small></div>
-            <div><b data-count="5">5</b><small>callers answered at once</small></div>
+            <div><b data-count="11">11</b><small>client sites running on the same setup</small></div>
+            <div><b data-count="60" data-suffix=" s">60 s</b><small>from asking to the owner's phone ringing</small></div>
+            <div><b data-count="5">5</b><small>visitors answered at once</small></div>
           </div>
         </div>
       </article>
       <article class="case pop" style="--i:2">
-        <div class="shot"><div class="mock frame-browser mock-report" data-cycle="11000" role="img" aria-label="Automated monthly performance report with KPIs, a chart, and decks being sent to forty clients">
-  <div class="bar"><i></i><i></i><i></i><span class="url">reports.harbourandco.agency/september</span></div>
+        <div class="shot"><div class="mock frame-browser mock-report" data-cycle="11000" role="img" aria-label="A Google Business Profile audit: the score, the six checks, and the fixes being made">
+  <div class="bar"><i></i><i></i><i></i><span class="url">macaws.ai/audit · Northgate Kitchens</span></div>
   <div class="dash">
-    <div class="dash-head"><strong>September · Northgate Kitchens</strong><span class="tag-mini seq" data-at="5600">Commentary drafted · awaiting approval</span></div>
+    <div class="dash-head"><strong>Google profile · Northgate Kitchens</strong><span class="tag-mini seq" data-at="5600">3 fixes done · 2 waiting on photos</span></div>
     <div class="kpis">
-      <div class="kpi seq" data-at="400"><span class="mono">Spend</span><b>£18.4k</b></div>
-      <div class="kpi seq" data-at="650"><span class="mono">Leads</span><b>312</b></div>
-      <div class="kpi seq" data-at="900"><span class="mono">Cost / lead</span><b>£59</b><em>↓ 12% vs Aug</em></div>
+      <div class="kpi seq" data-at="400"><span class="mono">Score</span><b>41 / 100</b></div>
+      <div class="kpi seq" data-at="650"><span class="mono">Reviews</span><b>4.2 ★</b></div>
+      <div class="kpi seq" data-at="900"><span class="mono">Replied to</span><b>2 of 19</b><em>fixing this first</em></div>
     </div>
-    <div class="chart" aria-hidden="true"><i class="seq" data-at="1300" style="--h:38%"></i><i class="seq" data-at="1400" style="--h:52%"></i><i class="seq" data-at="1500" style="--h:44%"></i><i class="seq" data-at="1600" style="--h:61%"></i><i class="seq" data-at="1700" style="--h:57%"></i><i class="seq" data-at="1800" style="--h:70%"></i><i class="seq" data-at="1900" style="--h:64%"></i><i class="seq" data-at="2000" style="--h:78%"></i><i class="seq" data-at="2100" style="--h:72%"></i><i class="seq" data-at="2200" style="--h:86%"></i><i class="seq" data-at="2300" style="--h:81%"></i><i class="seq now" data-at="2400" style="--h:96%"></i></div>
-    <div class="prog seq" data-at="6800"><span class="mono">Sending branded decks</span><div class="prog-bar"><i></i></div><span class="mono">40 / 40</span></div>
+    <div class="chart" aria-hidden="true"><i class="seq" data-at="1300" style="--h:38%"></i><i class="seq" data-at="1400" style="--h:52%"></i><i class="seq" data-at="1500" style="--h:44%"></i><i class="seq" data-at="1600" style="--h:61%"></i><i class="seq" data-at="1700" style="--h:57%"></i><i class="seq" data-at="1800" style="--h:70%"></i><i class="seq" data-at="1900" style="--h:64%"></i><i class="seq" data-at="2000" style="--h:78%"></i><i class="seq" data-at="2100" style="--h:72%"></i><i class="seq" data-at="2200" style="--h:86%"></i><i class="seq" data-at="2300" style="--h:80%"></i><i class="seq" data-at="2400" style="--h:92%"></i></div>
+    <div class="prog seq" data-at="6800"><span class="mono">Replying to reviews</span><div class="prog-bar"><i></i></div><span class="mono">19 / 19</span></div>
   </div>
 </div></div>
         <div class="c-body">
-          <div class="c-top"><span class="tag tag-volt">Automation</span><span class="sample">Sample — replace</span></div>
+          <div class="c-top"><span class="tag tag-volt">Google</span><span class="sample">Example business</span></div>
           <div>
-            <h3 class="display">Monthly client reporting, out on day one</h3>
-            <p class="c-for">Built for a performance marketing agency · For their own operations team</p>
+            <h3 class="display">A kitchen fitter who was on page two</h3>
+            <p class="c-for">Google profile · a family kitchen-fitting business · nineteen reviews, two replied to, no photos in two years</p>
           </div>
           <dl>
-            <div><dt>The ask</dt><dd>Forty client reports a month, assembled by hand from Meta, Google Ads and GA4, landing on day five with commentary written at midnight.</dd></div>
-            <div><dt>What we built</dt><dd>A pipeline that pulls every account overnight on the first of the month, drafts the commentary in the agency's tone for an account manager to approve, and publishes branded decks.</dd></div>
+            <div><dt>The problem</dt><dd>Good work, good reviews, and still below three national chains when anyone nearby searched “kitchen fitter”. The profile had no services listed, no posts and a category set in 2021.</dd></div>
+            <div><dt>What runs now</dt><dd>The free audit scored the profile and listed the fixes in plain English. Every month since: reviews replied to, new photos from the last job, a post about this month's work, and hours and services kept right.</dd></div>
           </dl>
           <div class="results">
-            <div><b data-count="120" data-suffix=" h">120 h</b><small>saved every month</small></div>
-            <div><b>Day 1</b><small>reports delivered, not day 5</small></div>
-            <div><b data-count="40">40</b><small>clients covered</small></div>
+            <div><b data-count="6">6</b><small>things checked in the audit</small></div>
+            <div><b data-count="60" data-suffix=" s">60 s</b><small>to the score and the fixes</small></div>
+            <div><b>£99</b><small>a month to keep it that way</small></div>
           </div>
         </div>
       </article>
@@ -1333,10 +1297,10 @@ window.sontiTikTok = (function(){
     <div class="award">
       <div class="pop" data-from="left">
         <p class="mono muted" style="margin-bottom:24px">Recognition</p>
-        <h2 class="display h2" id="award-title">We won an Innovate UK grant.</h2>
+        <h2 class="display h2" id="award-title">The voice behind Signal won an Innovate UK grant.</h2>
         <div class="award-detail">
-          <p><b>One-Click Voice AI: Democratizing Enterprise Technology</b> — a £49,800 grant awarded to Sonti Limited by Innovate UK, the UK government's innovation agency, part of UK Research and Innovation, under its Fast Start Response competition. Offer accepted 31 October 2025; the project ran to April 2026.</p>
-          <p class="muted reveal">Innovate UK competitions are scored by independent assessors on how novel the technology is, how big the problem it addresses is, and whether the team can realistically deliver it. You don't win one on an idea. You win it by putting the engineering, the data and the numbers in front of people who build this for a living.</p>
+          <p><b>One-Click Voice AI: Democratizing Enterprise Technology</b> — a £49,800 grant from Innovate UK, the UK government's innovation agency, awarded under its Fast Start Response competition to Sonti Limited, the engineering company our founders run and where Signal's voice technology was built. Offer accepted 31 October 2025; the project ran to April 2026.</p>
+          <p class="muted reveal">Innovate UK grants are scored by independent assessors on whether the technology is new, whether the problem is big enough to matter, and whether the team can actually deliver it. You don't win one on an idea. You win it by putting the engineering and the numbers in front of people who build this for a living.</p>
           <div class="award-proof">
             <div class="ukri-lockup"><img src="assets/innovateuk.png" width="611" height="214" loading="lazy" decoding="async" alt="Innovate UK, part of UK Research and Innovation"></div>
             <a class="gtr" href="https://gtr.ukri.org/projects?ref=10173064" target="_blank" rel="noopener">Check it yourself on Gateway to Research ↗<span class="mono">UKRI project 10173064</span></a>
@@ -1347,7 +1311,7 @@ window.sontiTikTok = (function(){
         <svg class="ring" viewBox="0 0 200 200" aria-hidden="true">
           <defs><path id="ringpath" d="M100,100 m-78,0 a78,78 0 1,1 156,0 a78,78 0 1,1 -156,0"/></defs>
           <text font-family="DM Mono, monospace" font-size="11.5" letter-spacing="2.2" fill="#ffffff">
-            <textPath href="#ringpath">INNOVATE UK · GRANT AWARDED · SONTI.IO · INNOVATE UK · GRANT AWARDED · </textPath>
+            <textPath href="#ringpath">INNOVATE UK · GRANT AWARDED · 2025 · INNOVATE UK · GRANT AWARDED · 2025 · </textPath>
           </text>
         </svg>
         <div class="core"><div><div class="yr">2025</div><div class="lbl">Funded</div></div></div>
@@ -1356,28 +1320,28 @@ window.sontiTikTok = (function(){
 
     <div class="award-why">
       <div class="why-head pop" data-from="left">
-        <h3 class="display">The problem we were funded to solve</h3>
-        <p>Voice AI that sounds human is no longer the hard part. Affording it is. The good models are metered by the minute and priced for contact centres, so the bill grows with every call a business takes — which is precisely the wrong shape for a four-person practice, a builder or a boarding kennels. The project takes the cost floor out: the same quality of conversation, at a price a small business can put on a monthly invoice without thinking about it.</p>
+        <h3 class="display">The problem it was funded to solve</h3>
+        <p>A receptionist that sounds human is no longer the hard part. Affording one is. The best voice technology is priced by the minute for call centres, so the bill grows with every call a business takes, which is exactly the wrong shape for a four-person practice, a builder or a boarding kennels. The project took that cost floor out: the same quality of conversation, at a price a small business can put on one monthly invoice without thinking about it.</p>
       </div>
       <ol class="hard">
         <li class="pop" style="--i:0"><span class="mono n">01</span>
-          <h4>Foundation models, adapted rather than rebuilt</h4>
-          <p>We start from open foundation models and adapt them to the job, so the effort goes into the last mile — accents, trade vocabulary, interruptions, people changing their mind mid-sentence — instead of re-proving what the field already knows.</p>
+          <h4>Voices from here, not a call centre</h4>
+          <p>The voices are trained to sound like someone in your town answering your phone, not an American help desk. Pauses, “mm-hmm”, a breath before a sentence.</p>
         </li>
         <li class="pop" style="--i:1"><span class="mono n">02</span>
-          <h4>Speech data that sounds like the actual callers</h4>
-          <p>Purpose-built training sets for both directions: text-to-speech that doesn't read like an American call centre, and speech-to-text that copes with regional accents, background noise and the words a trade customer actually uses on the phone.</p>
+          <h4>Understands how people actually talk</h4>
+          <p>Regional accents, a van engine in the background, the words a customer uses for a boiler fault. The system was trained on calls like yours, not clean studio recordings.</p>
         </li>
         <li class="pop" style="--i:2"><span class="mono n">03</span>
-          <h4>Open-source LLMs on infrastructure we control</h4>
-          <p>The reasoning layer runs on models we host. The cost per conversation doesn't move when a vendor reprices its API, and a caller's details don't have to leave the estate to be understood.</p>
+          <h4>Runs on machines we control</h4>
+          <p>The thinking happens on servers we run, so the price doesn't jump when a big tech company changes its prices, and your callers' details don't have to leave the UK to be understood.</p>
         </li>
         <li class="pop" style="--i:3"><span class="mono n">04</span>
-          <h4>Network accelerators, because latency is the tell</h4>
-          <p>Answer within a beat and a caller talks to it normally. Answer a second late and they know. Closing that gap is inference acceleration and the network path around it — not just picking a faster model.</p>
+          <h4>Answers within a beat</h4>
+          <p>Answer straight away and a caller talks normally. Answer a second late and they know something is off. Most of the engineering went into closing that gap.</p>
         </li>
       </ol>
-      <p class="why-foot reveal">That is the difference between voice AI being something an enterprise buys and something a plumber can.</p>
+      <p class="why-foot reveal">That is the difference between a receptionist being something a call centre buys and something a plumber can.</p>
     </div>
   </div>
 </section>
@@ -1385,39 +1349,39 @@ window.sontiTikTok = (function(){
 <section class="sheet section" id="team" aria-labelledby="team-title" data-spine="Team" data-n="09">
   <div class="container">
     <div class="section-head para">
-      <h2 class="display h2 rise-words" id="team-title">The people behind your projects</h2>
-      <p class="lead muted reveal">A small UK team you'll actually talk to, and the engineering squads in India who build what they scope.</p>
+      <h2 class="display h2 rise-words" id="team-title">The people who set it up and keep it running</h2>
+      <p class="lead muted reveal">A small team in the UK you'll actually talk to, and the engineers in India who build and look after what they promise.</p>
     </div>
     <div class="team">
       <article class="person pop" style="--i:0">
         <div class="avatar"><img src="assets/team/avijit.webp" width="240" height="240" loading="lazy" decoding="async" alt=""></div>
         <div class="who"><h3>Avijit S.</h3><p class="role">Co-Founder &amp; CTO</p><div class="tags"><span class="tag tag-volt">United Kingdom</span></div></div>
-        <p class="bio">Sets the technical direction — which models, which architecture, and what we take on. Named lead on the Innovate UK voice AI grant.</p>
+        <p class="bio">Decides how the technology works and what we take on. Led the Innovate UK project behind Signal's voice.</p>
       </article>
       <article class="person pop" style="--i:1">
         <div class="avatar"><img src="assets/team/chao.webp" width="240" height="240" loading="lazy" decoding="async" alt=""></div>
-        <div class="who"><h3>Chao L.</h3><p class="role">Co-Founder &amp; CMO</p><div class="tags"><span class="tag tag-volt">United Kingdom</span></div></div>
-        <p class="bio">Runs positioning, partnerships and demand: how agencies find Sonti, and what they understand before the first call.</p>
+        <div class="who"><h3>Chao L.</h3><p class="role">Co-Founder &amp; CEO</p><div class="tags"><span class="tag tag-volt">United Kingdom</span></div></div>
+        <p class="bio">Your first call is usually with Chao. Works out which of the three tools you need, and makes sure you understand what you're buying before you buy it.</p>
       </article>
       <article class="person pop" style="--i:2">
         <div class="avatar"><img src="assets/team/soli.webp" width="240" height="240" loading="lazy" decoding="async" alt=""></div>
         <div class="who"><h3>Soli S.</h3><p class="role">Business Analyst</p><div class="tags"><span class="tag tag-volt">United Kingdom</span></div></div>
-        <p class="bio">Turns a forwarded client email into a scope with hours attached, then stays on it until the build matches what was signed.</p>
+        <p class="bio">Turns your 20-minute call into the setup: what Signal says, which follow-ups go out, what the Google audit found. Stays on it until it matches what you asked for.</p>
       </article>
       <article class="person pop" style="--i:3">
         <div class="avatar"><img src="assets/team/sushanta.webp" width="240" height="240" loading="lazy" decoding="async" alt=""></div>
         <div class="who"><h3>Sushanta</h3><p class="role">AI &amp; ML Lead</p><div class="tags"><span class="tag tag-coral">India</span></div></div>
-        <p class="bio">Model selection, fine-tuning, retrieval and guardrails — including the speech-to-text and text-to-speech datasets behind the Innovate UK project.</p>
+        <p class="bio">The voice and the brains behind Signal: how it listens, what it says, and how it knows when to hand over to you.</p>
       </article>
       <article class="person pop" style="--i:4">
         <div class="avatar"><img src="assets/team/soham.webp" width="240" height="240" loading="lazy" decoding="async" alt=""></div>
         <div class="who"><h3>Soham</h3><p class="role">Head of Engineering</p><div class="tags"><span class="tag tag-coral">India</span></div></div>
-        <p class="bio">Runs the squads, the code reviews and the release calendar. Nothing ships without sign-off here.</p>
+        <p class="bio">Runs the engineers and the release calendar. Nothing goes live on your number without sign-off here.</p>
       </article>
       <article class="person pop" style="--i:5">
         <div class="avatar"><img src="assets/team/biswanath.webp" width="240" height="240" loading="lazy" decoding="async" alt=""></div>
         <div class="who"><h3>Biswanath</h3><p class="role">Automation Lead</p><div class="tags"><span class="tag tag-coral">India</span></div></div>
-        <p class="bio">HubSpot, Make, n8n and the APIs behind them — the plumbing that makes a build part of how an agency actually works.</p>
+        <p class="bio">Wires Nexus into your diary, your email and whatever else you use, so the follow-ups go out from the tools you already have.</p>
       </article>
     </div>
   </div>
@@ -1425,126 +1389,129 @@ window.sontiTikTok = (function(){
 <section class="section" id="fit" aria-labelledby="fit-title" style="padding-top:0" data-spine="Right fit?" data-n="10">
   <div class="container">
     <div class="section-head para">
-      <h2 class="display h2 rise-words" id="fit-title">Is Sonti right for your agency?</h2>
-      <p class="lead muted reveal">We work best with agencies who own the client relationship and want a production team behind it, not a marketplace of freelancers to manage.</p>
+      <h2 class="display h2 rise-words" id="fit-title">Is Macaws right for your business?</h2>
+      <p class="lead muted reveal">We work best with businesses whose customers ring, message and search for them, and whose owner is too busy doing the work to chase every one.</p>
     </div>
     <div class="fit">
       <div class="card yes pop" data-from="left">
         <h3 class="display">A good fit if…</h3>
         <ul>
-          <li><span class="mk"><svg viewBox="0 0 14 14" stroke="currentColor" aria-hidden="true"><path d="M2.5 7.5l3 3 6-7"/></svg></span>You've got live client requests for AI, chatbots, voice or automation you can't fulfil in-house</li>
-          <li><span class="mk"><svg viewBox="0 0 14 14" stroke="currentColor" aria-hidden="true"><path d="M2.5 7.5l3 3 6-7"/></svg></span>You want to sell AI services under your brand without hiring engineers</li>
-          <li><span class="mk"><svg viewBox="0 0 14 14" stroke="currentColor" aria-hidden="true"><path d="M2.5 7.5l3 3 6-7"/></svg></span>You're after recurring monthly fees — these builds need hosting, tuning and support, so the client pays every month instead of once</li>
-          <li><span class="mk"><svg viewBox="0 0 14 14" stroke="currentColor" aria-hidden="true"><path d="M2.5 7.5l3 3 6-7"/></svg></span>You'd rather have one accountable UK contact than manage developers yourself</li>
-          <li><span class="mk"><svg viewBox="0 0 14 14" stroke="currentColor" aria-hidden="true"><path d="M2.5 7.5l3 3 6-7"/></svg></span>You're happy to delegate the build and keep the client conversation</li>
+          <li><span class="mk"></span>Your phone rings while you're working, and some calls end up in voicemail</li>
+          <li><span class="mk"></span>You quote by email, text or WhatsApp, and sometimes forget to chase</li>
+          <li><span class="mk"></span>Customers find you on Google, or should, and you've never looked at your profile properly</li>
+          <li><span class="mk"></span>You'd rather someone set it up and ran it than learn another app</li>
+          <li><span class="mk"></span>You want one monthly bill you can cancel, not a contract</li>
         </ul>
       </div>
       <div class="card card-mist no pop" data-from="right">
         <h3 class="display">Not the right fit if…</h3>
         <ul>
-          <li><span class="mk"><svg viewBox="0 0 14 14" stroke="currentColor" aria-hidden="true"><path d="M3 3l8 8M11 3l-8 8"/></svg></span>You want to hire a single freelancer by the hour and manage them yourself</li>
-          <li><span class="mk"><svg viewBox="0 0 14 14" stroke="currentColor" aria-hidden="true"><path d="M3 3l8 8M11 3l-8 8"/></svg></span>You don't have a project yet — though a 30-minute “what's possible” call is always free</li>
-          <li><span class="mk"><svg viewBox="0 0 14 14" stroke="currentColor" aria-hidden="true"><path d="M3 3l8 8M11 3l-8 8"/></svg></span>You want to direct the engineers day to day instead of working through a scope</li>
+          <li><span class="mk"></span>You don't have customers or a phone number yet — though a 20-minute “what's possible” call is always free</li>
+          <li><span class="mk"></span>You want to build and tweak the technology yourself</li>
+          <li><span class="mk"></span>You need a full call centre with scripts, queues and a hundred lines</li>
         </ul>
       </div>
     </div>
   </div>
 </section>
 
-<section class="section" id="packages" aria-labelledby="packages-title" style="padding-top:0" data-spine="Packages" data-n="11">
+<section class="section" id="packages" aria-labelledby="packages-title" style="padding-top:0" data-spine="Pricing" data-n="11">
   <div class="container">
     <div class="section-head para">
-      <h2 class="display h2 rise-words" id="packages-title">Buy hours. Bring projects.</h2>
-      <p class="lead muted reveal">Three packages, priced in hours and nothing else. You tell us what needs building, our team tells you how many hours it takes, and then builds it. AI tokens are included, so there's no separate usage bill.</p>
+      <h2 class="display h2 rise-words" id="packages-title">Simple monthly prices. No setup fee. Cancel any time.</h2>
+      <p class="lead muted reveal">Three tools, each with one price. Start with the one that hurts most and add the others when you're ready. Setting up is included, and so is keeping it running.</p>
     </div>
     <div class="models">
       <article class="card model pop" style="--i:0">
-        <span class="tag">Starter</span>
-        <h3 class="display amount">$1,000</h3>
-        <p class="hours mono">25 hours · AI tokens included</p>
-        <p class="best">Best for a first client request with a clear finish line — a chatbot on existing content, a single automation, a proof of concept.</p>
+        <span class="tag tag-sky">Google</span>
+        <h3 class="display amount">£99</h3>
+        <p class="hours mono">a month · the audit is free</p>
+        <p class="best">Best if customers find you on Google, or should, and your profile hasn't been touched since you set it up.</p>
         <ul>
-          <li>25 hours of analyst and engineering time</li>
-          <li>Tokens used to build, test and hand over included</li>
-          <li>A UK analyst scopes every project before it starts</li>
+          <li>A free audit first: your score out of 100 and what to fix, in plain English</li>
+          <li>Photos, posts, services and hours kept right every month</li>
+          <li>Every review replied to, in your voice</li>
+          <li>A one-page summary each month of what came in from Google</li>
         </ul>
-        <p class="price">Works out at $40 an hour, all-in.</p>
+        <p class="price">Start with the free audit. Pay nothing until you want it fixed.</p>
       </article>
       <article class="card card-ink model pop" style="--i:1">
-        <span class="tag tag-volt">Growth</span>
-        <h3 class="display amount">$2,500</h3>
-        <p class="hours mono">80 hours · AI tokens included</p>
-        <p class="best">Best for agencies with a few asks in flight — a voice agent plus the automations around it, or two clients' projects at once.</p>
+        <span class="tag tag-coral">Signal</span>
+        <h3 class="display amount">£99</h3>
+        <p class="hours mono">a month · 200 minutes of calls included</p>
+        <p class="best">Best if calls go unanswered while you work, after hours or at weekends, and each one could have been a job.</p>
         <ul>
-          <li>80 hours of analyst and engineering time</li>
-          <li>Tokens used to build, test and hand over included</li>
-          <li>Priority scheduling across your projects</li>
+          <li>Every call answered in under three seconds, day or night</li>
+          <li>Jobs booked into your diary during the call</li>
+          <li>Urgent callers put straight through to your mobile</li>
+          <li>Every call recorded, written up and in your inbox</li>
         </ul>
-        <p class="price">Works out at $31.25 an hour, all-in.</p>
+        <p class="price">Works out at about £3.30 a day. One booked job a month pays for it.</p>
       </article>
       <article class="card model pop" style="--i:2">
-        <span class="tag tag-lilac">Scale</span>
-        <h3 class="display amount">$5,000</h3>
-        <p class="hours mono">200 hours · AI tokens included</p>
-        <p class="best">Best for agencies productising AI services across their client base and who want a team that already knows every account.</p>
+        <span class="tag tag-lilac">Nexus</span>
+        <h3 class="display amount">£50</h3>
+        <p class="hours mono">a seat, a month</p>
+        <p class="best">Best if enquiries arrive by phone, text, email and WhatsApp, and chasing them all is on you.</p>
         <ul>
-          <li>200 hours of analyst and engineering time</li>
-          <li>Tokens used to build, test and hand over included</li>
-          <li>A named squad that works in your tools and your brand</li>
+          <li>One inbox for every channel, one thread per customer</li>
+          <li>Quotes chased, appointments reminded, reviews requested, automatically</li>
+          <li>Your diary and bookings in the same place</li>
+          <li>On your phone, and on your staff's phones if you add seats</li>
         </ul>
-        <p class="price">Works out at $25 an hour, all-in.</p>
+        <p class="price">A seat is one person logged in. Most businesses start with one.</p>
       </article>
     </div>
-    <p class="pkg-note muted reveal">Every project is estimated in hours before it starts, so you always know what a build will draw from your package. Need more? Buy the next package and the work carries on with the same team.</p>
+    <p class="pkg-note muted reveal">Prices exclude VAT and are billed monthly. There is no setup fee and no long contract. Signal's extra minutes are billed per minute at the rate on signal.macaws.ai. All three together, for one person, come to £248 a month.</p>
   </div>
 </section>
 
 <section class="section" id="faq" aria-labelledby="faq-title" style="padding-top:0" data-spine="FAQ" data-n="12">
   <div class="container">
     <div class="section-head para">
-      <h2 class="display h2 rise-words" id="faq-title">Questions agencies ask first</h2>
+      <h2 class="display h2 rise-words" id="faq-title">Questions owners ask first</h2>
       <p class="lead muted reveal">The ones that come up on nearly every first call. Anything else, ask us on the call itself.</p>
     </div>
     <div class="faq">
       <details open class="pop" data-from="left" style="--i:0">
-        <summary>Is everything white-label?<span class="plus"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M6 1v10M1 6h10"/></svg></span></summary>
-        <p>Yes, by default. Scopes, decks, code, documentation and the finished product carry your brand. If you'd like us to join client calls, we come as your technical team. If you'd rather your client never hears the name Sonti, they won't.</p>
+        <summary>Will callers know they're talking to a computer?<span class="plus"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M6 1v10M1 6h10"/></svg></span></summary>
+        <p>Usually not. Signal uses a natural voice with the pauses and “mm-hmm”s of a real receptionist, and most callers book the job and hang up without asking. If someone does ask, it tells them the truth, and it never pretends to be a named person. You can hear real calls on signal.macaws.ai before you decide.</p>
       </details>
       <details class="pop" data-from="left" style="--i:1">
-        <summary>Who owns the code and the IP?<span class="plus"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M6 1v10M1 6h10"/></svg></span></summary>
-        <p>You or your client, as set out in the contract — never us. Everything is handed over with source, documentation and admin access, so there's no lock-in to Sonti or to any single AI vendor.</p>
+        <summary>Do I have to change my phone number?<span class="plus"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M6 1v10M1 6h10"/></svg></span></summary>
+        <p>No. You keep your number and point it at Signal, either all the time or only when you can't answer, after hours and at weekends. We do that with you on the setup call, and you can switch it back whenever you like. If you'd rather have a new number just for Signal, that works too.</p>
       </details>
       <details class="pop" data-from="left" style="--i:2">
-        <summary>Where does the data go, and is it GDPR-compliant?<span class="plus"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M6 1v10M1 6h10"/></svg></span></summary>
-        <p>You contract with our UK business, with a data processing agreement as standard. Builds are hosted in UK or EU regions unless your client specifies otherwise. Our engineers in India work under NDA with role-based access, and we can restrict production data to the UK team where a client requires it.</p>
+        <summary>What happens when it can't answer something?<span class="plus"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M6 1v10M1 6h10"/></svg></span></summary>
+        <p>It says so, takes the caller's name, number and what they wanted, tells them when you'll call back, and emails you the written-up call. If a caller needs you now, it puts them straight through to your mobile. It never makes up a price or a promise it hasn't been given.</p>
       </details>
       <details class="pop" data-from="left" style="--i:3">
-        <summary>How quickly can something be live?<span class="plus"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M6 1v10M1 6h10"/></svg></span></summary>
-        <p>A scope and an estimate in hours within two working days of the brief. As a rule of thumb, a chatbot on a client's existing content is live in three to four weeks, a voice agent in four to eight, and a single automation in days. Your estimate gives the real number for your project.</p>
+        <summary>How long does it take to set up?<span class="plus"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M6 1v10M1 6h10"/></svg></span></summary>
+        <p>Signal is usually answering within a day of the setup call, often the same afternoon. Nexus and the Google profile fixes take a few days, because we check them with you before they go live. A week from first call to everything running is typical.</p>
       </details>
       <details class="pop" data-from="left" style="--i:4">
-        <summary>Can my client talk to the developers?<span class="plus"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M6 1v10M1 6h10"/></svg></span></summary>
-        <p>Your UK analyst is the front door and joins every client conversation. When a technical question needs an engineer, one joins the call during the 09:00–14:00 overlap. You never have to translate between your client and a developer.</p>
+        <summary>Do I need to learn any software?<span class="plus"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M6 1v10M1 6h10"/></svg></span></summary>
+        <p>No. We set everything up and you get Nexus on your phone, which works like a messaging app. Everything else, the answering, the reminders, the Google posts, happens on its own. When you want something changed, you message us and we change it.</p>
       </details>
       <details class="pop" data-from="left" style="--i:5">
-        <summary>Which AI models and tools do you use?<span class="plus"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M6 1v10M1 6h10"/></svg></span></summary>
-        <p>Whichever fits the job. We build with OpenAI, Anthropic and Google models as well as open-source ones, and on the platforms your client already pays for — HubSpot, Shopify, Webflow, WordPress, Make, n8n, Zapier and the rest. Each scope names the stack and why.</p>
+        <summary>Where does my customers' information go?<span class="plus"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M6 1v10M1 6h10"/></svg></span></summary>
+        <p>It stays on servers in the UK and EU, under UK data protection law. Calls are recorded with a short announcement, as the law requires, and the recordings and messages are yours. We never sell or share customer details, and you can ask us to delete them at any time.</p>
       </details>
       <details class="pop" data-from="left" style="--i:6">
-        <summary>What happens after launch?<span class="plus"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M6 1v10M1 6h10"/></svg></span></summary>
-        <p>Fixes to the agreed scope are included. Beyond that, monitoring, model updates and small improvements draw from your package hours like any other work, so the thing you sold your client keeps getting better instead of quietly going stale.</p>
+        <summary>Can I cancel?<span class="plus"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M6 1v10M1 6h10"/></svg></span></summary>
+        <p>Yes. Everything is monthly with no long contract and no setup fee. Give us 30 days' notice and your last month runs to the end. Your customer list and your call records come with you.</p>
       </details>
       <details class="pop" data-from="left" style="--i:7">
-        <summary>How do the hour packages work?<span class="plus"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M6 1v10M1 6h10"/></svg></span></summary>
-        <p>You buy a block of hours — 25, 80 or 200 — and bring us projects. For each one, your UK analyst tells you how many hours it needs before any work starts, and the build draws that from your package. Different projects take different amounts of time; the estimate is what you sign off, not an hourly meter.</p>
+        <summary>What's in the free Google audit?<span class="plus"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M6 1v10M1 6h10"/></svg></span></summary>
+        <p>Six things: how complete your profile is, your reviews, how many you've replied to, your categories and services, your photos, and your posts and questions. You get a score out of 100 and a short list of fixes, in plain English, with nothing to pay and no obligation to go further.</p>
       </details>
       <details class="pop" data-from="left" style="--i:8">
-        <summary>What about AI usage costs — tokens and API bills?<span class="plus"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M6 1v10M1 6h10"/></svg></span></summary>
-        <p>Included. The tokens we use to build, test and hand over your project are covered by the package, and because we choose models and tools for efficiency, what we ship is cheap to run as well. There's no separate usage invoice from us.</p>
+        <summary>What does “a seat” mean for Nexus?<span class="plus"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M6 1v10M1 6h10"/></svg></span></summary>
+        <p>One person logged in. If it's just you, you need one seat. If a receptionist or a partner should see the inbox too, add a seat for each of them. Seats can be added or removed month to month.</p>
       </details>
       <details class="pop" data-from="left" style="--i:9">
-        <summary>What if a project needs more hours than I have left?<span class="plus"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M6 1v10M1 6h10"/></svg></span></summary>
-        <p>You'll know before it starts, because every project is estimated up front. If the estimate is bigger than what's left in your package, you buy the next package and the same team carries on — no re-briefing, no new faces.</p>
+        <summary>Does it work with my diary, my website and the tools I already use?<span class="plus"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M6 1v10M1 6h10"/></svg></span></summary>
+        <p>Almost always. Signal books into Google Calendar, Outlook and the calendar in Nexus. Nexus connects to WhatsApp, email, your website forms and thousands of other apps. If you use something unusual, tell us on the call and we'll check before you pay anything.</p>
       </details>
     </div>
   </div>
@@ -1556,46 +1523,49 @@ window.sontiTikTok = (function(){
       <div class="contact-side pop" data-from="left">
         <div>
           <p class="mono muted" style="margin-bottom:24px">Start here</p>
-          <h2 class="display h2" id="contact-title">Bring us your next AI request.</h2>
+          <h2 class="display h2" id="contact-title">Tell us what's slipping through.</h2>
         </div>
-        <p class="body-l muted reveal" style="max-width:30em">Forward the client's ask exactly as it arrived. A UK analyst reads it, replies within one working day, and tells you what it is, how many hours it takes and when it can land — before you've promised the client anything.</p>
+        <p class="body-l muted reveal" style="max-width:30em">Twenty minutes on the phone is enough. You tell us what you do and where customers get lost. We tell you which of the three fits, what it costs and when it would be live. If you'd like the free Google audit, say so below and we'll run it before the call.</p>
         <div class="ways">
-          <a href="#booking" data-book><span>Book a 30-minute call</span><svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
-          <a href="mailto:hello@sonti.io"><span>hello@sonti.io</span><svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+          <a href="#booking" data-book><span>Book a free 20-minute call</span></a>
+          <a href="mailto:hello@macaws.ai"><span>hello@macaws.ai</span><svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
         </div>
       </div>
       <div class="contact-form-wrap pop" data-from="right">
         <form class="enquiry" id="enquiry" novalidate>
           <div class="field-row">
             <div class="field"><label for="f-name">Your name</label><input id="f-name" name="name" type="text" autocomplete="name" required></div>
-            <div class="field"><label for="f-agency">Agency</label><input id="f-agency" name="agency" type="text" autocomplete="organization" required></div>
+            <div class="field"><label for="f-business">Business</label><input id="f-business" name="business" type="text" autocomplete="organization" required></div>
           </div>
-          <div class="field"><label for="f-email">Work email</label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
+          <div class="field-row">
+            <div class="field"><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
+            <div class="field"><label for="f-phone">Mobile <span class="muted">(optional)</span></label><input id="f-phone" name="phone" type="tel" autocomplete="tel"></div>
+          </div>
           <div class="field">
-            <label for="f-type">What is the client asking for?</label>
+            <label for="f-type">What's the biggest problem right now?</label>
             <select id="f-type" name="type">
-              <option>A chatbot or AI assistant</option>
-              <option>A voice agent</option>
-              <option>An AI-enabled website</option>
-              <option>Workflow or marketing automation</option>
-              <option>Something else</option>
+              <option>Calls I can't get to</option>
+              <option>Enquiries I forget to chase</option>
+              <option>Not showing up on Google</option>
+              <option>A free Google profile audit, please</option>
+              <option>All of it, I think</option>
               <option>Not sure yet — help me work it out</option>
             </select>
           </div>
-          <div class="field"><label for="f-brief">The ask, in their words</label><textarea id="f-brief" name="brief" placeholder="Paste the client's email or describe the request. Rough is fine."></textarea></div>
+          <div class="field"><label for="f-brief">Tell us about the business</label><textarea id="f-brief" name="brief" placeholder="What you do, where you are, and what's slipping through. Your website address helps. Rough is fine."></textarea></div>
           <div class="hp" aria-hidden="true"><label for="f-website">Website</label><input id="f-website" name="website" type="text" tabindex="-1" autocomplete="off"></div>
           <p class="form-err" data-form-error role="alert" hidden></p>
           <div class="form-foot">
-            <button class="btn btn-volt" type="submit">Send the request
+            <button class="btn btn-volt" type="submit">Send it
               <svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
             </button>
-            <small>Read by a UK analyst, not a bot. Reply within one working day.</small>
+            <small>Read by a person, not a bot. Reply within one working day.</small>
           </div>
         </form>
         <div class="thanks" role="status" aria-live="polite">
           <span class="tag tag-volt">Received</span>
-          <h3 class="display">Thanks — it's in the queue.</h3>
-          <p>A UK analyst will read it and reply within one working day. If it's urgent, email <a href="mailto:hello@sonti.io">hello@sonti.io</a>.</p>
+          <h3 class="display">Thanks — we've got it.</h3>
+          <p>One of us will read it and reply within one working day. If it's urgent, email <a href="mailto:hello@macaws.ai">hello@macaws.ai</a>.</p>
         </div>
       </div>
     </div>
@@ -1607,34 +1577,26 @@ window.sontiTikTok = (function(){
   <div class="container">
     <div class="foot-grid">
       <div class="foot-brand">
-        <a class="brand" href="#top" aria-label="Sonti.io — back to top">
-          <svg class="mark" viewBox="0 0 103 103" aria-hidden="true">
-            <rect width="103" height="103" rx="23" fill="#e8553a"/>
-            <g fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M41 49v8a4 4 0 0 0 4 4h8.5"/>
-              <rect x="32" y="33" width="16" height="16" rx="3.5"/>
-              <rect x="53.5" y="54" width="16" height="16" rx="3.5"/>
-            </g>
-          </svg>
-          <span class="wordmark">Sonti<span class="tld">.io</span></span>
-        </a>
-        <p>The AI and automation production team behind agencies. Briefed in the UK, engineered in India, delivered under your brand.</p>
+        <a class="brand" href="#top" aria-label="macaws.ai — back to top"><img class="logo" src="assets/macaws-logo.png" width="371" height="92" alt="macaws.ai" decoding="async"></a>
+        <p>Three simple tools for small businesses: the phone answered, every customer in one place, found first on Google. Set up for you, from Cambridge.</p>
       </div>
       <div>
-        <h4>Services</h4>
+        <h4>Products</h4>
         <ul>
-          <li><a href="#services">AI-enabled websites</a></li>
-          <li><a href="#services">Chatbots &amp; assistants</a></li>
-          <li><a href="#services">Voice agents</a></li>
-          <li><a href="#services">Automation</a></li>
-          <li><a href="#services">Custom integrations</a></li>
+          <li><a href="#signal">Signal · the phone, answered</a></li>
+          <li><a href="#nexus">Nexus · every customer, one place</a></li>
+          <li><a href="#google">Google · found first</a></li>
+          <li><a href="#packages">Pricing</a></li>
+          <li><a href="/business-in-a-box">Business in a Box · £250 for year one</a></li>
+          <li><a href="https://signal.macaws.ai" rel="noopener">signal.macaws.ai</a></li>
+          <li><a href="https://crm.macaws.ai" rel="noopener">crm.macaws.ai</a></li>
         </ul>
       </div>
       <div>
         <h4>Company</h4>
         <ul>
           <li><a href="#how">How it works</a></li>
-          <li><a href="#work">Work</a></li>
+          <li><a href="#work">Results</a></li>
           <li><a href="#award">Innovate UK</a></li>
           <li><a href="#team">Team</a></li>
           <li><a href="#faq">FAQ</a></li>
@@ -1643,18 +1605,18 @@ window.sontiTikTok = (function(){
       <div>
         <h4>Contact</h4>
         <ul>
-          <li><a href="mailto:hello@sonti.io">hello@sonti.io</a></li>
+          <li><a href="mailto:hello@macaws.ai">hello@macaws.ai</a></li>
           <li><a href="#booking" data-book>Book a call</a></li>
-          <li><a href="https://www.linkedin.com/" rel="noopener">LinkedIn</a></li>
-          <li>United Kingdom · India</li>
+          <li><a href="https://www.linkedin.com/company/macaws-ai" rel="noopener">LinkedIn</a></li>
+          <li>Cambridge, United Kingdom</li>
         </ul>
       </div>
     </div>
     <div class="foot-bottom">
-      <span>© 2026 Sonti Limited · Registered in England and Wales, company number 16322412 · Registered office: 5 Brayford Square, London E1 0SG</span>
+      <span>© 2026 FairFax Group Ltd, trading as Macaws.ai · Registered in England and Wales, company number 14517057 · Registered office: c/o Growth Accountants Ltd, Merlin House, Brunel Road, Theale, Reading RG7 4AB</span>
       <span><a href="/privacy">Privacy</a> · <a href="/terms">Terms</a> · <a href="/cookies">Cookie policy</a> · <a href="/cookie-settings">Cookie settings</a></span>
     </div>
-    <div class="giant-wrap" aria-hidden="true"><p class="giant pop">Sonti.io</p></div>
+    <div class="giant-wrap" aria-hidden="true"><p class="giant pop">macaws.ai</p></div>
   </div>
 </footer>
 
@@ -1704,8 +1666,8 @@ window.sontiTikTok = (function(){
       new FormData(form).forEach(function(v, k){ payload[k] = v; });
       /* The server reports this lead to TikTok with the same event id as the pixel,
          so TikTok counts it once. Without cookie consent this is just { consent: 'denied' }. */
-      var leadId = window.sontiTikTok ? window.sontiTikTok.eventId('lead') : '';
-      if (window.sontiTikTok) payload.tiktok = window.sontiTikTok.serverContext(leadId);
+      var leadId = window.macawsTikTok ? window.macawsTikTok.eventId('lead') : '';
+      if (window.macawsTikTok) payload.tiktok = window.macawsTikTok.serverContext(leadId);
 
       fetch('/api/lead', {
         method: 'POST',
@@ -1716,13 +1678,13 @@ window.sontiTikTok = (function(){
           if (!r.ok) throw new Error(body.error || 'That did not send.');
         });
       }).then(function(){
-        if (window.sontiTikTok) window.sontiTikTok.track('Lead', { content_name: payload.type ? 'Enquiry: ' + payload.type : 'Enquiry' }, { event_id: leadId });
+        if (window.macawsTikTok) window.macawsTikTok.track('Lead', { content_name: payload.type ? 'Enquiry: ' + payload.type : 'Enquiry' }, { event_id: leadId });
         form.parentNode.classList.add('sent');
         form.parentNode.querySelector('.thanks').scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'center' });
       }).catch(function(e){
         if (btn) { btn.disabled = false; btn.innerHTML = label; }
         if (err) {
-          err.textContent = e.message + ' You can also email hello@sonti.io.';
+          err.textContent = e.message + ' You can also email hello@macaws.ai.';
           err.hidden = false;
         }
       });
@@ -2026,7 +1988,7 @@ window.sontiTikTok = (function(){
     <div class="book-head">
       <div>
         <p class="mono muted">Start here</p>
-        <h2 class="display" id="book-title">Book a 30-minute call</h2>
+        <h2 class="display" id="book-title">Book a free call</h2>
       </div>
       <button class="book-x" type="button" data-book-close aria-label="Close the booking calendar">
         <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true"><path d="M4 4l8 8M12 4l-8 8"/></svg>
@@ -2073,7 +2035,7 @@ window.sontiTikTok = (function(){
     tag.async = true;
     tag.onerror = function(){
       /* The calendar cannot load — never leave someone staring at a spinner. */
-      body.innerHTML = '<p class="book-fallback">The calendar isn\'t loading. Email <a href="mailto:hello@sonti.io">hello@sonti.io</a> and we\'ll find a time.</p>';
+      body.innerHTML = '<p class="book-fallback">The calendar isn\'t loading. Email <a href="mailto:hello@macaws.ai">hello@macaws.ai</a> and we\'ll find a time.</p>';
     };
     document.body.appendChild(tag);
   }
@@ -2084,7 +2046,7 @@ window.sontiTikTok = (function(){
     modal.hidden = false;
     document.body.classList.add('book-open');
     load();
-    if (e && window.sontiTikTok) window.sontiTikTok.track('ClickButton', { content_name: 'Book a call' });
+    if (e && window.macawsTikTok) window.macawsTikTok.track('ClickButton', { content_name: 'Book a call' });
     var x = modal.querySelector('.book-x');
     if (x) x.focus();
   }
@@ -2111,7 +2073,7 @@ window.sontiTikTok = (function(){
 </script>
 <div class="consent" id="consent" role="region" aria-label="Cookie choice" hidden>
   <p class="mono">Cookies</p>
-  <p>We'd like to use TikTok's pixel to see which of our ads bring agencies here. It sets cookies, so nothing from TikTok loads unless you allow it. <a href="/cookies">Cookie policy</a></p>
+  <p>We'd like to use TikTok's pixel to see which of our ads bring businesses here. It sets cookies, so nothing from TikTok loads unless you allow it. <a href="/cookies">Cookie policy</a></p>
   <div class="consent-actions">
     <button class="btn btn-volt btn-pill" type="button" data-consent-allow>Allow</button>
     <button class="btn btn-ghost btn-pill" type="button" data-consent-deny>No thanks</button>
@@ -2124,7 +2086,7 @@ window.sontiTikTok = (function(){
    uses the same key and clean-up. Saying no after a yes stops the pixel and
    clears TikTok's cookies. */
 (function(){
-  var KEY = 'sonti-consent';
+  var KEY = 'macaws-consent';
   var bar = document.getElementById('consent');
   if (!bar) return;
   function get(){ try { return localStorage.getItem(KEY); } catch (e) { return null; } }
@@ -2133,14 +2095,14 @@ window.sontiTikTok = (function(){
   bar.querySelector('[data-consent-allow]').addEventListener('click', function(){
     set('granted');
     bar.hidden = true;
-    window.sontiTikTok.load();
+    window.macawsTikTok.load();
   });
 
   bar.querySelector('[data-consent-deny]').addEventListener('click', function(){
     var wasGranted = get() === 'granted';
     set('denied');
     bar.hidden = true;
-    if (window.sontiTikTok) window.sontiTikTok.forget();
+    if (window.macawsTikTok) window.macawsTikTok.forget();
     if (!wasGranted) return;
     if (window.ttq && window.ttq.revokeConsent) window.ttq.revokeConsent();
     var host = location.hostname;

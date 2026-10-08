@@ -1,8 +1,8 @@
 /* ------------------------------------------------------------------
    POST /api/lead  —  Vercel serverless function
 
-   Takes the "Bring us your next AI request" form and creates or updates
-   the contact in the Sonti GoHighLevel location, then attaches the brief
+   Takes the "Tell us what's slipping through" form and creates or updates
+   the contact in the Macaws.ai GoHighLevel location, then attaches the brief
    as a note. The location ID and the token are read from environment
    variables and stay on the server — nothing sensitive reaches the
    browser.
@@ -26,21 +26,23 @@ const GHL_VERSION = '2021-07-28';
 const TIKTOK_URL        = 'https://business-api.tiktok.com/open_api/v1.3/event/track/';
 const TIKTOK_PIXEL      = 'DAHI7ABC77UCRCTVCVIG';
 const TIKTOK_TIMEOUT_MS = 3000;
-const SITE_ORIGINS      = ['https://www.sonti.io', 'https://sonti.io'];
+const SITE_ORIGINS      = ['https://www.macaws.ai', 'https://macaws.ai'];
 
-const SOURCE  = 'sonti.io — Bring us your next AI request';
+const SOURCE  = "macaws.ai — Tell us what's slipping through";
 const COUNTRY = 'GB';
 const MAX_LEN = 5000;
 
-/* What they picked in "What is the client asking for?" becomes a tag, so
-   the lead can be routed and reported on without reading the note first. */
+/* What they picked in "What's the biggest problem right now?" becomes a
+   tag, so the lead can be routed and reported on without reading the note
+   first. */
 const TYPE_TAGS = {
-  'A chatbot or AI assistant':            'chatbot',
-  'A voice agent':                        'voice-agent',
-  'An AI-enabled website':                'ai-website',
-  'Workflow or marketing automation':     'automation',
-  'Something else':                       'other',
-  'Not sure yet — help me work it out':   'unsure'
+  "Calls I can't get to":                 'signal',
+  'Enquiries I forget to chase':          'nexus',
+  'Not showing up on Google':             'google-profile',
+  'A free Google profile audit, please':  'gbp-audit',
+  'All of it, I think':                   'all-three',
+  'Not sure yet — help me work it out':   'unsure',
+  'Business in a Box':                    'business-in-a-box'
 };
 
 function clean(value) {
@@ -71,8 +73,13 @@ function buildPayload(data, locationId) {
 
   /* An empty string is not an absent field — GHL answers an empty
      companyName the same way it answers a bad one, so leave it out. */
-  const agency = clean(data.agency);
-  if (agency) payload.companyName = agency;
+  const business = clean(data.business || data.agency);
+  if (business) payload.companyName = business;
+
+  /* The mobile is optional on the form. GHL wants digits and a leading +;
+     anything else is left off rather than risk a rejected upsert. */
+  const phone = clean(data.phone).replace(/[\s().-]/g, '');
+  if (/^\+?\d{7,15}$/.test(phone)) payload.phone = phone;
 
   return payload;
 }
@@ -102,13 +109,17 @@ function buildNote(data) {
   });
   const lines = ['Website enquiry — ' + stamp, ''];
 
-  const agency = clean(data.agency);
-  const type   = clean(data.type);
-  if (agency) lines.push('Agency: ' + agency);
-  if (type)   lines.push('Client is asking for: ' + type);
+  const business = clean(data.business || data.agency);
+  const phone    = clean(data.phone);
+  const type     = clean(data.type);
+  if (business) lines.push('Business: ' + business);
+  if (phone)    lines.push('Mobile: ' + phone);
+  if (type)     lines.push('Biggest problem: ' + type);
+  const started = clean(data.started);
+  if (started)  lines.push('Started trading: ' + started);
 
   const brief = clean(data.brief);
-  if (brief) lines.push('', "The ask, in the client's words:", brief);
+  if (brief) lines.push('', 'About the business:', brief);
 
   return lines.join('\n');
 }
@@ -121,11 +132,11 @@ function clientIp(req) {
   return clean(req.headers['x-real-ip']);
 }
 
-/* The page comes from the browser, so only a sonti.io address is passed on. */
+/* The page comes from the browser, so only a macaws.ai address is passed on. */
 function pageUrl(value) {
   const url = clean(value).slice(0, 500);
   const ours = SITE_ORIGINS.some((origin) => url === origin || url.startsWith(origin + '/'));
-  return ours ? url : 'https://www.sonti.io/';
+  return ours ? url : 'https://www.macaws.ai/';
 }
 
 /* The server-side copy of the pixel's Lead event. It only goes when the visitor
@@ -208,7 +219,7 @@ module.exports = async (req, res) => {
 
   const email = clean(data.email);
   if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) {
-    return res.status(400).json({ error: 'Please give us a work email address.' });
+    return res.status(400).json({ error: 'Please give us an email address we can reply to.' });
   }
 
   try {
@@ -217,7 +228,7 @@ module.exports = async (req, res) => {
     if (!result.ok) {
       /* Detail stays in the server log, never in the browser response. */
       console.error('[GHL] Upsert failed:', result.status, result.body);
-      return res.status(502).json({ error: 'We could not save that. Please email hello@sonti.io.' });
+      return res.status(502).json({ error: 'We could not save that. Please email hello@macaws.ai.' });
     }
 
     const contactId = result.body && result.body.contact && result.body.contact.id;
@@ -240,6 +251,6 @@ module.exports = async (req, res) => {
     return res.status(200).json({ ok: true });
   } catch (err) {
     console.error('[GHL] Request error:', err);
-    return res.status(502).json({ error: 'We could not save that. Please email hello@sonti.io.' });
+    return res.status(502).json({ error: 'We could not save that. Please email hello@macaws.ai.' });
   }
 };

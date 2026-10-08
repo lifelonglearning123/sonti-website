@@ -48,8 +48,8 @@ button{font:inherit;color:inherit}
 .nav-pill{display:flex;align-items:center;justify-content:space-between;gap:16px;background:var(--mist);border:1px solid var(--ash);border-radius:999px;padding:8px 8px 8px 18px}
 .brand{display:inline-flex;align-items:center;gap:10px;text-decoration:none}
 .brand .mark{width:26px;height:26px;flex:none}
-.wordmark{font-family:var(--display);font-stretch:80%;font-weight:800;font-size:22px;letter-spacing:-.01em;text-transform:uppercase;line-height:1}
-.wordmark .tld{font-weight:500;color:var(--smoke)}
+.brand .logo{height:28px;width:auto}
+.foot-brand .logo{height:32px}
 .nav-actions{display:flex;align-items:center;gap:4px}
 .nav-back{text-decoration:none;font-weight:500;font-size:15px;padding:10px 14px;border-radius:999px;color:var(--slate);transition:background-color .15s ease}
 .nav-back:hover{background:var(--paper);color:var(--ink)}
