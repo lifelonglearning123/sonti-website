@@ -12,12 +12,16 @@
 const BASE    = 'https://services.leadconnectorhq.com';
 const VERSION = '2021-07-28';
 
-/* Custom fields created on the SONTI LTD location on 15 Sep 2026.
-   Override by env if the location is ever rebuilt. */
+/* The two custom fields on the Macaws.ai GHL location that hold each lead's
+   place in the sequence. Their IDs differ per location, so they come from
+   env: run `node scripts/check-ghl.js` to print them. */
 const FIELDS = {
-  started: process.env.FOLLOWUP_FIELD_STARTED || '2f1tclTejonvw1GGJxzb', // contact.followup_started (DATE)
-  sent:    process.env.FOLLOWUP_FIELD_SENT    || 'aJ9Gzt8V0g8iwqCUsuwT'  // contact.followup_sent (TEXT)
+  started: process.env.FOLLOWUP_FIELD_STARTED || '', // contact.followup_started (DATE)
+  sent:    process.env.FOLLOWUP_FIELD_SENT    || ''  // contact.followup_sent (TEXT)
 };
+if (!FIELDS.started || !FIELDS.sent) {
+  console.error('[followup] FOLLOWUP_FIELD_STARTED / FOLLOWUP_FIELD_SENT are not set; the email sequence cannot record progress.');
+}
 
 const TAGS = {
   active:   'follow-up',
@@ -46,7 +50,7 @@ async function api(method, path, body, params) {
       'Content-Type':  'application/json',
       'Accept':        'application/json',
       /* Cloudflare in front of GHL rejects some default user agents. */
-      'User-Agent':    'sonti-followup/1.0'
+      'User-Agent':    'macaws-followup/1.0'
     },
     body: body === undefined ? undefined : JSON.stringify(body)
   });

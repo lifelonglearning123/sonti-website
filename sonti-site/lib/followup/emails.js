@@ -1,181 +1,181 @@
 /* ------------------------------------------------------------------
-   The thirty days of email, from Chao. Plain paragraphs, one link each.
+   The thirty days of email, from Chao. Plain paragraphs, one link each,
+   written for a small-business owner who is not technical.
    Day is counted from the day the lead arrived. Placeholders:
      {first_name}  the contact's first name, or "there"
      {booking}     the booking link
    ------------------------------------------------------------------ */
 
-const BOOKING = 'https://www.sonti.io/#booking';
+const BOOKING = 'https://www.macaws.ai/#booking';
 
-const ABOUT = 'Sonti is the AI and automation team behind agencies. When a client asks for a chatbot, a voice agent, an AI-enabled website or an automation that you can\'t build in-house, we build it, and it ships under your brand. A senior analyst scopes and manages your project, our core engineering team in India builds it, so it\'s $25 to $40 an hour all-in. We build with AI, so it\'s fast.';
+const ABOUT = 'Macaws.ai is three simple tools for small businesses, set up for you. Signal answers your phone, day or night, in a voice callers take for a person, and books the job into your diary. Nexus keeps every customer and every message in one place and chases quotes, sends reminders and asks for reviews on its own. And we check your Google Business Profile free, then fix and run it if you want us to.';
 
-const SIGN = 'Chao\nCo-Founder, Sonti';
+const SIGN = 'Chao\nFounder, Macaws.ai';
 
 const STEPS = [
-  { key: 'd0', day: 0, subject: 'Your enquiry to Sonti, {first_name}', body:
+  { key: 'd0', day: 0, subject: 'Your message to Macaws, {first_name}', body:
 `Hi {first_name},
 
-Thanks for your enquiry. It has landed with me, and I'd like to hear what your client is asking for.
+Thanks for getting in touch. Your message has landed with me, and I'd like to hear what's slipping through.
 
 ${ABOUT}
 
-The quickest next step is a 30-minute discovery call. You tell me the ask, I tell you how we'd build it and roughly what it takes.
+The quickest next step is a free 20-minute call. You tell me what you do and where customers get lost. I tell you which of the three fits, what it costs and when it would be live.
 
 Pick a time that suits you here: {booking}
 
-If nothing on the calendar fits your time zone, reply with a good time and your number and I'll call you.
+If nothing on the calendar fits, reply with a good time and your number and I'll call you.
 
 ${SIGN}
-sonti.io` },
+macaws.ai` },
 
-  { key: 'd1', day: 1, subject: 'What an hour of Sonti costs, and what\'s in it', body:
+  { key: 'd1', day: 1, subject: 'What it costs, in one email', body:
 `Hi {first_name},
 
-The first thing agencies ask is what it costs, so here it is.
+The first thing owners ask is what it costs, so here it is.
 
-Between $25 and $40 an hour, all-in. $1,000 buys 25 hours, $2,500 buys 80, $5,000 buys 200. Every project is estimated in hours before it starts, and that estimate is what you sign off.
+Signal, the receptionist that answers every call and books the job: £99 a month, with 200 minutes of calls included.
 
-"All-in" is the part that matters. An hour includes the senior business analyst who scopes and quotes the project, the engineers and QA who build it, the documentation, and the AI tokens used to build and test it. There's no usage bill from us on top.
+Nexus, every customer and every message in one place, with the follow-ups sent for you: £50 a month for each person who logs in. Most businesses start with one.
 
-The rate is possible because our core team is in India: senior engineers, AI specialists and QA in dedicated squads. What you get on your side is one named contact, client calls at times that suit you, and a contract, invoice and data processing agreement with a registered company.
+Your Google Business Profile: the audit is free. If you want us to fix it and keep it right every month, that's £99 a month.
 
-You keep the client and set the price they pay. We stay invisible.
+Prices exclude VAT. There's no setup fee and no long contract. Setting it up and keeping it running are included, so the monthly price is the whole price.
 
-Want the numbers for a real client? Book 30 minutes: {booking}
+Want to know which one you actually need? That's what the call is for: {booking}
 
 ${SIGN}` },
 
-  { key: 'd3', day: 3, subject: 'Send a brief tonight. See progress in the morning.', body:
+  { key: 'd3', day: 3, subject: 'The call you missed at 23:41', body:
 `Hi {first_name},
 
-Two reasons our builds move quickly.
+Here's the one that convinces most people.
 
-The first is that we build with AI as well as building AI. Scoping, first-pass code, test suites and documentation all start from AI drafts that our engineers then check and finish. It takes days out of every project, and it's why a small team ships like a large one.
+It's late on a Wednesday. Half of someone's sockets have gone dead and they are ringing every electrician on Google until one picks up. If it's your number and nobody answers, they try the next one. You never know the call happened.
 
-The second is the clock. Our engineering team works while you're offline, so a brief you send at the end of your day has progress in your inbox when you start the next one.
+With Signal, the call is answered in under three seconds. It asks what's wrong, works out it's a circuit fault, checks your diary, books them in for first thing and reads it back. By the time you're up, the job is in your diary and the whole call is written up in your inbox.
 
-What that looks like in practice: a scope and an estimate in hours within two working days of your brief. A chatbot on a client's existing content live in three to four weeks. A voice agent in four to eight. A single automation in days.
+You can hear real calls like it here, including an estate-agent viewing and a cold call being politely turned away: https://signal.macaws.ai
 
-Have a client with a deadline? Book 30 minutes: {booking}
+If your phone rings while you work, this is the one to start with. Book 20 minutes and we'll set it up on your number: {booking}
 
 ${SIGN}` },
 
-  { key: 'd5', day: 5, subject: 'Who\'s actually building it', body:
+  { key: 'd5', day: 5, subject: 'Who you\'d be dealing with', body:
 `Hi {first_name},
 
-AI and automation are what we do, not a line added to a web agency's services page.
+A fair question before you hand anyone your phone number: who are these people?
 
-Sonti won a £49,800 government innovation grant to make voice AI affordable for small businesses. It's on the public record as UKRI project 10173064, and grants like that are scored by independent assessors on the engineering, not the pitch.
+Macaws.ai is based in Cambridge. The voice technology behind Signal won a £49,800 grant from Innovate UK, the government's innovation agency, to make a human-sounding receptionist affordable for a four-person practice or a one-van trade. It's on the public record as UKRI project 10173064, and grants like that are scored by independent assessors on the engineering, not the pitch.
 
-The team behind it: an AI and machine learning lead, a head of engineering and an automation lead in India, with analysts who speak agency rather than code. We build with OpenAI, Anthropic and Google models as well as open-source ones, on the platforms your clients already pay for: HubSpot, Shopify, Webflow, WordPress, Make, n8n, Zapier.
+The team is small. Your first call is with me. Soli turns that call into the setup. Avijit, Sushanta, Soham and Biswanath build and look after the technology. You'll know their names, and you'll be able to message a person when you want something changed.
 
-And it's in production. Leonardo Power's website answers visitors in the studio's own words and rings their phone within 60 seconds. Eleven client sites run on the same stack: https://www.leonardopower.com
+And it's running in real businesses today, from letting agents to a web studio whose site rings the owner within a minute of someone asking a question.
 
-If your client's ask doesn't fit a box, that's usually the one we're best at: {booking}
+Happy to tell you more on the call: {booking}
 
 ${SIGN}` },
 
-  { key: 'd8', day: 8, subject: 'What is your client asking for?', body:
+  { key: 'd8', day: 8, subject: 'Which one is yours?', body:
 `Hi {first_name},
 
-Most agencies come to us with one of four requests:
+Most owners come to us with one of three problems:
 
-1. A chatbot or assistant trained on the client's products, policies and FAQs, on the website, WhatsApp or Messenger.
-2. A voice agent that answers the phone, books, reschedules and qualifies, and logs every call to the CRM.
-3. An AI-enabled website that answers from its own content and qualifies leads without a person.
-4. An automation for the unglamorous work: lead routing, CRM hygiene, reporting, onboarding.
+1. Calls I can't get to. You're on a job, in with a patient or behind the counter, and the phone goes to voicemail. That's Signal.
+2. Enquiries I forget to chase. The quote went out by text, the enquiry came in by email, and a week later you remember. That's Nexus.
+3. We're not on the first page of Google. Good work, good reviews, and still below the chains when someone nearby searches. That's your Google profile, and the audit is free.
 
-Which is closest to yours? Reply with a line or two, even if it's rough. An email, a call recording or a napkin sketch is enough for us to scope, and you'll have an estimate in hours within two working days.
+Which is closest to yours? Reply with a line or two, even if it's rough. Your website address helps, because Signal learns your business from it.
 
 Or book the call: {booking}
 
 ${SIGN}` },
 
-  { key: 'd11', day: 11, subject: 'The app, the backend and the website', body:
+  { key: 'd11', day: 11, subject: 'Your Google profile, checked free in a minute', body:
 `Hi {first_name},
 
-Here's a recent build, so you can see what "the lot" looks like when we do it.
+If you haven't looked at your Google Business Profile since you set it up, this is the easiest thing you can do this week.
 
-Kairoo helps families agree screen-time rules and stick to them. We designed two apps, one for the parent and one for the child, built the backend that carries every ask and answer between the two phones, and made the website that tells the story: kairoo.family.
+Reply to this email with the name of your business and the town, and I'll run the audit for you. It checks six things: how complete the profile is, your reviews, how many you've replied to, your categories and services, your photos, and your posts. You get a score out of 100 and a short list of fixes, in plain English.
 
-Have a look: https://www.sonti.io/#kairoo
+No cost, no obligation. If you'd like us to make the fixes and keep the profile right every month, that's £99 a month. If you'd rather do it yourself from the list, that's fine too.
 
-If your client's ask is smaller than that, good. Most are. Book a call and we'll size it: {booking}
+Or book 20 minutes and we'll go through it together: {booking}
 
 ${SIGN}` },
 
-  { key: 'd14', day: 14, subject: 'What it costs, and what your client pays every month', body:
+  { key: 'd14', day: 14, subject: 'What you get for £99 a month', body:
 `Hi {first_name},
 
-Two weeks in, so here are the numbers in full.
+Two weeks in, so here's the whole thing in one place.
 
-You buy hours, not projects, and bring us as many client asks as you like:
+Signal, £99 a month, 200 minutes of calls included. Every call answered in under three seconds, jobs booked into your diary during the call, urgent callers put through to your mobile, every call recorded and written up in your inbox. Works out at about £3.30 a day, so one booked job a month pays for it.
 
-Starter: $1,000 for 25 hours. A first client request with a clear finish line: a chatbot on existing content, a single automation, a proof of concept.
-Growth: $2,500 for 80 hours. A few asks in flight, or two clients' projects at once. Priority scheduling.
-Scale: $5,000 for 200 hours. A named squad that works in your tools and your brand, across your client base.
+Nexus, £50 a seat a month. Calls, texts, emails and WhatsApp in one inbox, one thread per customer. Quotes chased, appointments reminded and reviews requested without you remembering to. On your phone.
 
-AI tokens are included in all three, so there's no usage bill from us. Every project is estimated in hours before it starts, and that estimate is what you sign off, not an hourly meter. If a project needs more than you have left, you buy the next package and the same team carries on.
+Google profile, £99 a month, after a free audit. Photos, posts, services and hours kept right, every review replied to in your voice, and a one-page summary each month of what came in from Google.
 
-The part agencies like most: these builds need hosting, tuning and support, so your client pays you every month instead of once. You set that price. The scope, the code and the finished product all carry your brand.
+Setting up is included. Keeping it running is included. There's no setup fee and no long contract, and you can cancel with 30 days' notice.
 
-If you'd like to work the numbers for a real client, that's what the discovery call is for: {booking}
+If you'd like to work out which you need, that's the call: {booking}
 
-Or reply with your number and a good time and I'll call you.
+Or reply with your number and a good time and I'll ring you.
 
 ${SIGN}` },
 
-  { key: 'd18', day: 18, subject: 'No client asking yet? Three that usually are', body:
+  { key: 'd18', day: 18, subject: 'A Tuesday, with it running', body:
 `Hi {first_name},
 
-If nobody has asked you for AI yet, three conversations tend to start one:
+Here's what a normal day looks like for a two-van trade business with all three running.
 
-1. The client who misses calls. Trades, clinics, kennels, anyone whose phone rings while they work. Ask what happens to a call at 6pm.
-2. The client whose inbox is the same twenty questions. Opening hours, pricing, "do you do X". That's a chatbot on content they already have, live in three to four weeks.
-3. The client whose monthly report is assembled by hand from Meta, Google Ads and GA4. That's an automation, live in days.
+07:40. Someone rings about a leaking tap before you're up. Signal books them for Thursday morning. The job is in your diary when you check it over breakfast.
 
-Pick one client, have the conversation, and forward me what they say. We'll scope it, and you'll have something to sell back to them.
+12:15. The quote you sent on Monday gets its nudge from Nexus. The customer replies "yes please" by text. You see it at lunch and reply with a thumbs up.
 
-Or 30 minutes on what's possible, free: {booking}
+18:30. Yesterday's customer gets a thank-you and a link to leave a review. The five stars land on your Google profile, where the next person searching will see them.
+
+Nothing on that list needed you to remember anything. That's the point.
+
+If that's the day you'd like to have, book 20 minutes: {booking}
 
 ${SIGN}` },
 
-  { key: 'd22', day: 22, subject: 'The four questions every agency asks first', body:
+  { key: 'd22', day: 22, subject: 'The four questions owners ask first', body:
 `Hi {first_name},
 
-These come up on nearly every first call, so here they are in writing, and the call can be about your client instead.
+These come up on nearly every first call, so here they are in writing.
 
-Is it white-label? Yes, by default. If you'd like us on client calls, we come as your technical team. If you'd rather they never hear the name Sonti, they won't.
+Will callers know it's a computer? Usually not. It sounds like a calm receptionist, and most callers book and hang up without asking. If someone does ask, it tells them the truth.
 
-Who owns the code? You or your client, as set out in the contract. Never us. Everything is handed over with source, documentation and admin access.
+Do I have to change my number? No. You keep your number and point it at Signal, all the time or only when you can't answer. We do that with you on the setup call.
 
-Where does the data go? You contract with a registered company, with a data processing agreement as standard. Builds are hosted in the region your client needs, and your client's data never leaves it.
+What if it can't answer something? It takes the caller's name and number, tells them when you'll ring back, and emails you the written-up call. Urgent callers go straight through to your mobile.
 
-How quickly? A scope and estimate within two working days. A chatbot in three to four weeks, a voice agent in four to eight, a single automation in days.
+Can I cancel? Yes. Everything is monthly, with no setup fee and no long contract. Give us 30 days' notice and your last month runs to the end.
 
 Anything else, ask me on the call: {booking}
 
 ${SIGN}` },
 
-  { key: 'd26', day: 26, subject: 'A voice product you can sell next week', body:
+  { key: 'd26', day: 26, subject: 'Hear it before you decide', body:
 `Hi {first_name},
 
-Not every agency wants a build. Some want a product to sell.
+If you'd rather hear Signal than read about it, there are real recorded calls on the site: an electrical job being booked, an estate-agent viewing, an online-shop query, and a cold caller being politely sent on their way.
 
-Signal is our voice agent platform, white-labelled for agencies: your name, your subdomain, your prices. It's a flat $349 a month with unlimited clients and no cut of usage, so your second client costs you nothing more than your first.
+https://signal.macaws.ai
 
-The details are here: https://signal.sonti.io/agencies
+Play one and ask yourself whether you'd have known. Then imagine it's your number, at nine at night, while you're having your tea.
 
-If that's closer to what you had in mind than a custom build, reply "Signal" and I'll send you a walkthrough. Or book a call: {booking}
+If you'd like it answering your phone by this time next week, book 20 minutes: {booking}
 
 ${SIGN}` },
 
-  { key: 'd30', day: 30, subject: 'Shall we close your enquiry?', body:
+  { key: 'd30', day: 30, subject: 'Shall I close your enquiry?', body:
 `Hi {first_name},
 
-It's been a month since your enquiry and I haven't heard back, so I'll close it for now and stop emailing.
+It's been a month since you got in touch and I haven't heard back, so I'll close it for now and stop emailing.
 
-If a client asks you for AI, a chatbot, a voice agent or an automation, the door's open. Reply to this email, or book a call: {booking}
+If the phone keeps ringing out, the quotes keep going unchased or Google keeps sending people elsewhere, the door's open. Reply to this email, or book a call: {booking}
 
 If you'd rather I called, reply with your number and a good time.
 
